@@ -1,11 +1,18 @@
 // MainSlider.jsx
 import React from "react";
 import Slider from "react-slick";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import "../styles/MainSlider.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const MainSlider = () => {
+const MainSlider = ({
+  container,
+  sliderItem,
+  sliderImage,
+  text,
+  arrowSize,
+}) => {
   const settings = {
     dots: true,
     infinite: true,
@@ -15,6 +22,8 @@ const MainSlider = () => {
     autoplay: true,
     autoplaySpeed: 3000,
     arrows: true,
+    nextArrow: <NextArrow arrowSize={arrowSize} />,
+    prevArrow: <PrevArrow arrowSize={arrowSize} />,
   };
 
   const slidesData = [
@@ -38,18 +47,36 @@ const MainSlider = () => {
   ];
 
   return (
-    <div className="slider-container">
+    <div className={container}>
       <Slider {...settings}>
         {slidesData.map((slide, index) => (
-          <div key={index} className="slider-item">
-            <img src={slide.img} alt={slide.title} className="slider-image" />
-            <div className="slider-text">
+          <div key={index} className={sliderItem}>
+            <img src={slide.img} alt={slide.title} className={sliderImage} />
+            <div className={text}>
               <h2>{slide.title}</h2>
               <p>{slide.subtitle}</p>
             </div>
           </div>
         ))}
       </Slider>
+    </div>
+  );
+};
+
+const NextArrow = (props) => {
+  const { onClick, arrowSize } = props;
+  return (
+    <div className="custom-arrow next-arrow" onClick={onClick}>
+      <FaChevronRight style={{ height: arrowSize, width: arrowSize }} />
+    </div>
+  );
+};
+
+const PrevArrow = (props) => {
+  const { onClick, arrowSize } = props;
+  return (
+    <div className="custom-arrow prev-arrow" onClick={onClick}>
+      <FaChevronLeft style={{ height: arrowSize, width: arrowSize }} />
     </div>
   );
 };

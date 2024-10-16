@@ -2,13 +2,13 @@
 import React from "react";
 import "../styles/NavBar.css";
 
-const Navbar = () => {
+const Navbar = ({ navbar, menu, logo }) => {
   return (
-    <nav className="navbar">
-      <div className="navbar-logo">
+    <nav className={navbar}>
+      <div className={logo}>
         <img src={"/assets/img/LarSaoDomingos.png"} alt="Lar São Domingos" />
       </div>
-      <ul className="navbar-menu">
+      <ul className={menu}>
         <li>
           <a href="/">Início</a>
         </li>
