@@ -1,3 +1,14 @@
+@keyframes popupGrow {
+  0% {
+    transform: scale(0.2);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
 .popup-overlay {
   position: fixed;
   top: 0;
@@ -23,6 +34,8 @@
   overflow: hidden;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
   cursor: auto;
+
+  animation: popupGrow 0.15s ease-in;
 }
 
 .popup-image {

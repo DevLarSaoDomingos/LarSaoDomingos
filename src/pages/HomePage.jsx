@@ -5,6 +5,7 @@ import MainSlider from "../components/MainSlider";
 import InfoSection from "../components/InfoSection";
 import AboutSection from "../components/AboutSection";
 import DoacaoPopUp from "../components/DoacaoPopUp";
+import NewsSection from "../components/NewsSection";
 
 const HomePage = () => {
   return (
@@ -38,6 +39,7 @@ const HomePage = () => {
         mainText={"about-text"}
         subText={"about-sub-text"}
       />
+      <NewsSection />
     </div>
   );
 };

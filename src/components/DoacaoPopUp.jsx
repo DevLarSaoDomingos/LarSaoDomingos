@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../styles/DoacaoPopUp.css"; // Importar o arquivo CSS para as estilizações
+import "../styles/DoacaoPopUp.css";
 
 const DoacaoPopUp = ({
   overlay,
@@ -11,13 +11,19 @@ const DoacaoPopUp = ({
 }) => {
   const [showPopup, setShowPopup] = useState(false);
 
-  // useEffect para exibir o popup após 5 segundos
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowPopup(true);
-    }, 5000);
+    // Verifica se o popup já foi exibido
+    const popupShown = localStorage.getItem("popupShown");
 
-    return () => clearTimeout(timer); // Limpa o timeout caso o componente seja desmontado
+    if (!popupShown) {
+      const timer = setTimeout(() => {
+        setShowPopup(true);
+        // Armazena no localStorage que o popup já foi exibido
+        localStorage.setItem("popupShown", "true");
+      }, 5000);
+
+      return () => clearTimeout(timer);
+    }
   }, []);
 
   const closePopup = () => {
