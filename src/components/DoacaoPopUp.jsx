@@ -12,14 +12,22 @@ const DoacaoPopUp = ({
   const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
-    // Verifica se o popup já foi exibido
-    const popupShown = localStorage.getItem("popupShown");
+    // Tempo de expiração do popup em milissegundos (3 horas)
+    const popupExpiryTime = 3 * 60 * 60 * 1000;
 
-    if (!popupShown) {
+    const popupData = localStorage.getItem("popupShown");
+    const now = new Date().getTime();
+
+    // Se o popup nunca foi mostrado ou se o tempo de expiração foi atingido
+    if (!popupData || now - JSON.parse(popupData).timestamp > popupExpiryTime) {
       const timer = setTimeout(() => {
         setShowPopup(true);
-        // Armazena no localStorage que o popup já foi exibido
-        localStorage.setItem("popupShown", "true");
+
+        // Armazena no localStorage a data e hora do último popup exibido
+        localStorage.setItem(
+          "popupShown",
+          JSON.stringify({ shown: true, timestamp: now })
+        );
       }, 5000);
 
       return () => clearTimeout(timer);

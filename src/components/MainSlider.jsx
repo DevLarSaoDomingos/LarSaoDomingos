@@ -47,7 +47,7 @@ const MainSlider = ({
   ];
 
   return (
-    <div className={container}>
+    <main className={container}>
       <Slider {...settings}>
         {slidesData.map((slide, index) => (
           <div key={index} className={sliderItem}>
@@ -59,7 +59,7 @@ const MainSlider = ({
           </div>
         ))}
       </Slider>
-    </div>
+    </main>
   );
 };
 

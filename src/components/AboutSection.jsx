@@ -2,7 +2,7 @@ import "../styles/AboutSection.css";
 
 export default function AboutSection({ container, mainText, subText }) {
   return (
-    <div className={container}>
+    <section className={container}>
       <h3 className={mainText}>
         "Uma Instituição que tem todo o meu respeito e que sem dúvidas poderá
         contar com o meu apoio, a fim de que outras crianças e adolescentes
@@ -13,6 +13,6 @@ export default function AboutSection({ container, mainText, subText }) {
       <p className={subText}>
         Depoimento de Francisca, que contribui todos os meses para o Lar.
       </p>
-    </div>
+    </section>
   );
 }

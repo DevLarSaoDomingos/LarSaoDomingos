@@ -12,7 +12,7 @@ const InfoSection = ({
   colorFour,
 }) => {
   return (
-    <div className={container}>
+    <section className={container}>
       <div className={`${item} + ${colorOne}`}>
         <FaDonate className="info-icon" />
         <h3>Faça uma Doação</h3>
@@ -39,7 +39,7 @@ const InfoSection = ({
         <h3>Fale Conosco</h3>
         <p>Tire todas as suas dúvidas sobre o nosso trabalho.</p>
       </div>
-    </div>
+    </section>
   );
 };
 
