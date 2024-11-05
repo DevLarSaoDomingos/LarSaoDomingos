@@ -34,27 +34,50 @@
 
 .news-grid {
   display: grid;
-  grid-template-columns: 3fr 2fr;
-  grid-template-rows: auto auto;
+  grid-template-columns: 1fr 1fr; /* Ajusta para 2 colunas */
+  grid-template-rows: auto;
   gap: 20px;
   margin: 0 auto;
   max-width: 900px;
 }
 
 .news-item {
-  height: 300px;
-  border: 1px solid blue;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  border: 1px solid blue;
+  padding: 20px;
   font-size: 1rem;
   font-weight: bold;
   color: #333;
+  background-color: #fff;
 }
 
 .news-item.large {
   height: 622px;
   grid-row: span 2; /* O primeiro bloco ocupa duas linhas */
+}
+
+.news-image {
+  width: 100%;
+  height: auto; /* Ajuste para a altura automática para manter a proporção */
+  max-height: 250px; /* Limita a altura da imagem */
+  object-fit: cover; /* Ajusta a imagem para cobrir o espaço sem distorcer */
+  border-radius: 10px; /* Imagem com borda arredondada */
+  margin-bottom: 10px; /* Espaço abaixo da imagem */
+}
+
+.news-item h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.post-content {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 10px;
 }
 
 .see-more-button {
@@ -71,5 +94,41 @@
 
   &:hover {
     transform: scale(1.05);
+  }
+}
+
+.news-link {
+  text-decoration: none; /* Remove o sublinhado do link */
+  color: inherit; /* Herda a cor do texto */
+}
+
+.news-link:hover {
+  color: #0099ff; /* Altera a cor ao passar o mouse */
+}
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .news-grid {
+    grid-template-columns: 1fr; /* Em telas pequenas, mostra uma coluna */
+  }
+
+  .news-item {
+    padding: 15px;
+    height: auto; /* Remove a altura fixa nos itens */
+  }
+
+  .news-image {
+    max-height: 200px; /* Ajusta a altura da imagem em telas pequenas */
+  }
+}
+
+@media (max-width: 480px) {
+  .separator-container h2 {
+    font-size: 1.5rem;
+  }
+
+  .see-more-button {
+    width: 100%;
   }
 }
