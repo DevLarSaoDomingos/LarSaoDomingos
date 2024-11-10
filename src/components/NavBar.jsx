@@ -4,7 +4,7 @@ import "../styles/NavBar.css";
 
 const Navbar = ({ navbar, menu, logo }) => {
   return (
-    <nav className={navbar}>
+    <nav onClick={() => (window.location.href = "/")} className={navbar}>
       <div className={logo}>
         <img src={"/assets/img/LarSaoDomingos.png"} alt="Lar São Domingos" />
       </div>

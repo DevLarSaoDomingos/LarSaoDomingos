@@ -31,6 +31,7 @@
 .slider-image {
   width: 100%;
   height: 90vh;
+  object-position: center top;
   object-fit: cover;
 }
 
@@ -52,4 +53,48 @@
 
 .slider-text p {
   font-size: 2rem;
+}
+
+.slick-thumb {
+  position: absolute;
+  bottom: -120px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex !important;
+  justify-content: center;
+  width: 100%;
+  padding: 0;
+  gap: 100px;
+}
+
+.slick-thumb li {
+  width: 60px;
+  height: 60px;
+  margin: 0 10px;
+  list-style: none;
+}
+
+.slick-thumb li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.slick-thumb li img {
+  width: 100%;
+  height: 100%;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  transition: border-color 0.3s ease;
+  object-fit: cover;
+}
+
+.slick-thumb li.slick-active img {
+  border-color: #007bff;
+}
+
+.thumbnail-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

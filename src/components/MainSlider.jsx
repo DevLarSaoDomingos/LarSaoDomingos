@@ -12,6 +12,8 @@ const MainSlider = ({
   sliderImage,
   text,
   arrowSize,
+  imagesAbove,
+  slidesData,
 }) => {
   const settings = {
     dots: true,
@@ -24,27 +26,23 @@ const MainSlider = ({
     arrows: true,
     nextArrow: <NextArrow arrowSize={arrowSize} />,
     prevArrow: <PrevArrow arrowSize={arrowSize} />,
+    customPaging: imagesAbove
+      ? (i) => (
+          <a>
+            <img
+              src={slidesData[i].img}
+              alt={`Thumbnail ${i + 1}`}
+              style={{
+                width: "100px",
+                height: "100px",
+                objectFit: "cover",
+              }}
+            />
+          </a>
+        )
+      : (i) => <button>{i + 1}</button>,
+    dotsClass: imagesAbove ? "slick-dots slick-thumb" : "slick-dots",
   };
-
-  const slidesData = [
-    {
-      img: "/assets/img/cabodeguerra.jpg",
-      title: "Lar são Domingos",
-      subtitle:
-        "Uma sociedade sem fins lucrativos que trabalha a mais de 100 anos em prol das crianças e adolescentes",
-    },
-    {
-      img: "/assets/img/futebol.jpg",
-      title: "Crianças Felizes",
-      subtitle:
-        "Criando um futuro melhor por meio de amor, educação e diversão",
-    },
-    {
-      img: "/assets/img/crianca-sorrindo.png",
-      title: "Momentos Inesquecíveis",
-      subtitle: "Assegurando sorrisos e momentos marcantes para todos",
-    },
-  ];
 
   return (
     <main className={container}>

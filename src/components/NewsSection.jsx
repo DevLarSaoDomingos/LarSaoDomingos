@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useQuery, gql } from "@apollo/client";
-import { Link } from "react-router-dom";  // Importa o componente Link
+import { useNavigate } from "react-router-dom";
 import "../styles/NewsSection.css";
 
 // Consulta GraphQL para obter os posts, incluindo a imagem principal
@@ -30,8 +30,9 @@ const GET_POSTS = gql`
 export default function NewsSection() {
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const postsPerPage = 3; // Quantidade de posts exibidos por vez
-  
+  const postsPerPage = 3;
+  const navigate = useNavigate();
+
   // Usando a query para buscar os posts
   const { loading, error, data, fetchMore } = useQuery(GET_POSTS, {
     variables: { first: postsPerPage, after: null },
@@ -63,17 +64,17 @@ export default function NewsSection() {
 
   // Função para extrair a primeira imagem do conteúdo HTML
   const extractFirstImageFromContent = (content) => {
-    const tempDiv = document.createElement('div');
+    const tempDiv = document.createElement("div");
     tempDiv.innerHTML = content;
-    const images = tempDiv.getElementsByTagName('img');
+    const images = tempDiv.getElementsByTagName("img");
     return images.length > 0 ? images[0].src : null;
   };
 
   // Função para remover todas as imagens do conteúdo
   const removeImagesFromContent = (content) => {
-    const tempDiv = document.createElement('div');
+    const tempDiv = document.createElement("div");
     tempDiv.innerHTML = content;
-    const images = tempDiv.getElementsByTagName('img');
+    const images = tempDiv.getElementsByTagName("img");
     while (images.length > 0) {
       images[0].parentElement.removeChild(images[0]);
     }
@@ -94,43 +95,49 @@ export default function NewsSection() {
       </div>
 
       {/* Campo de busca */}
-      <div className="search-container">
+      {/* <div className="search-container">
         <input
           type="text"
           placeholder="Buscar por título"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
-      </div>
+      </div> */}
 
       <div className="news-grid">
         {/* Exibe os posts filtrados */}
         {filteredPosts.length > 0 ? (
-          filteredPosts.map((post) => {
+          filteredPosts.map((post, index) => {
             const imageUrl = post.featuredImage?.node?.sourceUrl;
-            const imageToDisplay = imageUrl || extractFirstImageFromContent(post.content);
-            const absoluteUrl = imageToDisplay && !imageToDisplay.startsWith('http') 
-              ? `http://larsd.local${imageToDisplay}` 
-              : imageToDisplay;
+            const imageToDisplay =
+              imageUrl || extractFirstImageFromContent(post.content);
+            const absoluteUrl =
+              imageToDisplay && !imageToDisplay.startsWith("http")
+                ? `http://larsd.local${imageToDisplay}`
+                : imageToDisplay;
 
             const updatedContent = removeImagesFromContent(post.content);
-            const truncatedContent = truncateContent(updatedContent); 
+            const truncatedContent = truncateContent(updatedContent);
 
             return (
-              <div key={post.id} className="news-item">
-                {/* Envolva o post com o componente Link para navegar para a página do post */}
-                <Link to={`/post/${post.slug}`} className="news-link">
-                  {absoluteUrl && (
-                    <img
-                      src={absoluteUrl}
-                      alt={post.featuredImage?.node?.altText || "Imagem principal do post"}
-                      className="news-image"
-                    />
-                  )}
-                  <h3>{post.title}</h3>
-                  {/* Exibe o conteúdo truncado */}
-                  <div className="post-content" dangerouslySetInnerHTML={{ __html: truncatedContent }} />
-                </Link>
+              <div
+                onClick={() => navigate(`/noticia/${post.slug}`)}
+                key={post.id}
+                className={`news-item ${index === 0 ? "large" : ""}`}
+                style={{
+                  background: `url(${absoluteUrl}) no-repeat top center`,
+                  backgroundSize: "cover",
+                }}
+              >
+                <div
+                  style={{
+                    color: "white",
+                    fontSize: index === 0 ? "1.5rem" : "1rem",
+                    fontWeight: "bold",
+                  }}
+                  className="post-content"
+                  dangerouslySetInnerHTML={{ __html: truncatedContent }}
+                />
               </div>
             );
           })

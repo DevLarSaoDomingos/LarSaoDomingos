@@ -11,7 +11,8 @@ function App() {
       <header className="App-header">
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/post/:slug" element={<PostPage/>} /> {/* Rota para o post */}
+          <Route path="/noticia/:slug" element={<PostPage />} />{" "}
+          {/* Rota para o post */}
         </Routes>
       </header>
     </div>

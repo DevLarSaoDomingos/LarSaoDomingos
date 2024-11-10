@@ -12,6 +12,7 @@
 
 .navbar-logo img {
   height: 40px; /* Ajuste o tamanho da logo conforme necessário */
+  cursor: pointer;
 }
 
 .navbar-menu {
