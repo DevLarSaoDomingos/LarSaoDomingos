@@ -4,6 +4,7 @@ import { useQuery, gql } from "@apollo/client"; // Para realizar a consulta Grap
 import NavBar from "../components/NavBar";
 import MainSlider from "../components/MainSlider";
 import Footer from "../components/Footer";
+import parse, { domToReact } from "html-react-parser";
 
 import "../styles/PostPage.css";
 // Consulta GraphQL para obter o post por slug
@@ -32,111 +33,76 @@ function PostPage() {
   });
 
   // Verificando o estado de carregamento e erro
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <p></p>;
   if (error) return <p>Error: {error.message}</p>;
-
-  // Função para extrair a URL da imagem do content
-  const extractImageFromContent = (content) => {
-    if (!content) return null;
-
-    // Tenta encontrar tanto src quanto data-src (comum em lazy loading)
-    const imgRegex = /<img[^>]+(?:src|data-src)="([^">]+)"/;
-    const match = content.match(imgRegex);
-
-    if (match) {
-      const imageUrl = match[1];
-      console.log("Extracted image URL:", imageUrl);
-      return imageUrl;
-    }
-
-    // Se não encontrar imagem no content, tenta usar a featuredImage
-    if (post?.featuredImage?.node?.sourceUrl) {
-      return post.featuredImage.node.sourceUrl;
-    }
-
-    return null;
-  };
-
-  // Funções para extrair elementos do content
-  const extractTitleFromContent = (content) => {
-    // Procura por <h1> ou <h2> primeiro
-    const headerRegex = /<h[12][^>]*>(.*?)<\/h[12]>/;
-    const headerMatch = content.match(headerRegex);
-    if (headerMatch) {
-      return headerMatch[1].trim();
-    }
-
-    // Se não encontrar header, procura no primeiro parágrafo
-    const paragraphRegex = /<p[^>]*>(.*?)<\/p>/;
-    const paragraphMatch = content.match(paragraphRegex);
-    if (paragraphMatch) {
-      // Remove tags de imagem e outros elementos HTML
-      return paragraphMatch[1]
-        .replace(/<img[^>]*>/g, "") // Remove tags de imagem
-        .replace(/<[^>]*>/g, "") // Remove outras tags HTML
-        .replace(/&nbsp;/g, " ") // Substitui &nbsp; por espaço
-        .replace(/\s+/g, " ") // Remove múltiplos espaços
-        .trim();
-    }
-
-    return null;
-  };
-
-  const extractParagraphsFromContent = (content) => {
-    const paragraphs = content.split("</p>");
-    // Remove o primeiro parágrafo que contém a imagem e título
-    paragraphs.shift();
-
-    return paragraphs
-      .map((paragraph) => {
-        return paragraph
-          .replace(/<[^>]*>/g, "") // Remove todas as tags HTML
-          .replace(/&nbsp;/g, " ") // Substitui &nbsp; por espaço
-          .replace(/\s+/g, " ") // Remove múltiplos espaços
-          .trim();
-      })
-      .filter((p) => p.length > 0); // Remove parágrafos vazios
-  };
 
   const post = data?.postBy;
 
-  const imageUrl = extractImageFromContent(post.content);
-  const contentTitle = extractTitleFromContent(post.content);
-  const paragraphs = extractParagraphsFromContent(post.content);
+  const parsePostData = () => {
+    const groupedContent = {};
 
-  const slidesData = imageUrl
-    ? [
-        {
-          image: imageUrl,
-          title: contentTitle || post.title,
-          subtitle: paragraphs[0] || "",
-        },
-      ]
-    : [];
+    const processNode = (node) => {
+      if (node.type === "tag") {
+        // Verifica se a tag já existe no objeto agrupado
+        if (!groupedContent[node.name]) {
+          groupedContent[node.name] = [];
+        }
 
-  console.log("Slides Data:", slidesData);
+        // Para imagens, apenas salvamos os atributos (como src)
+        if (node.name === "img") {
+          groupedContent[node.name].push(node.attribs);
+        }
+        // Para outras tags, salvamos o conteúdo textual
+        else if (node.children && node.children.length) {
+          groupedContent[node.name].push(domToReact(node.children));
+        }
+      }
+    };
+
+    // Percorre todos os nós HTML
+    parse(post.content, {
+      replace: (node) => {
+        processNode(node);
+      },
+    });
+
+    return groupedContent;
+  };
+
+  const parsedData = parsePostData();
 
   return (
     <>
       <NavBar navbar={"navbar"} menu={"navbar-menu"} logo={"navbar-logo"} />
-      <div className="post-page">
-        {slidesData && (
-          <MainSlider
-            container={"slider-container"}
-            sliderItem={"slider-item"}
-            sliderImage={"slider-image"}
-            text={"slider-text"}
-            arrowSize={60}
-            imagesAbove={true}
-            slidesData={slidesData}
-          />
+      <div className="post-page-container">
+        {post && parsedData && (
+          <>
+            <MainSlider
+              container={"slider-container"}
+              sliderItem={"slider-item"}
+              sliderImage={"slider-image"}
+              text={"slider-text"}
+              arrowSize={60}
+              imagesAbove={true}
+              slidesData={parsedData.img.map((img) => ({
+                img: img.src,
+                title: "",
+                subtitle: "",
+              }))}
+            />
+            <div className="post-page-content">
+              <h1>{post.title}</h1>
+              {parsedData.p.slice(1).map((paragraph, index) => {
+                console.log("Paragraph", index + 1, ":", paragraph);
+                return (
+                  <p style={{ marginBottom: "1rem" }} key={index}>
+                    {typeof paragraph === "string" ? paragraph : paragraph}
+                  </p>
+                );
+              })}
+            </div>
+          </>
         )}
-        <h1>{contentTitle}</h1>
-        {paragraphs.map((paragraph, index) => (
-          <p style={{ marginBottom: "1rem" }} key={index}>
-            {paragraph}
-          </p>
-        ))}
       </div>
       <Footer />
     </>

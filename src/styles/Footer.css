@@ -5,7 +5,7 @@
   justify-content: space-around;
   align-items: flex-start;
   padding: 20px;
-  background-color: #0099ff; /* Ajuste a cor conforme necessário */
+  background-color: #0099ff;
   color: #fff;
 }
 
@@ -25,6 +25,17 @@
   font-size: 1.2em;
 }
 
+/* Estilos para links */
+.footer-container a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-container a:hover {
+  color: #004d80; /* Azul escuro no hover */
+}
+
 /* Responsivo */
 @media (max-width: 768px) {
   .footer-container {
@@ -32,4 +43,58 @@
     align-items: center;
     gap: 20px; /* Espaço entre as colunas no modo responsivo */
   }
+}
+
+footer {
+  background-color: #0099ff;
+  color: #fff;
+  padding-top: 20px;
+  position: relative;
+}
+
+.footer-container div.contact-info p {
+  display: flex;
+  align-items: center;
+}
+
+.contact-info img {
+  width: 20px;
+  margin-right: 8px;
+}
+
+.partners-logos {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.partners-logos img.ifal-logo {
+  width: 250px;
+}
+
+.partners-logos img.cinfo-logo {
+  width: 230px;
+}
+
+.lsd-logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lsd-logo-container img {
+  width: 175px;
+}
+
+.copyright-container {
+  text-align: left;
+  border-top: 2px solid #fff;
+  padding: 10px 40px;
+  font-size: 1.2rem;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.copyright-text {
+  margin-block: 1rem;
 }

@@ -81,6 +81,20 @@ export default function NewsSection() {
     return tempDiv.innerHTML;
   };
 
+  // Função para extrair apenas os parágrafos do conteúdo HTML
+  const extractParagraphsFromContent = (content) => {
+    const tempDiv = document.createElement("div");
+    tempDiv.innerHTML = content;
+    const paragraphs = tempDiv.getElementsByTagName("p");
+    let paragraphText = "";
+
+    for (let p of paragraphs) {
+      paragraphText += p.textContent + " ";
+    }
+
+    return paragraphText.trim();
+  };
+
   // Função para limitar o conteúdo a 180 caracteres
   const truncateContent = (content) => {
     return content.length > 180 ? content.slice(0, 180) + "..." : content;
@@ -127,8 +141,23 @@ export default function NewsSection() {
                 style={{
                   background: `url(${absoluteUrl}) no-repeat top center`,
                   backgroundSize: "cover",
+                  overflow: "hidden",
+                  position: "relative",
                 }}
               >
+                <div
+                  className="background-zoom"
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    background: `url(${absoluteUrl}) no-repeat top center`,
+                    backgroundSize: "cover",
+                    transition: "transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+                  }}
+                />
                 <div
                   style={{
                     color: "white",

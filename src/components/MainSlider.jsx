@@ -16,14 +16,15 @@ const MainSlider = ({
   slidesData,
 }) => {
   const settings = {
-    dots: true,
-    infinite: true,
+    dots: slidesData.length > 1,
+    infinite: slidesData.length > 1,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: true,
+    autoplay: slidesData.length > 1,
     autoplaySpeed: 3000,
-    arrows: true,
+    arrows: slidesData.length > 1,
+    draggable: slidesData.length > 1,
     nextArrow: <NextArrow arrowSize={arrowSize} />,
     prevArrow: <PrevArrow arrowSize={arrowSize} />,
     customPaging: imagesAbove
@@ -49,7 +50,12 @@ const MainSlider = ({
       <Slider {...settings}>
         {slidesData.map((slide, index) => (
           <div key={index} className={sliderItem}>
-            <img src={slide.img} alt={slide.title} className={sliderImage} />
+            <img
+              style={{ objectFit: imagesAbove ? "contain" : "cover" }}
+              src={slide.img}
+              alt={slide.title}
+              className={sliderImage}
+            />
             <div className={text}>
               <h2>{slide.title}</h2>
               <p>{slide.subtitle}</p>
@@ -65,7 +71,13 @@ const NextArrow = (props) => {
   const { onClick, arrowSize } = props;
   return (
     <div className="custom-arrow next-arrow" onClick={onClick}>
-      <FaChevronRight style={{ height: arrowSize, width: arrowSize }} />
+      <FaChevronRight
+        style={{
+          height: arrowSize,
+          width: arrowSize,
+          filter: "drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.5))", // Adiciona sombra ao ícone
+        }}
+      />
     </div>
   );
 };
@@ -74,7 +86,13 @@ const PrevArrow = (props) => {
   const { onClick, arrowSize } = props;
   return (
     <div className="custom-arrow prev-arrow" onClick={onClick}>
-      <FaChevronLeft style={{ height: arrowSize, width: arrowSize }} />
+      <FaChevronLeft
+        style={{
+          height: arrowSize,
+          width: arrowSize,
+          filter: "drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.5))", // Adiciona sombra ao ícone
+        }}
+      />
     </div>
   );
 };
