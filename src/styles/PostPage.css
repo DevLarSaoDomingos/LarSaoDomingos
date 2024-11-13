@@ -2,6 +2,7 @@
 .post-page-container {
   width: 100%;
   margin-inline: auto;
+  overflow-x: hidden;
 }
 
 .post-page-content {
