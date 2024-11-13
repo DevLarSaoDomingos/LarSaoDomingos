@@ -1,4 +1,5 @@
-.location{
+/* .location section */
+.location {
     margin-top: 40px;
     display: flex;
     flex-direction: column;
@@ -7,28 +8,96 @@
     background-color: #fff;
     max-width: 1240px;
     gap: 20px;
-}
-
-.location-container{
+    padding: 20px; /* Adiciona um pouco de padding para afastar do limite da tela */
+  }
+  
+  /* .location-container */
+  .location-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 40px;
-}
-
-.visit-info{
+    width: 100%; /* Garante que a largura ocupe toda a tela */
+    flex-wrap: wrap; /* Permite que os itens se movam para a linha seguinte se necessário */
+  }
+  
+  /* .visit-info */
+  .visit-info {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
     gap: 20px;
-}
-
-.relevant-infos{
+    width: 100%;
+    max-width: 500px; /* Limita o tamanho máximo da caixa para evitar que ela fique muito larga */
+  }
+  
+  /* .relevant-infos */
+  .relevant-infos {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
     gap: 10px;
-}
+    width: 100%;
+    max-width: 500px; /* Limita o tamanho máximo da caixa para evitar que ela fique muito larga */
+  }
+  
+  /* Responsividade para telas menores que 768px */
+  @media (max-width: 768px) {
+    .location {
+      padding: 20px; /* Reduz o padding em telas menores */
+    }
+  
+    .location-container {
+      flex-direction: column; /* Empilha os itens em uma coluna em telas pequenas */
+      gap: 20px; /* Aumenta o espaço entre os itens */
+    }
+  
+    /* Ajustes no tamanho das caixas */
+    .visit-info, .relevant-infos {
+      max-width: 100%; /* Permite que as caixas ocupem 100% da largura */
+    }
+  
+    .visit-info {
+      gap: 15px; /* Ajusta o gap entre os elementos dentro da visita */
+    }
+  
+    .relevant-infos {
+      gap: 10px; /* Ajusta o gap entre os elementos de informações relevantes */
+    }
+  }
+  
+  /* Responsividade para telas entre 768px e 1024px */
+  @media (max-width: 1024px) {
+    .location-container {
+      gap: 30px; /* Ajusta o espaçamento entre as caixas */
+    }
+  
+    .visit-info, .relevant-infos {
+      max-width: 80%; /* Ajusta a largura para 80% em telas médias */
+    }
+
+    /* Responsividade do mapa */
+.map-container {
+    position: relative;
+    width: 100%; /* O contêiner ocupa toda a largura disponível */
+    padding-bottom: 56.25%; /* Proporção de 16:9 (9/16 = 0.5625 = 56.25%) */
+    height: 0; /* Zera a altura para permitir que o padding defina a altura */
+    overflow: hidden;
+  }
+  
+  .map-container iframe {
+    position: absolute; /* Posiciona o iframe de forma absoluta dentro do contêiner */
+    top: 0;
+    left: 0;
+    width: 100%; /* O iframe ocupa toda a largura do contêiner */
+    height: 100%; /* A altura do iframe será ajustada para ocupar o contêiner */
+    border: 0;
+  }
+  
+  }
+
+
+  

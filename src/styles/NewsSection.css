@@ -1,3 +1,4 @@
+/* Estilo da seção de notícias */
 .news-section {
   width: 100%;
   max-width: 1100px;
@@ -13,6 +14,14 @@
   margin-bottom: 30px; /* Espaçamento entre o slider e o próximo conteúdo */
 }
 
+/* Responsividade: Ajuste do image-slider em telas pequenas */
+@media (max-width: 768px) {
+  .image-slider {
+    height: 500px; /* Reduz a altura do slider em telas menores */
+  }
+}
+
+/* Separador */
 .separator-container {
   width: 100%;
   display: flex;
@@ -34,6 +43,7 @@
   font-weight: bold;
 }
 
+/* Grid de Notícias */
 .news-grid {
   display: grid;
   grid-template-columns: 3fr 2fr;
@@ -43,6 +53,15 @@
   width: 95%;
 }
 
+/* Ajuste da grid para telas menores */
+@media (max-width: 768px) {
+  .news-grid {
+    grid-template-columns: 1fr; /* Em telas pequenas, mostra os itens em uma coluna */
+    gap: 10px; /* Reduz o espaçamento entre os itens */
+  }
+}
+
+/* Estilo dos itens de notícia */
 .news-item {
   cursor: pointer;
   border-radius: 5px;
@@ -56,11 +75,13 @@
   background-repeat: no-repeat;
 }
 
+/* Ajuste para o item grande */
 .news-item.large {
   height: 700px;
   grid-row: span 2;
 }
 
+/* Sobreposição de cor escura no item de notícia */
 .news-item::before {
   border-radius: 5px;
   content: "";
@@ -77,6 +98,7 @@
   pointer-events: none;
 }
 
+/* Títulos das notícias */
 .news-item-title {
   color: white;
   font-weight: bold;
@@ -91,6 +113,7 @@
   font-size: 1rem;
 }
 
+/* Imagem do item de notícia */
 .news-image {
   width: 100%;
   height: auto;
@@ -100,12 +123,21 @@
   margin-bottom: 10px;
 }
 
+/* Responsividade: ajuste das imagens */
+@media (max-width: 768px) {
+  .news-image {
+    max-height: 200px; /* Ajusta a altura das imagens em telas menores */
+  }
+}
+
+/* Conteúdo do post */
 .post-content {
   padding: 20px;
   text-align: left;
   position: relative;
 }
 
+/* Botão "Ver mais" */
 .see-more-button {
   padding: 20px 40px;
   font-size: 1rem;
@@ -119,32 +151,33 @@
   transition: all 0.3s;
 }
 
+/* Efeito de hover no botão "Ver mais" */
 .see-more-button:hover {
   transform: scale(1.05);
 }
 
-/* Responsividade */
+/* Responsividade: ajustes para telas menores */
 @media (max-width: 768px) {
-  .news-grid {
-    grid-template-columns: 1fr; /* Em telas pequenas, mostra uma coluna */
-  }
-
-  .news-item {
-    padding: 15px;
-    height: auto; /* Remove a altura fixa nos itens */
-  }
-
-  .news-image {
-    max-height: 200px; /* Ajusta a altura da imagem em telas pequenas */
+  .see-more-button {
+    width: 100%; /* Botão ocupa toda a largura em telas pequenas */
   }
 }
 
 @media (max-width: 480px) {
   .separator-container h2 {
-    font-size: 1.5rem;
+    font-size: 1.5rem; /* Tamanho da fonte do título ajustado em telas muito pequenas */
   }
 
   .see-more-button {
-    width: 100%;
+    width: 100%; /* Ajuste do tamanho do botão em telas muito pequenas */
+  }
+
+  /* Ajuste das imagens no grid */
+  .news-item {
+    height: auto; /* Remove a altura fixa para as notícias */
+  }
+
+  .news-image {
+    max-height: 150px; /* Ajusta ainda mais a altura das imagens em dispositivos pequenos */
   }
 }

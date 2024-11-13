@@ -23,24 +23,30 @@
   cursor: pointer;
 }
 
+.popup-overlay:hover {
+  cursor: pointer; /* Para indicar que a área do fundo pode ser clicada para fechar */
+}
+
 .popup-grid-position {
   position: absolute;
-  width: 50%;
-  height: 80%;
+  width: 60%;  /* Ajuste para ser responsivo */
+  max-width: 800px;  /* Limitar o tamanho máximo */
+  height: auto;  /* Ajuste de altura automática */
   background-color: white;
   border-radius: 10px;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;  /* Espaçamento entre as colunas */
   overflow: hidden;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  animation: popupGrow 0.3s ease-in;
   cursor: auto;
-
-  animation: popupGrow 0.15s ease-in;
 }
 
 .popup-image {
   background-size: cover;
   background-position: center;
+  height: 100%;
 }
 
 .popup-text {
@@ -48,20 +54,21 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 10px;
+  padding: 20px;
   text-align: left;
   gap: 20px;
 }
 
 .popup-text h1 {
-  font-size: 4rem;
+  font-size: 2rem;
   color: #333;
   margin-bottom: 20px;
 }
 
 .popup-text img {
-  width: 200px;
-  height: 200px;
+  width: 100%;  /* Tornar a imagem responsiva */
+  max-width: 200px;  /* Limitar o tamanho máximo */
+  height: auto;
   margin-bottom: 20px;
 }
 
@@ -73,8 +80,69 @@
   font-size: 1.2rem;
   border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .doe-button:hover {
   background-color: #0056b3;
+}
+
+/* Media Queries para Responsividade */
+
+@media (max-width: 1024px) {
+  .popup-grid-position {
+    width: 80%;  /* Aumentar a largura em telas menores */
+    height: auto; /* Altura automática */
+    grid-template-columns: 1fr;  /* Disposição de uma única coluna */
+  }
+
+  .popup-text h1 {
+    font-size: 1.5rem;  /* Reduzir o tamanho da fonte */
+  }
+
+  .popup-text img {
+    max-width: 150px;  /* Ajuste do tamanho da imagem */
+  }
+}
+
+@media (max-width: 768px) {
+  .popup-grid-position {
+    width: 90%;  /* Aumentar a largura em telas muito pequenas */
+    grid-template-columns: 1fr;  /* Manter a coluna única */
+    padding: 10px;  /* Ajuste de padding */
+  }
+
+  .popup-text h1 {
+    font-size: 1.2rem;  /* Tamanho menor do título */
+  }
+
+  .popup-text img {
+    max-width: 120px;  /* Ajustar a imagem para telas pequenas */
+  }
+
+  .doe-button {
+    font-size: 1rem;  /* Tamanho da fonte do botão menor */
+    padding: 8px 40px;  /* Reduzir padding do botão */
+  }
+}
+
+@media (max-width: 480px) {
+  .popup-grid-position {
+    width: 100%;  /* Tornar o popup ocupar 100% da largura da tela */
+    height: auto; /* Garantir que a altura se ajuste */
+    grid-template-columns: 1fr;  /* Coluna única */
+  }
+
+  .popup-text h1 {
+    font-size: 1rem;  /* Fonte menor em telas muito pequenas */
+  }
+
+  .popup-text img {
+    max-width: 100px;  /* Imagem ainda menor */
+  }
+
+  .doe-button {
+    font-size: 0.9rem;  /* Fonte do botão ainda menor */
+    padding: 8px 30px;  /* Ajuste de padding */
+  }
 }

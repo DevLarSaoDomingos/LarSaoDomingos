@@ -1,4 +1,4 @@
-.ActivitiesList{
+.ActivitiesList {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -6,7 +6,7 @@
     margin: 40px 0;
 }
 
-.list-activities{
+.list-activities {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -15,10 +15,10 @@
     gap: 20px;
 }
 
-.activities{
+.activities {
     display: flex;
     flex-direction: column;
-    justify-content: top;
+    justify-content: flex-start; /* Alinhamento no topo */
     align-items: center;
     gap: 10px;
     width: 400px;
@@ -28,39 +28,94 @@
     height: 600px;
 }
 
-.activities h3{
+.activities h3 {
     font-size: 1.2rem;
     font-weight: 700;
 }
 
-.activities p{
+.activities p {
     font-size: 0.9rem;
     font-weight: 400;
     text-align: justify;
     padding: 10px;
 }
 
-
-.activities img{
+.activities img {
     width: 100%;
     height: 300px;
     object-fit: cover;
     border-radius: 40px 40px 0 0;
 }
 
-.activities:first-child{
+.activities:first-child {
     background-color: #F2994A;
 }
 
-.activities:nth-child(2){
+.activities:nth-child(2) {
     background-color: #E8403C;
 }
 
-.activities:nth-child(3){
+.activities:nth-child(3) {
     background-color: #4BA64F;
 }
 
-.activities:nth-child(4){
+.activities:nth-child(4) {
     background-color: #FFA625;
 }
 
+/* Media Query para telas maiores que 1024px */
+@media (max-width: 1024px) {
+    .activities {
+        width: 350px; /* Ajuste de largura */
+    }
+}
+
+/* Media Query para tablets e telas menores (768px ou menos) */
+@media (max-width: 768px) {
+    .list-activities {
+        justify-content: space-around;
+        flex-direction: column; /* Empilhar atividades em dispositivos menores */
+    }
+
+    .activities {
+        width: 90%; /* Reduzindo a largura das atividades */
+        height: auto; /* Aumenta a flexibilidade das atividades */
+    }
+
+    .activities img {
+        height: 250px; /* Imagens menores para dispositivos menores */
+    }
+
+    .activities h3 {
+        font-size: 1rem; /* Tamanho de fonte ajustado */
+    }
+
+    .activities p {
+        font-size: 0.8rem; /* Ajuste de tamanho da fonte para o parágrafo */
+    }
+}
+
+/* Media Query para celulares e telas muito pequenas (480px ou menos) */
+@media (max-width: 480px) {
+    .list-activities {
+        justify-content: center;
+        flex-direction: column; /* Empilhar as atividades em uma coluna */
+    }
+
+    .activities {
+        width: 100%; /* Atividades ocupando toda a largura disponível */
+        height: auto; /* Ajuste da altura */
+    }
+
+    .activities img {
+        height: 200px; /* Ajuste na altura da imagem para celulares */
+    }
+
+    .activities h3 {
+        font-size: 0.9rem; /* Menor tamanho para o título */
+    }
+
+    .activities p {
+        font-size: 0.75rem; /* Ajuste da fonte do parágrafo */
+    }
+}

@@ -1,3 +1,4 @@
+/* Navbar Institucional */
 .navbar-institucional {
     display: flex;
     width: 100%;
@@ -7,37 +8,115 @@
     gap: 20px;
     background-color: #F2994A;
     padding: 20px;
-}
-
-.navbar-institucional ul {
+    overflow-x: hidden; /* Esconde a barra de rolagem na navbar */
+    -webkit-overflow-scrolling: touch; /* Melhora a rolagem em dispositivos touch */
+    white-space: nowrap; /* Impede que o conteúdo quebre e permita a rolagem horizontal */
+  }
+  
+  .navbar-institucional ul {
     display: flex;
     flex-direction: row;
     gap: 20px;
-}
-
-.navbar-institucional li {
     list-style: none;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden; /* Habilita rolagem horizontal no UL */
+    -webkit-overflow-scrolling: touch; /* Melhora a rolagem em dispositivos touch */
+    max-width: 100%; /* Garante que a lista ocupe toda a largura */
+  }
+  
+  .navbar-institucional::-webkit-scrollbar {
+    display: none; /* Esconde a barra de rolagem */
+  }
+  
+  .navbar-institucional li {
     font-size: 1rem;
     font-weight: 700;
-}
-
-.navbar-institucional a {
+  }
+  
+  .navbar-institucional a {
     text-decoration: none;
     color: #000;
     transition: color 0.3s ease;
-}
-
-/* Hover and Active state for links */
-.navbar-institucional a:hover {
-    color: #fff; /* Color when hovering over a link */
-}
-
-.navbar-institucional a:active {
-    color: #fff; /* Color when clicking the link */
-}
-
-/* Active state for the current page */
-.navbar-institucional li.active a {
-    color: #fff; /* Active link color */
-    border-bottom: 2px solid #fff; /* Optional: Adds an underline to the active link */
-}
+  }
+  
+  /* Hover and Active state for links */
+  .navbar-institucional a:hover {
+    color: #fff; /* Cor quando o link for hover */
+  }
+  
+  .navbar-institucional a:active {
+    color: #fff; /* Cor quando o link for clicado */
+  }
+  
+  /* Active state for the current page */
+  .navbar-institucional li.active a {
+    color: #fff; /* Cor do link ativo */
+    border-bottom: 2px solid #fff; /* Adiciona uma linha embaixo do link ativo */
+  }
+  
+  /* Responsividade */
+  @media (max-width: 1024px) {
+    .navbar-institucional {
+      padding: 10px; /* Reduz o padding em telas menores */
+    }
+  
+    .navbar-institucional ul {
+      gap: 20px; /* Aumenta o espaçamento entre os itens */
+    }
+  
+    .navbar-institucional li {
+      font-size: 0.9rem; /* Diminui o tamanho da fonte em tablets */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    /* Em telas menores, a lista de navegação se tornará rolável horizontalmente */
+    .navbar-institucional {
+      padding: 10px;
+    }
+  
+    .navbar-institucional ul {
+      flex-direction: row; /* Garante que a lista ainda seja horizontal */
+      gap: 20px; /* Aumenta o espaçamento entre os itens */
+      overflow-x: hidden; /* Habilita a rolagem horizontal */
+      max-width: 100%; /* Garante que a lista ocupe toda a largura */
+    }
+  
+    .navbar-institucional li {
+      font-size: 0.8rem; /* Diminui o tamanho da fonte em telas pequenas */
+    }
+  
+    .navbar-institucional a {
+      font-size: 0.8rem; /* Ajusta o tamanho da fonte para melhor leitura */
+    }
+  
+    .navbar-institucional::-webkit-scrollbar {
+      display: none; /* Esconde a barra de rolagem */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .navbar-institucional ul {
+      overflow-x: hidden; /* Habilita rolagem horizontal também em dispositivos pequenos */
+      -webkit-overflow-scrolling: touch; /* Melhora a rolagem em dispositivos touch */
+    }
+  
+    .navbar-institucional li {
+      font-size: 0.8rem; /* Ajusta ainda mais o tamanho da fonte */
+    }
+  
+    .navbar-institucional a {
+      font-size: 0.8rem; /* Ajusta o tamanho da fonte */
+    }
+  
+    /* Aumenta ainda mais o espaçamento entre os itens */
+    .navbar-institucional ul {
+      gap: 35px;
+    }
+  
+    .navbar-institucional::-webkit-scrollbar {
+      display: none; /* Esconde a barra de rolagem */
+    }
+  }
+  

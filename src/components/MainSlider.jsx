@@ -6,15 +6,7 @@ import "../styles/MainSlider.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const MainSlider = ({
-  container,
-  sliderItem,
-  sliderImage,
-  text,
-  arrowSize,
-  imagesAbove,
-  slidesData,
-}) => {
+const MainSlider = ({ container, sliderItem, sliderImage, text, arrowSize, imagesAbove, slidesData }) => {
   const settings = {
     dots: slidesData.length > 1,
     infinite: slidesData.length > 1,
@@ -34,7 +26,7 @@ const MainSlider = ({
               src={slidesData[i].img}
               alt={`Thumbnail ${i + 1}`}
               style={{
-                width: "100px",
+                width: "100px", // Considerar usar um tamanho responsivo
                 height: "100px",
                 objectFit: "cover",
               }}
@@ -66,6 +58,7 @@ const MainSlider = ({
     </main>
   );
 };
+
 
 const NextArrow = (props) => {
   const { onClick, arrowSize } = props;

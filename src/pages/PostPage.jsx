@@ -1,10 +1,10 @@
 import React from "react";
-import { useParams } from "react-router-dom"; // Para obter o 'slug' da URL
-import { useQuery, gql } from "@apollo/client"; // Para realizar a consulta GraphQL
+import { useParams } from "react-router-dom";
+import { useQuery, gql } from "@apollo/client";
 import MainSlider from "../components/MainSlider";
 import parse, { domToReact } from "html-react-parser";
-
 import "../styles/PostPage.css";
+
 // Consulta GraphQL para obter o post por slug
 const GET_POST_BY_SLUG = gql`
   query GetPostBySlug($slug: String!) {
@@ -22,47 +22,37 @@ const GET_POST_BY_SLUG = gql`
 `;
 
 function PostPage() {
-  // Pegando o 'slug' da URL
   const { slug } = useParams();
-
-  // Realizando a consulta GraphQL para buscar o post
   const { loading, error, data } = useQuery(GET_POST_BY_SLUG, {
     variables: { slug },
   });
 
-  // Verificando o estado de carregamento e erro
-  if (loading) return <p></p>;
-  if (error) return <p>Error: {error.message}</p>;
+  // Tratamento de erros e carregamento
+  if (loading) return <div className="loading-spinner">Carregando...</div>;
+  if (error) return <p className="error-message">Erro: {error.message}</p>;
 
+  // Dados do post
   const post = data?.postBy;
 
+  // Função para agrupar e processar o conteúdo do post
   const parsePostData = () => {
     const groupedContent = {};
 
     const processNode = (node) => {
       if (node.type === "tag") {
-        // Verifica se a tag já existe no objeto agrupado
         if (!groupedContent[node.name]) {
           groupedContent[node.name] = [];
         }
 
-        // Para imagens, apenas salvamos os atributos (como src)
         if (node.name === "img") {
           groupedContent[node.name].push(node.attribs);
-        }
-        // Para outras tags, salvamos o conteúdo textual
-        else if (node.children && node.children.length) {
+        } else if (node.children && node.children.length) {
           groupedContent[node.name].push(domToReact(node.children));
         }
       }
     };
 
-    // Percorre todos os nós HTML
-    parse(post.content, {
-      replace: (node) => {
-        processNode(node);
-      },
-    });
+    parse(post.content, { replace: (node) => processNode(node) });
 
     return groupedContent;
   };
@@ -70,38 +60,45 @@ function PostPage() {
   const parsedData = parsePostData();
 
   return (
-    <>
-      <div className="post-page-container">
-        {post && parsedData && (
-          <>
-            <MainSlider
-              container={"slider-container"}
-              sliderItem={"slider-item"}
-              sliderImage={"slider-image"}
-              text={"slider-text"}
-              arrowSize={60}
-              imagesAbove={true}
-              slidesData={parsedData.img.map((img) => ({
-                img: img.src,
-                title: "",
-                subtitle: "",
-              }))}
-            />
-            <div className="post-page-content">
-              <h1>{post.title}</h1>
-              {parsedData.p.slice(1).map((paragraph, index) => {
-                console.log("Paragraph", index + 1, ":", paragraph);
-                return (
-                  <p style={{ marginBottom: "1rem" }} key={index}>
-                    {typeof paragraph === "string" ? paragraph : paragraph}
-                  </p>
-                );
-              })}
+    <div className="post-page-container">
+      {post && parsedData && (
+        <>
+          {/* Verificar se a imagem de destaque existe antes de exibir */}
+          {post.featuredImage && post.featuredImage.node && (
+            <div className="featured-image">
+              <img
+                src={post.featuredImage.node.sourceUrl}
+                alt={post.featuredImage.node.altText || "Imagem de Destaque"}
+                className="featured-image-img"
+              />
             </div>
-          </>
-        )}
-      </div>
-    </>
+          )}
+
+          <MainSlider
+            container="slider-container"
+            sliderItem="slider-item"
+            sliderImage="slider-image"
+            text="slider-text"
+            arrowSize={60}
+            imagesAbove={true}
+            slidesData={parsedData.img?.map((img) => ({
+              img: img.src,
+              alt: img.altText || "Imagem do post",
+              title: "",
+              subtitle: "",
+            }))}
+          />
+          <div className="post-page-content">
+            <h1>{post.title}</h1>
+            {parsedData.p?.slice(1).map((paragraph, index) => (
+              <p key={index} className="post-paragraph">
+                {typeof paragraph === "string" ? paragraph : paragraph}
+              </p>
+            ))}
+          </div>
+        </>
+      )}
+    </div>
   );
 }
 

@@ -1,57 +1,116 @@
 .about-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    padding: 20px;
-    width: 100%;
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  padding: 20px;
+  width: 100%;
+  flex-wrap: wrap; /* Para permitir que os itens se ajustem em telas menores */
+}
+
+.about-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 60%;
+  padding: 20px;
+}
+
+.about-text h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  padding: 20px;
+}
+
+.about-text p {
+  font-size: 1.2rem;
+  font-weight: 400;
+  text-align: justify;
+  padding: 10px 20px;
+}
+
+.about-text ul {
+  list-style: disc;
+  padding-left: 40px;
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.about-text li {
+  margin-bottom: 8px;
+}
+
+.about-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  width: 40%;
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border: #fff solid 10px;
+}
+
+/* Media Query para dispositivos menores */
+@media (max-width: 1024px) {
   .about-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    width: 60%;
-    padding: 20px;
+    width: 50%; /* Ajuste a largura da coluna de texto */
   }
-  
-  .about-text h2 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    padding: 20px;
-  }
-  
-  .about-text p {
-    font-size: 1.2rem;
-    font-weight: 400;
-    text-align: justify;
-    padding: 10px 20px;
-  }
-  
-  .about-text ul {
-    list-style: disc;
-    padding-left: 40px;
-    font-size: 1.2rem;
-    font-weight: 400;
-  }
-  
-  .about-text li {
-    margin-bottom: 8px;
-  }
-  
+
   .about-image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    width: 40%;
+    width: 50%; /* Ajuste a largura da coluna de imagem */
   }
-  
+}
+
+@media (max-width: 768px) {
+  .about-section {
+    flex-direction: column; /* Alinhar os itens na vertical */
+    text-align: left;
+  }
+
+  .about-text {
+    width: 100%; /* Tornar a largura 100% em telas menores */
+    padding: 15px;
+  }
+
+  .about-image {
+    width: 100%; /* Tornar a largura 100% da imagem em telas menores */
+  }
+
+  .about-text h2 {
+    font-size: 2rem; /* Reduzir o tamanho do título */
+  }
+
+  .about-text p,
+  .about-text ul {
+    font-size: 1rem; /* Reduzir o tamanho da fonte do parágrafo e lista */
+  }
+
+  .about-text ul {
+    padding-left: 20px; /* Ajuste do padding para o conteúdo em telas menores */
+  }
+}
+
+@media (max-width: 480px) {
+  .about-text h2 {
+    font-size: 1.5rem; /* Tamanho menor para o título em telas muito pequenas */
+  }
+
+  .about-text p,
+  .about-text ul {
+    font-size: 0.9rem; /* Ajuste do tamanho da fonte */
+  }
+
+  .about-text ul {
+    padding-left: 15px; /* Menos espaço na lista */
+  }
+
   .about-image img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border: #fff solid 10px;
+    border-width: 5px; /* Menor borda para a imagem */
   }
-  
+}

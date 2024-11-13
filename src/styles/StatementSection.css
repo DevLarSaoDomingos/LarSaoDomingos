@@ -1,54 +1,58 @@
+/* Estilo do container principal da seção */
 .statement-container {
-  padding: 40px; /* Padding para espaçamento adequado */
+  padding: 3rem; /* Padding para espaçamento adequado */
   width: 100%; /* Largura total */
   background-color: #0099ff; /* Cor de fundo azul */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center; /* Centraliza o conteúdo horizontalmente */
-  gap: 20px; /* Espaçamento entre os itens */
+  gap: 1.5rem; /* Espaçamento entre os itens */
   color: white;
   text-align: center;
 }
 
+/* Estilo do texto principal */
 .statement-text {
-  font-size: 2rem; /* Tamanho do texto principal */
+  font-size: 2rem; /* Tamanho mais moderado para o texto principal */
   font-weight: bold; /* Texto em negrito */
-  max-width: 900px; /* Largura máxima do texto para não esticar muito */
-  margin: 0 20px; /* Margem lateral para evitar que fique colado nas bordas */
+  max-width: 60rem; /* Largura máxima do texto */
+  margin: 0 1.5rem; /* Margem lateral para evitar que fique colado nas bordas */
 }
 
+/* Estilo do texto secundário */
 .statement-sub-text {
-  font-size: 1.2rem; /* Tamanho do texto secundário */
-  max-width: 800px; /* Largura máxima do texto para manter a legibilidade */
-  margin: 0 20px; /* Margem lateral */
+  font-size: 1.3rem; /* Tamanho mais equilibrado para o texto secundário */
+  max-width: 50rem; /* Largura máxima do texto */
+  margin: 0 1.5rem; /* Margem lateral */
 }
 
-/* Responsividade */
+/* Responsividade para telas médias (menor que 768px) */
 @media (max-width: 768px) {
   .statement-container {
-    padding: 30px; /* Ajusta o padding em telas menores */
+    padding: 2rem; /* Ajuste do padding para telas menores */
   }
 
   .statement-text {
-    font-size: 1.6rem; /* Ajusta o tamanho do texto principal em telas menores */
+    font-size: 1.8rem; /* Ajusta o tamanho do texto principal em telas menores */
   }
 
   .statement-sub-text {
-    font-size: 1rem; /* Ajusta o tamanho do texto secundário em telas menores */
+    font-size: 1.1rem; /* Ajusta o tamanho do texto secundário em telas menores */
   }
 }
 
+/* Responsividade para telas pequenas (menor que 480px) */
 @media (max-width: 480px) {
   .statement-container {
-    padding: 20px; /* Ajusta o padding para telas muito pequenas */
+    padding: 1.5rem; /* Ajuste o padding para telas muito pequenas */
   }
 
   .statement-text {
-    font-size: 1.4rem; /* Tamanho ainda menor para dispositivos móveis */
+    font-size: 1.5rem; /* Tamanho do texto principal reduzido para dispositivos móveis */
   }
 
   .statement-sub-text {
-    font-size: 0.9rem; /* Tamanho ainda menor para dispositivos móveis */
+    font-size: 1rem; /* Tamanho do texto secundário ajustado para dispositivos móveis */
   }
 }

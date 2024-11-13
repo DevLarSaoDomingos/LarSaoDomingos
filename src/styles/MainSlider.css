@@ -18,11 +18,11 @@
 }
 
 .next-arrow {
-  right: 50px;
+  right: 20px; /* Ajuste do espaçamento */
 }
 
 .prev-arrow {
-  left: 50px;
+  left: 20px; /* Ajuste do espaçamento */
 }
 
 .slider-item {
@@ -31,7 +31,8 @@
 
 .slider-image {
   width: 100%;
-  height: 90vh;
+  height: 90vh; /* Tamanho adaptável */
+  min-height: 300px; /* Garante que a altura mínima não seja muito pequena */
   object-position: center top;
   object-fit: cover;
 }
@@ -69,6 +70,32 @@
 }
 
 /* Responsividade */
+@media (max-width: 1024px) {
+  .slider-image {
+    height: 60vh; /* Reduz a altura do slider para tablets */
+  }
+
+  .slider-text h2 {
+    font-size: 3.5rem; /* Ajusta o título em telas médias */
+  }
+
+  .slider-text p {
+    font-size: 1.3rem; /* Ajusta o subtítulo */
+  }
+
+  .custom-arrow {
+    font-size: 1.8rem; /* Ajusta o tamanho das setas para telas médias */
+  }
+
+  .next-arrow {
+    right: 15px; /* Ajuste do espaçamento */
+  }
+
+  .prev-arrow {
+    left: 15px; /* Ajuste do espaçamento */
+  }
+}
+
 @media (max-width: 768px) {
   .slider-image {
     height: 400px; /* Altura reduzida para telas menores */
@@ -85,6 +112,14 @@
   .custom-arrow {
     font-size: 1.5rem; /* Ajusta o tamanho das setas */
   }
+
+  .next-arrow {
+    right: 10px; /* Ajuste do espaçamento */
+  }
+
+  .prev-arrow {
+    left: 10px; /* Ajuste do espaçamento */
+  }
 }
 
 @media (max-width: 480px) {
@@ -100,29 +135,32 @@
     font-size: 1rem; /* Tamanho do subtítulo reduzido */
   }
 
-  .next-arrow,
+  .next-arrow {
+    right: 5px; /* Ajuste do espaçamento */
+  }
+
   .prev-arrow {
-    right: 20px; /* Ajusta a posição das setas */
-    left: 20px; /* Ajusta a posição das setas */
+    left: 5px; /* Ajuste do espaçamento */
   }
 }
 
+/* Estilos das miniaturas */
 .slick-thumb {
   position: absolute;
-  bottom: -120px;
+  bottom: -100px; /* Ajusta a posição das miniaturas */
   left: 50%;
   transform: translateX(-50%);
   display: flex !important;
   justify-content: center;
   width: 100%;
   padding: 0;
-  gap: 100px;
+  gap: 15px; /* Reduz o espaço entre as miniaturas */
 }
 
 .slick-thumb li {
   width: 60px;
   height: 60px;
-  margin: 0 10px;
+  margin: 0 5px;
   list-style: none;
 }
 
