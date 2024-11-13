@@ -2,6 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { useQuery, gql } from "@apollo/client";
 import MainSlider from "../components/MainSlider";
+
 import "../styles/PostPage.css";
 
 // Consulta GraphQL para obter o post por slug
@@ -21,61 +22,83 @@ const GET_POST_BY_SLUG = gql`
 `;
 
 function PostPage() {
-  // Obtém o slug dos parâmetros da URL
   const { slug } = useParams();
-  // Executa a consulta GraphQL com o slug como variável
+
   const { loading, error, data } = useQuery(GET_POST_BY_SLUG, {
     variables: { slug },
   });
 
-  // Tratamento de erros e carregamento
-  if (loading) return <div className="loading-spinner">Carregando...</div>;
-  if (error) return <p className="error-message">Erro: {error.message}</p>;
+  if (loading) return <p>Carregando...</p>;
+  if (error) return <p>Erro: {error.message}</p>;
 
-  // Dados do post
   const post = data?.postBy;
+
+  // Função para extrair todas as imagens do conteúdo HTML
+  const extractImagesFromContent = (htmlContent) => {
+    const div = document.createElement('div');
+    div.innerHTML = htmlContent;
+
+    // Pegar todas as tags <img> do conteúdo
+    const images = div.querySelectorAll('img');
+    const imageUrls = [];
+
+    images.forEach((img) => {
+      if (img.src) {
+        imageUrls.push(img.src);  // Armazenar os URLs das imagens
+        img.remove();  // Remover as imagens do conteúdo (não vai aparecer no corpo)
+      }
+    });
+
+    // Retornar o HTML sem as imagens
+    return {
+      contentWithoutImages: div.innerHTML,
+      imageUrls,
+    };
+  };
+
+  // Filtrando as imagens do conteúdo
+  const { contentWithoutImages, imageUrls } = post ? extractImagesFromContent(post.content) : { contentWithoutImages: '', imageUrls: [] };
+
+  // Combina as imagens da featuredImage com as imagens extraídas do conteúdo
+  const slidesData = [];
+
+  // Adiciona a imagem destacada apenas se ela não estiver nas imagens extraídas
+  if (post.featuredImage) {
+    const featuredImageUrl = post.featuredImage.node.sourceUrl;
+    if (!imageUrls.includes(featuredImageUrl)) {
+      slidesData.push({ img: featuredImageUrl });
+    }
+  }
+
+  // Adiciona as imagens extraídas do conteúdo
+  slidesData.push(...imageUrls.map(url => ({ img: url })));
 
   return (
     <div className="post-page-container">
       {post && (
         <>
-          {/* Verificar se a imagem de destaque existe antes de exibir */}
-          {post.featuredImage && post.featuredImage.node && (
-            <div className="featured-image">
-              <img
-                src={post.featuredImage.node.sourceUrl}
-                alt={post.featuredImage.node.altText || "Imagem de Destaque"}
-                className="featured-image-img"
+          {/* Exibição de imagem em destaque */}
+          {slidesData.length > 0 && (
+            <div className="featured-image-container">
+              <MainSlider
+                container={"slider-container"}
+                sliderItem={"slider-item"}
+                sliderImage={"slider-image"}
+                text={"slider-text"}
+                arrowSize={60}
+                imagesAbove={true}
+                slidesData={slidesData}
               />
             </div>
           )}
 
-          {/* Componente de slider principal */}
-          <MainSlider
-            container="slider-container"
-            sliderItem="slider-item"
-            sliderImage="slider-image"
-            text="slider-text"
-            arrowSize={60}
-            imagesAbove={true}
-            slidesData={
-              post.content.includes('<img')
-                ? Array.from(post.content.matchAll(/<img [^>]*src="([^"]*)"[^\>]*>/g), (match) => ({
-                    img: match[1],
-                    alt: match[0].match(/alt="([^"]*)"/)?.[1] || "Imagem do post",
-                    title: "",
-                    subtitle: "",
-                  }))
-                : []
-            }
-          />
-
+          {/* Conteúdo do post (sem as imagens) */}
           <div className="post-page-content">
-            <h1>{post.title}</h1>
-            {/* Renderiza o conteúdo HTML diretamente */}
+            <h1 className="post-title">{post.title}</h1>
+            
             <div
               className="post-content"
-              dangerouslySetInnerHTML={{ __html: post.content }}
+              dangerouslySetInnerHTML={{ __html: contentWithoutImages }}
             />
           </div>
         </>

@@ -21,7 +21,7 @@ const MainSlider = ({ container, sliderItem, sliderImage, text, arrowSize, image
     prevArrow: <PrevArrow arrowSize={arrowSize} />,
     customPaging: imagesAbove
       ? (i) => (
-          <a>
+          <button className="thumbnail-button">
             <img
               src={slidesData[i].img}
               alt={`Thumbnail ${i + 1}`}
@@ -31,7 +31,7 @@ const MainSlider = ({ container, sliderItem, sliderImage, text, arrowSize, image
                 objectFit: "cover",
               }}
             />
-          </a>
+          </button>
         )
       : (i) => <button>{i + 1}</button>,
     dotsClass: imagesAbove ? "slick-dots slick-thumb" : "slick-dots",
