@@ -7,7 +7,7 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 
 const client = new ApolloClient({
-  uri: 'http://larsd.local/graphql',
+  uri: 'http://157.173.205.94:8081/graphql',
   cache: new InMemoryCache(),
 });
 

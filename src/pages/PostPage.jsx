@@ -1,9 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useParams } from "react-router-dom"; // Para obter o 'slug' da URL
 import { useQuery, gql } from "@apollo/client"; // Para realizar a consulta GraphQL
-import NavBar from "../components/NavBar";
 import MainSlider from "../components/MainSlider";
-import Footer from "../components/Footer";
 import parse, { domToReact } from "html-react-parser";
 
 import "../styles/PostPage.css";
@@ -73,7 +71,6 @@ function PostPage() {
 
   return (
     <>
-      <NavBar navbar={"navbar"} menu={"navbar-menu"} logo={"navbar-logo"} />
       <div className="post-page-container">
         {post && parsedData && (
           <>
@@ -104,7 +101,6 @@ function PostPage() {
           </>
         )}
       </div>
-      <Footer />
     </>
   );
 }

@@ -7,6 +7,7 @@
   padding: 40px;
   background-color: #fff;
   margin-block: 50px;
+  flex-wrap: wrap; /* Permite que os itens se movam para a linha seguinte em telas menores */
 }
 
 .info-box {
@@ -61,4 +62,33 @@
   font-size: 14px;
   color: white;
   margin: 0; /* Para evitar espaçamento extra */
+}
+
+.info-section a{
+  text-decoration: none;
+  color: #000;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .info-section {
+    padding: 20px; /* Reduz o padding em telas menores */
+  }
+
+  .info-box {
+    width: 100%; /* Cada caixa ocupa 100% da largura em telas menores */
+    max-width: 300px; /* Define uma largura máxima para as caixas */
+  }
+
+  .info-icon {
+    font-size: 60px; /* Reduz o tamanho do ícone */
+  }
+
+  .info-box h3 {
+    font-size: 16px; /* Ajusta o tamanho do título */
+  }
+
+  .info-box p {
+    font-size: 12px; /* Ajusta o tamanho do subtítulo */
+  }
 }

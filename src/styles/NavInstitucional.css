@@ -1,0 +1,43 @@
+.navbar-institucional {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    background-color: #F2994A;
+    padding: 20px;
+}
+
+.navbar-institucional ul {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.navbar-institucional li {
+    list-style: none;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.navbar-institucional a {
+    text-decoration: none;
+    color: #000;
+    transition: color 0.3s ease;
+}
+
+/* Hover and Active state for links */
+.navbar-institucional a:hover {
+    color: #fff; /* Color when hovering over a link */
+}
+
+.navbar-institucional a:active {
+    color: #fff; /* Color when clicking the link */
+}
+
+/* Active state for the current page */
+.navbar-institucional li.active a {
+    color: #fff; /* Active link color */
+    border-bottom: 2px solid #fff; /* Optional: Adds an underline to the active link */
+}

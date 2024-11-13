@@ -1,18 +1,41 @@
+import React from "react";
 import "../styles/AboutSection.css";
 
-export default function AboutSection({ container, mainText, subText }) {
+const AboutSection = ({ title, text, imageSrc, backgroundColor, fontColor }) => {
+  const sectionStyle = {
+    backgroundColor: backgroundColor || "#007cee", // Valor default se não for passado
+    color: fontColor || "#FFF", // Valor default se não for passado
+  };
+
+  // Função para verificar se o texto contém uma lista
+  const renderContent = (text) => {
+    return text.map((item, index) => {
+      if (Array.isArray(item)) {
+        // Se o item for um array (uma lista), renderiza como uma <ul>
+        return (
+          <ul key={index}>
+            {item.map((listItem, listIndex) => (
+              <li key={listIndex}>{listItem}</li>
+            ))}
+          </ul>
+        );
+      }
+      // Caso contrário, renderiza como um parágrafo
+      return <p key={index}>{item}</p>;
+    });
+  };
+
   return (
-    <section className={container}>
-      <h3 className={mainText}>
-        "Uma Instituição que tem todo o meu respeito e que sem dúvidas poderá
-        contar com o meu apoio, a fim de que outras crianças e adolescentes
-        possam também sentir-se acolhidas e motivadas. Desejo que o Senhor
-        continue abençoando todos aqueles que fazem parte do Lar São Domingos,
-        são seres iluminados, sem dúvidas!"
-      </h3>
-      <p className={subText}>
-        Depoimento de Francisca, que contribui todos os meses para o Lar.
-      </p>
+    <section className="about-section" style={sectionStyle}>
+      <div className="about-image">
+        <img src={imageSrc} alt={title} />
+      </div>
+      <div className="about-text">
+        <h2>{title}</h2>
+        {Array.isArray(text) ? renderContent(text) : <p>{text}</p>}
+      </div>
     </section>
   );
-}
+};
+
+export default AboutSection;

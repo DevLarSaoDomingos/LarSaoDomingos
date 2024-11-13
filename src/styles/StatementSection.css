@@ -1,0 +1,54 @@
+.statement-container {
+  padding: 40px; /* Padding para espaçamento adequado */
+  width: 100%; /* Largura total */
+  background-color: #0099ff; /* Cor de fundo azul */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* Centraliza o conteúdo horizontalmente */
+  gap: 20px; /* Espaçamento entre os itens */
+  color: white;
+  text-align: center;
+}
+
+.statement-text {
+  font-size: 2rem; /* Tamanho do texto principal */
+  font-weight: bold; /* Texto em negrito */
+  max-width: 900px; /* Largura máxima do texto para não esticar muito */
+  margin: 0 20px; /* Margem lateral para evitar que fique colado nas bordas */
+}
+
+.statement-sub-text {
+  font-size: 1.2rem; /* Tamanho do texto secundário */
+  max-width: 800px; /* Largura máxima do texto para manter a legibilidade */
+  margin: 0 20px; /* Margem lateral */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .statement-container {
+    padding: 30px; /* Ajusta o padding em telas menores */
+  }
+
+  .statement-text {
+    font-size: 1.6rem; /* Ajusta o tamanho do texto principal em telas menores */
+  }
+
+  .statement-sub-text {
+    font-size: 1rem; /* Ajusta o tamanho do texto secundário em telas menores */
+  }
+}
+
+@media (max-width: 480px) {
+  .statement-container {
+    padding: 20px; /* Ajusta o padding para telas muito pequenas */
+  }
+
+  .statement-text {
+    font-size: 1.4rem; /* Tamanho ainda menor para dispositivos móveis */
+  }
+
+  .statement-sub-text {
+    font-size: 0.9rem; /* Tamanho ainda menor para dispositivos móveis */
+  }
+}

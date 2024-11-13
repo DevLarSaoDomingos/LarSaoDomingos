@@ -1,12 +1,10 @@
 // HomePage.jsx
 import React from "react";
-import NavBar from "../components/NavBar";
 import MainSlider from "../components/MainSlider";
 import InfoSection from "../components/InfoSection";
-import AboutSection from "../components/AboutSection";
+import StatementSection from "../components/StatementSection";
 import DoacaoPopUp from "../components/DoacaoPopUp";
 import NewsSection from "../components/NewsSection";
-import Footer from "../components/Footer";
 
 const slidesData = [
   {
@@ -29,7 +27,7 @@ const slidesData = [
 
 const HomePage = () => {
   return (
-    <div>
+    <div className="HomePage">
       <DoacaoPopUp
         overlay={"popup-overlay"}
         gridPosition={"popup-grid-position"}
@@ -38,7 +36,6 @@ const HomePage = () => {
         text={"popup-text"}
         doeButton={"doe-button"}
       />
-      <NavBar navbar={"navbar"} menu={"navbar-menu"} logo={"navbar-logo"} />
       <MainSlider
         container={"slider-container"}
         sliderItem={"slider-item"}
@@ -56,13 +53,12 @@ const HomePage = () => {
         colorThree={"orange"}
         colorFour={"green"}
       />
-      <AboutSection
-        container={"about-container"}
-        mainText={"about-text"}
-        subText={"about-sub-text"}
+      <StatementSection
+        container={"statement-container"}
+        mainText={"statement-text"}
+        subText={"statement-sub-text"}
       />
       <NewsSection />
-      <Footer />
     </div>
   );
 };
