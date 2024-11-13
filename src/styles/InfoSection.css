@@ -76,8 +76,10 @@
     gap: 15px; /* Ajusta o espaço entre as caixas */
   }
 
+
+
   .info-box {
-    width: 45%; /* Cada caixa ocupa até 45% da largura em telas menores */
+    width: 100%; /* Cada caixa ocupa até 45% da largura em telas menores */
     max-width: 320px; /* Define uma largura máxima para as caixas */
   }
 
