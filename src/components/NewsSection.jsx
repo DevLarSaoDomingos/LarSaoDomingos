@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useQuery, gql } from "@apollo/client";
 import { useNavigate } from "react-router-dom";
 import "../styles/NewsSection.css";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 // Consulta GraphQL para obter os posts com paginação e contagem total de posts
 const GET_POSTS = gql`
@@ -113,7 +115,38 @@ export default function NewsSection({ isNewsPage = false }) {
     return content.length > 180 ? content.slice(0, 180) + "..." : content;
   };
 
-  if (loading && !data) return <p>Loading...</p>;
+  if (loading && !data)
+    return (
+      <section className="news-section">
+        <div className="news-grid">
+          {[...Array(3)].map((_, index) => (
+            <div
+              key={index}
+              className={`news-item ${index === 0 ? "large" : ""}`}
+              style={{ width: "100%", height: "100%" }}
+            >
+              <Skeleton
+                height="100%"
+                width="100%"
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                }}
+              />
+              <div
+                className="post-content news-item-title"
+                style={{ width: "100%" }}
+              >
+                <Skeleton count={3} width="100%" />
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    );
   if (error) return <p>Error: {error.message}</p>;
 
   return (
@@ -156,10 +189,20 @@ export default function NewsSection({ isNewsPage = false }) {
                 onClick={() => navigate(`/noticia/${post.slug}`)}
                 key={post.id}
                 className={`news-item ${index === 0 ? "large" : ""}`}
-                style={{
-                  backgroundImage: `url(${absoluteUrl})`,
-                }}
               >
+                <div
+                  className="background-zoom"
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    background: `linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%), url(${absoluteUrl}) no-repeat top center`,
+                    backgroundSize: "cover",
+                    transition: "transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+                  }}
+                />
                 <div
                   className="post-content news-item-title"
                   dangerouslySetInnerHTML={{ __html: truncatedContent }}
@@ -198,7 +241,13 @@ export default function NewsSection({ isNewsPage = false }) {
       {!isNewsPage && hasMore && (
         <div className="separator-container">
           <div />
-          <button className="see-more-button" onClick={() => navigate("/noticias")}>
+          <button
+            className="see-more-button"
+            onClick={() => {
+              window.scrollTo({ top: 0, behavior: "smooth" });
+              navigate("/noticias");
+            }}
+          >
             Veja Mais
           </button>
           <div />

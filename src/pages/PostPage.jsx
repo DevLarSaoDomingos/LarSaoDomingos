@@ -2,6 +2,8 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { useQuery, gql } from "@apollo/client";
 import MainSlider from "../components/MainSlider";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 import "../styles/PostPage.css";
 
@@ -28,24 +30,41 @@ function PostPage() {
     variables: { slug },
   });
 
-  if (loading) return <p>Carregando...</p>;
+  if (loading)
+    return (
+      <div
+        style={{
+          marginInline: "auto",
+          width: "80%",
+          backgroundColor: "#f7f7f7",
+        }}
+      >
+        <Skeleton height="90vh" width="100%" />
+        <h1>
+          <Skeleton width={300} />
+        </h1>
+        <div style={{ maxWidth: "80%", margin: "0 auto" }}>
+          <Skeleton count={10} />
+        </div>
+      </div>
+    );
   if (error) return <p>Erro: {error.message}</p>;
 
   const post = data?.postBy;
 
   // Função para extrair todas as imagens do conteúdo HTML
   const extractImagesFromContent = (htmlContent) => {
-    const div = document.createElement('div');
+    const div = document.createElement("div");
     div.innerHTML = htmlContent;
 
     // Pegar todas as tags <img> do conteúdo
-    const images = div.querySelectorAll('img');
+    const images = div.querySelectorAll("img");
     const imageUrls = [];
 
     images.forEach((img) => {
       if (img.src) {
-        imageUrls.push(img.src);  // Armazenar os URLs das imagens
-        img.remove();  // Remover as imagens do conteúdo (não vai aparecer no corpo)
+        imageUrls.push(img.src); // Armazenar os URLs das imagens
+        img.remove(); // Remover as imagens do conteúdo (não vai aparecer no corpo)
       }
     });
 
@@ -57,7 +76,9 @@ function PostPage() {
   };
 
   // Filtrando as imagens do conteúdo
-  const { contentWithoutImages, imageUrls } = post ? extractImagesFromContent(post.content) : { contentWithoutImages: '', imageUrls: [] };
+  const { contentWithoutImages, imageUrls } = post
+    ? extractImagesFromContent(post.content)
+    : { contentWithoutImages: "", imageUrls: [] };
 
   // Combina as imagens da featuredImage com as imagens extraídas do conteúdo
   const slidesData = [];
@@ -71,7 +92,7 @@ function PostPage() {
   }
 
   // Adiciona as imagens extraídas do conteúdo
-  slidesData.push(...imageUrls.map(url => ({ img: url })));
+  slidesData.push(...imageUrls.map((url) => ({ img: url })));
 
   return (
     <div className="post-page-container">
@@ -95,7 +116,7 @@ function PostPage() {
           {/* Conteúdo do post (sem as imagens) */}
           <div className="post-page-content">
             <h1 className="post-title">{post.title}</h1>
-            
+
             <div
               className="post-content"
               dangerouslySetInnerHTML={{ __html: contentWithoutImages }}

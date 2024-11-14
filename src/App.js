@@ -9,6 +9,8 @@ import Footer from "./components/Footer";
 import NavBar from "./components/NavBar";
 import HugPage from "./pages/HugPage";
 import InstitucionalPage from "./pages/InstitucionalPage";
+import DonationPage from "./pages/DonationPage";
+import AuditoriumList from "./pages/AuditoriumList";
 // import { ApolloProvider } from "@apollo/client"; // Ensure this wrapper handles routing
 
 function App() {
@@ -29,7 +31,9 @@ function App() {
           {/* Rota para a página de abraço */}
           <Route path="/institucional/*" element={<InstitucionalPage />} />{" "}
           {/* Rota para a página institucional */}
-
+          <Route path="/doacoes" element={<DonationPage />} />{" "}
+          {/* Rota para a página de doação */}
+          <Route path="/auditorios" element={<AuditoriumList />} />{" "}
         </Routes>
       </header>
       <Footer />

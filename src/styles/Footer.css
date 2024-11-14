@@ -25,6 +25,12 @@
   color: #130080;
 }
 
+.footer-section a img {
+  width: 20px;
+  height: auto;
+  margin-right: 10px;
+}
+
 /* Imagens do footer organizadas com espaço */
 .footer-images {
   display: flex;
@@ -49,28 +55,28 @@
   font-size: 0.8rem;
   background-color: #0077cc;
   color: #fff;
-}	
+}
 
 /* Ajustes para telas menores */
-@media (max-width: 768px) {
+@media (max-width: 1050px) {
   .footer-container {
-      flex-direction: column; /* Footer em coluna */
-      align-items: center;
-      text-align: center; /* Centralizar texto */
-      gap: 20px;
+    flex-direction: column; /* Footer em coluna */
+    align-items: center;
+    text-align: center; /* Centralizar texto */
+    gap: 20px;
   }
 
   /* Centralizar cada seção do footer */
   .footer-section {
-      align-items: center;
+    align-items: center;
   }
 
   /* Ajustar largura das imagens para caber melhor em telas pequenas */
   .footer-images img {
-      width: 150px; /* Reduzir para melhor adaptação em telas menores */
+    width: 150px; /* Reduzir para melhor adaptação em telas menores */
   }
 
   #brasao-lsd {
-      width: 150px; /* Reduzir o tamanho do brasão para manter o design responsivo */
+    width: 150px; /* Reduzir o tamanho do brasão para manter o design responsivo */
   }
 }

@@ -5,7 +5,7 @@
   align-items: center;
   background-color: white;
   padding: 0px 20px;
-  height: 60px; 
+  height: 60px;
   max-width: 1200px;
   margin-inline: auto;
 }
@@ -27,7 +27,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 15px; 
+  padding: 0 15px;
   height: 100%;
 }
 
@@ -46,28 +46,34 @@
 }
 
 /* Cores de hover e active */
-.nav-inicio:hover, .nav-inicio.active {
-  background-color: #00aaff; 
+.nav-inicio:hover,
+.nav-inicio.active {
+  background-color: #00aaff;
   color: white;
 }
-.nav-institucional:hover, .nav-institucional.active {
-  background-color: orange; 
+.nav-institucional:hover,
+.nav-institucional.active {
+  background-color: orange;
   color: white;
 }
-.nav-atividades:hover, .nav-atividades.active {
-  background-color: darkblue; 
+.nav-atividades:hover,
+.nav-atividades.active {
+  background-color: darkblue;
   color: white;
 }
-.nav-abrace:hover, .nav-abrace.active {
-  background-color: red; 
+.nav-abrace:hover,
+.nav-abrace.active {
+  background-color: red;
   color: white;
 }
-.nav-doacoes:hover, .nav-doacoes.active {
-  background-color: green; 
+.nav-doacoes:hover,
+.nav-doacoes.active {
+  background-color: green;
   color: white;
 }
-.nav-auditorios:hover, .nav-auditorios.active {
-  background-color: yellow; 
+.nav-auditorios:hover,
+.nav-auditorios.active {
+  background-color: yellow;
   color: black; /* Para manter o contraste */
 }
 
@@ -80,8 +86,7 @@
   cursor: pointer;
 }
 
-@media (max-width: 768px) {
-
+@media (max-width: 1050px) {
   .navbar {
     display: flex;
     align-items: center;
@@ -95,7 +100,8 @@
     align-content: center;
     justify-content: space-between;
     /* gap: 202px; */
-    width: 100%;}
+    width: 100%;
+  }
 
   .navbar-menu {
     display: none; /* Esconde o menu padrão em telas pequenas */

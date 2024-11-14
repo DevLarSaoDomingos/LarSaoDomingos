@@ -21,7 +21,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  color: white; /* Texto branco */
+  color: white;
   cursor: pointer;
 }
 
@@ -64,7 +64,7 @@
   margin: 0; /* Para evitar espaçamento extra */
 }
 
-.info-section a{
+.info-section a {
   text-decoration: none;
   color: #000;
 }
@@ -75,8 +75,6 @@
     padding: 20px; /* Reduz o padding em telas menores */
     gap: 15px; /* Ajusta o espaço entre as caixas */
   }
-
-
 
   .info-box {
     width: 100%; /* Cada caixa ocupa até 45% da largura em telas menores */

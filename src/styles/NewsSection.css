@@ -73,6 +73,12 @@
   background-size: cover;
   background-position: top center;
   background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+}
+
+.news-item:hover .background-zoom {
+  transform: scale(1.06);
 }
 
 /* Ajuste para o item grande */
@@ -141,7 +147,7 @@
 .see-more-button {
   padding: 20px 40px;
   font-size: 1rem;
-  background-color: #007bff;
+  background-color: #0099ff;
   color: white;
   border: none;
   width: 20rem;

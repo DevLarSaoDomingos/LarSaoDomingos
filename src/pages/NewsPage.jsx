@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useQuery, gql } from "@apollo/client";
 import { useNavigate } from "react-router-dom";
 import "../styles/NewsPage.css";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 // Consulta GraphQL para pegar posts com paginação
 const GET_POSTS = gql`
   query GetPosts($first: Int!, $after: String) {
@@ -37,9 +39,9 @@ const NewsPage = () => {
 
   // Função para limpar HTML indesejado
   const cleanHTMLContent = (content) => {
-    const doc = new DOMParser().parseFromString(content, 'text/html');
+    const doc = new DOMParser().parseFromString(content, "text/html");
     let text = doc.body.textContent || "";
-    text = text.replace(/&hellip;/g, '…');
+    text = text.replace(/&hellip;/g, "…");
     return text;
   };
 
@@ -53,7 +55,39 @@ const NewsPage = () => {
     navigate(`/noticia/${slug}`);
   };
 
-  if (loading) return <p>Loading...</p>;
+  // Adicione esta função para renderizar o skeleton loader
+  const renderSkeletonLoader = () => {
+    return (
+      <div className="news-page">
+        <h1>Portal de Notícias</h1>
+
+        <div className="news-list">
+          {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((item) => (
+            <div key={item} className="post-item">
+              <Skeleton
+                className="post-image"
+                variant="rectangular"
+                width="100%"
+                height={400}
+              />
+              <h2>
+                <Skeleton variant="text" width="80%" />
+              </h2>
+              <p>
+                <Skeleton variant="text" width="100%" count={3} />
+                <Skeleton variant="text" width="100%" count={3} />
+                <Skeleton variant="text" width="100%" count={3} />
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  };
+
+  // Modifique a condição de loading
+  if (loading) return renderSkeletonLoader();
+
   if (error) return <p>Error: {error.message}</p>;
 
   const posts = data.posts.nodes;
@@ -114,10 +148,23 @@ const NewsPage = () => {
       {/* Paginação */}
       <div className="pagination">
         {pageInfo.hasPreviousPage && (
-          <button onClick={() => handlePageChange("previous")}>Anterior</button>
+          <button
+            onClick={() => {
+              handlePageChange("previous");
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
+          >
+            Anterior
+          </button>
         )}
         {pageInfo.hasNextPage && (
-          <button onClick={() => handlePageChange("next")}>Próxima
+          <button
+            onClick={() => {
+              handlePageChange("next");
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
+          >
+            Próxima
           </button>
         )}
       </div>

@@ -1,0 +1,103 @@
+/* Estilos básicos para a página de doações */
+.donation-page {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  background-color: #ffffff;
+  color: #333;
+  padding: 2rem;
+}
+
+.donation-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.instructions h1,
+.donation-info h1 {
+  font-size: 3rem;
+  color: #0099ff;
+  margin-bottom: 1rem;
+}
+
+.instructions p,
+.donation-info p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.qr-code img {
+  width: 300px;
+  height: 300px;
+  margin: 1rem 0;
+}
+
+.bank-details p {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
+
+/* Responsividade para diferentes dispositivos */
+@media (max-width: 1200px) {
+  .donation-page {
+    grid-template-columns: 1fr;
+  }
+
+  .donation-info {
+    order: -1;
+  }
+
+  .instructions h1,
+  .donation-info h1 {
+    font-size: 2.5rem;
+  }
+
+  .qr-code img {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .donation-page {
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .donation-section {
+    padding: 1rem;
+  }
+
+  .instructions h1,
+  .donation-info h1 {
+    font-size: 2rem;
+  }
+
+  .instructions p,
+  .donation-info p,
+  .bank-details p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 570px) {
+  .qr-code img {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media (max-width: 320px) {
+  .instructions h1,
+  .donation-info h1 {
+    font-size: 1.5rem;
+  }
+
+  .qr-code img {
+    width: 180px;
+    height: 180px;
+  }
+}

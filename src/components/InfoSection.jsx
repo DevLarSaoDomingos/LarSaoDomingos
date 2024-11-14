@@ -18,10 +18,7 @@ const InfoSection = ({
         <div className={`${item} + ${colorOne}`}>
           <FaDonate className="info-icon" />
           <h3>Faça uma Doação</h3>
-          <p>
-            Sua contribuição irá ajudar a manter o Lar São Domingos por mais 100
-            anos!
-          </p>
+          <p>Ajude-nos a manter nosso Lar</p>
         </div>
       </Link>
 
