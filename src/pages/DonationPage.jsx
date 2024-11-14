@@ -81,19 +81,31 @@ const DonationPage = () => {
           Seu navegador não suporta a tag de vídeo.
         </video>
         <div className="listagem-tutorial">
-        <ul>
-          <li>Acesse o site da Nota Fiscal Cidadã.</li>
-          <li>Faça login com seu CPF e senha.</li>
-          <li>Escolha a opção para vincular uma instituição.</li>
-          <li>Selecione nossa instituição de caridade LAR SÃO DOMINGOS na lista.</li>
-          <li>Cliquem em salvar e pronto! Sua doação será direcionada automaticamente.</li>
-        </ul>
-        </div>
+          <ul>
+            <li>Acesse o site da Nota Fiscal Cidadã.</li>
+            <li>Faça login com seu CPF e senha.</li>
+            <li>Escolha a opção para vincular uma instituição.</li>
+            <li>
+              Selecione nossa instituição de caridade LAR SÃO DOMINGOS na lista.
+            </li>
+            <li>
+              Cliquem em salvar e pronto! Sua doação será direcionada
+              automaticamente.
+            </li>
+          </ul>
+        <a
+          href="https://nfa.sefaz.al.gov.br/nfa/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="cta-button"
+        >
+          Cadastrar Nota Fiscal Cidadã
+        </a>
+      </div>
         <p id="agradecimento">
-          {" "}
           O Lar São Domingos agradece toda forma de apoio!
         </p>
-      </div>
+        </div>
     </div>
   );
 };
