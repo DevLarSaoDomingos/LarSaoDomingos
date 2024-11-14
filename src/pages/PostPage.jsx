@@ -13,6 +13,7 @@ const GET_POST_BY_SLUG = gql`
     postBy(slug: $slug) {
       title
       content
+      date
       featuredImage {
         node {
           sourceUrl
@@ -52,41 +53,69 @@ function PostPage() {
 
   const post = data?.postBy;
 
-  // Função para extrair todas as imagens do conteúdo HTML
-  const extractImagesFromContent = (htmlContent) => {
+  // Função para extrair todas as imagens e vídeos do conteúdo HTML
+  const extractMediaFromContent = (htmlContent) => {
     const div = document.createElement("div");
     div.innerHTML = htmlContent;
 
-    // Pegar todas as tags <img> do conteúdo
+    // Pegar todas as tags <img> e <video> do conteúdo
     const images = div.querySelectorAll("img");
+    const videos = div.querySelectorAll("video");
     const imageUrls = [];
+    const videoUrls = [];
 
     images.forEach((img) => {
       if (img.src) {
-        imageUrls.push(img.src); // Armazenar os URLs das imagens
+        // Substituir imagens pequenas por maiores
+        const normalizedUrl = normalizeImageUrl(img.src);
+        imageUrls.push(normalizedUrl); // Armazenar as URLs das imagens
         img.remove(); // Remover as imagens do conteúdo (não vai aparecer no corpo)
       }
     });
 
-    // Retornar o HTML sem as imagens
+    videos.forEach((video) => {
+      if (video.src) {
+        videoUrls.push(video.src); // Armazenar os URLs dos vídeos
+        video.remove(); // Remover os vídeos do conteúdo (não vai aparecer no corpo)
+      }
+    });
+
+    // Retornar o HTML sem as imagens e vídeos
     return {
-      contentWithoutImages: div.innerHTML,
+      contentWithoutMedia: div.innerHTML,
       imageUrls,
+      videoUrls,
     };
   };
 
-  // Filtrando as imagens do conteúdo
-  const { contentWithoutImages, imageUrls } = post
-    ? extractImagesFromContent(post.content)
-    : { contentWithoutImages: "", imageUrls: [] };
+  // Função para normalizar URLs (remoção de parâmetros ou tamanhos diferentes)
+  const normalizeImageUrl = (url) => {
+    // Aqui, removemos os parâmetros de query (como largura) da URL da imagem
+    return url.replace(/-\d+x\d+\./, '.'); // Remove o sufixo de tamanho (ex: -150x150)
+  };
+
+  // Filtrando as imagens e vídeos do conteúdo
+  const { contentWithoutMedia, imageUrls, videoUrls } = post
+    ? extractMediaFromContent(post.content)
+    : { contentWithoutMedia: "", imageUrls: [], videoUrls: [] };
 
   // Combina as imagens da featuredImage com as imagens extraídas do conteúdo
   const slidesData = [];
 
-  // Adiciona a imagem destacada apenas se ela não estiver nas imagens extraídas
+  // Verificar se há imagens no conteúdo
+  const hasSingleImageInContent = imageUrls.length === 1;
+
+  // Adiciona a imagem destacada apenas se ela não estiver nas imagens extraídas ou se não houver uma única imagem no conteúdo
   if (post.featuredImage) {
-    const featuredImageUrl = post.featuredImage.node.sourceUrl;
-    if (!imageUrls.includes(featuredImageUrl)) {
+    const featuredImageUrl = normalizeImageUrl(
+      post.featuredImage.node.sourceUrl
+    );
+
+    // Verificar se a imagem destacada já foi adicionada ou se é a mesma da única imagem no conteúdo
+    if (
+      !hasSingleImageInContent ||
+      !imageUrls.some((url) => normalizeImageUrl(url) === featuredImageUrl)
+    ) {
       slidesData.push({ img: featuredImageUrl });
     }
   }
@@ -98,29 +127,56 @@ function PostPage() {
     <div className="post-page-container">
       {post && (
         <>
-          {/* Exibição de imagem em destaque */}
-          {slidesData.length > 0 && (
+          <div className="slider">
+            {/* Container da Imagem Destacada */}
             <div className="featured-image-container">
-              <MainSlider
-                container={"slider-container"}
-                sliderItem={"slider-item"}
-                sliderImage={"slider-image"}
-                text={"slider-text"}
-                arrowSize={60}
-                imagesAbove={true}
-                slidesData={slidesData}
-              />
+              {slidesData.length > 0 && (
+                <MainSlider
+                  container={"slider-container"}
+                  sliderItem={"slider-item"}
+                  sliderImage={"slider-image"}
+                  text={"slider-text"}
+                  arrowSize={60}
+                  imagesAbove={true}
+                  slidesData={slidesData}
+                />
+              )}
             </div>
-          )}
+          </div>
+          <div className="post">
+            {/* Container do Post */}
 
-          {/* Conteúdo do post (sem as imagens) */}
-          <div className="post-page-content">
-            <h1 className="post-title">{post.title}</h1>
+              {/* Conteúdo do Post */}
+              <div className="post-body-container">
+            <div className="post-content-container">
+              {/* Título do Post */}
+              <div className="post-title-container">
+                <h1 className="post-title">{post.title}</h1>
+              </div>
 
-            <div
-              className="post-content"
-              dangerouslySetInnerHTML={{ __html: contentWithoutImages }}
-            />
+              {/* Data de publicação */}
+              <div className="post-date-container">
+                <p className="post-date">
+                  Postado em: {new Date(post.date).toLocaleDateString()}
+                </p>
+              </div>
+                <div
+                  className="post-content"
+                  dangerouslySetInnerHTML={{ __html: contentWithoutMedia }}
+                />
+              </div>
+
+              {/* Vídeos do Post */}
+              {videoUrls.length > 0 && (
+                <div className="post-videos-container">
+                  {videoUrls.map((url, index) => (
+                    <div key={index} className="post-video">
+                      <video controls src={url} />
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
         </>
       )}

@@ -1,15 +1,46 @@
+/* Definindo variáveis para cores, fontes e tamanhos */
+:root {
+  --primary-color: #232323;
+  --secondary-color: #333;
+  --background-color: #f7f7f7;
+  --white-color: #fff;
+  --highlight-color: #0073e6; /* Cor para links e destaque */
+  --box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  --font-family: "Arial", sans-serif;
+  --base-font-size: 1rem;
+  --heading-font-size: 2.5rem;
+  --small-heading-font-size: 2rem;
+  --button-font-size: 1rem;
+  --max-width: 1200px;
+}
+
 /* Container geral da página */
 .post-page-container {
   width: 100%;
   margin-inline: auto;
   overflow-x: hidden;
-  background-color: #f7f7f7;
+  background-color: var(--background-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2rem 0;
+}
+
+/* Container do post */
+.post-content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: var(--max-width);
+  margin: 0 auto;
 }
 
 /* Imagem de destaque */
-.featured-image {
+.featured-image-container {
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
 }
 
 .featured-image-img {
@@ -17,84 +48,184 @@
   height: auto;
   object-fit: cover;
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--box-shadow);
+}
+
+/* Slider (MainSlider) */
+.slider {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
 }
 
 /* Conteúdo do Post */
-.post-page-content {
+.post {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: var(--max-width);
+  margin-top: 8rem;
+  padding: 0 2rem;
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  background-color: #fff;
-  padding: 2rem;
-  margin-top: 150px;
-  margin-bottom: 40px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
 }
 
 /* Título do post */
-.post-page-content h1 {
-  font-size: 2.5rem;
-  color: #232323;
+.post-title-container {
+  text-align: center;
   margin-bottom: 1.5rem;
+}
+
+.post-title {
+  font-size: var(--heading-font-size);
+  color: var(--primary-color);
   font-weight: 700;
+  text-align: center;
+  font-family: var(--font-family);
+}
+
+/* Data de publicação */
+.post-date-container {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.post-date {
+  font-size: 1rem;
+  color: var(--secondary-color);
+}
+
+/* Corpo do Post */
+.post-body-container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  background-color: var(--white-color);
+  padding: 2rem;
+  box-shadow: var(--box-shadow);
+  border-radius: 8px;
+}
+
+.post-content {
+  font-size: 1.1rem;
+  color: var(--secondary-color);
+  line-height: 1.8;
+  text-align: justify;
+  font-family: var(--font-family);
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+/* Vídeos do Post */
+.wp-video {
+  width: 100%;
+  max-width: 100%; /* Garantir que o vídeo ocupe toda a largura disponível */
+  margin: 2rem auto;
   text-align: center;
 }
 
-/* Parágrafos do post */
-.post-page-content p {
-  font-size: 1.1rem;
-  color: #333;
+.wp-video .wp-video-shortcode {
+  width: 100%;
+  max-width: 100%; /* Garantir que o vídeo se ajuste corretamente */
   margin-bottom: 1.5rem;
-  line-height: 1.8;
-  text-align: justify;
+  height: auto; /* Ajustar a altura do vídeo de forma responsiva */
+}
+
+/* Links e botões */
+a {
+  color: var(--highlight-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 /* Responsividade */
 @media (max-width: 1024px) {
-  /* Imagem em telas médias (tablets) */
   .featured-image-img {
-    height: 350px; /* Ajusta para uma altura média */
+    height: 350px; /* Ajusta a altura da imagem */
     object-fit: cover;
+  }
+
+  .post-title {
+    font-size: 2.2rem;
+  }
+
+  .post-content {
+    font-size: 1rem;
+  }
+
+  .post-body-container {
+    padding: 1.5rem; /* Reduz o padding para melhorar o layout */
   }
 }
 
 @media (max-width: 768px) {
-  .post-page-content h1 {
-    font-size: 2rem;
+  .post-title {
+    font-size: var(--small-heading-font-size);
     text-align: left;
   }
 
-  .post-page-content p {
+  .post-content {
     font-size: 1rem;
+    line-height: 1.6; /* Melhorar a legibilidade */
   }
 
   .featured-image-img {
-    height: 250px; /* Ajusta a imagem para tamanhos menores */
+    height: 250px; /* Ajuste a imagem para tamanhos menores */
     object-fit: cover;
   }
 
-  .post-page-content {
+  .post-body-container {
     padding: 1rem;
+  }
+
+  .wp-video {
+    margin: 1rem auto; /* Ajustar o espaçamento dos vídeos */
   }
 }
 
 @media (max-width: 480px) {
-  .post-page-content h1 {
+  .post-title {
     font-size: 1.7rem;
+    text-align: left; /* Ajustar alinhamento do título */
   }
 
-  .post-page-content p {
+  .post-content {
     font-size: 0.95rem;
+    line-height: 1.5; /* Ajuste o espaçamento de linhas para melhorar a leitura */
   }
 
   .featured-image-img {
-    height: 200px; /* Diminuir ainda mais a altura da imagem em dispositivos pequenos */
+    height: 200px; /* Diminuir ainda mais a altura da imagem */
     object-fit: cover;
   }
 
-  .post-page-content {
+  .post-body-container {
     padding: 0.5rem;
   }
+
+  .post {
+    margin-top: 4rem; /* Ajustar o espaçamento superior */
+  }
+
+  .wp-video {
+    margin: 1rem 0; /* Ajuste o espaço ao redor do vídeo */
+    width: 100%; /* Garantir que o vídeo ocupe toda a largura disponível */
+    max-width: 100%; /* Limita a largura do vídeo */
+  }
+}
+
+/* Estilo para o conteúdo de mídia */
+.post-video {
+  margin-bottom: 1.5rem;
+  max-width: 100%;
+}
+
+.post-video video {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: var(--box-shadow);
 }

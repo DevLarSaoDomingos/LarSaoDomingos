@@ -5,7 +5,7 @@
   padding: 20px;
 }
 
-h1 {
+.news-page h1 {
   font-size: 2.5rem;
   color: #333;
   text-align: center;
@@ -97,7 +97,7 @@ h1 {
     padding: 15px; /* Reduz padding em telas menores */
   }
 
-  h1 {
+  .news-page h1 {
     font-size: 2rem; /* Diminui o tamanho do título */
   }
 
@@ -140,7 +140,7 @@ h1 {
     padding: 10px; /* Reduz ainda mais o padding */
   }
 
-  h1 {
+  .news-page h1 {
     font-size: 1.8rem; /* Diminui mais o título em telas menores */
     margin-bottom: 20px; /* Diminui o espaço abaixo do título */
   }
@@ -169,7 +169,7 @@ h1 {
     padding: 10px; /* Padding reduzido ainda mais em dispositivos muito pequenos */
   }
 
-  h1 {
+  .news-page h1 {
     font-size: 1.6rem; /* Título bem menor em telas pequenas */
     margin-bottom: 15px; /* Diminui o espaço abaixo do título */
   }

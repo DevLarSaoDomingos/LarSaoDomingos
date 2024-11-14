@@ -1,9 +1,10 @@
-/* MainSlider.css */
+/* Responsividade e Estilos Gerais */
 .slider-container {
   width: 100%;
   position: relative;
 }
 
+/* Estilos das Setas */
 .custom-arrow {
   position: absolute;
   top: 50%;
@@ -14,177 +15,187 @@
   align-items: center;
   cursor: pointer;
   color: #fff;
-  font-size: 2rem; /* Tamanho padrão das setas */
+  font-size: 2rem;
+  border-radius: 50%;
+  padding: 10px;
 }
 
 .next-arrow {
-  right: 20px; /* Ajuste do espaçamento */
+  right: 15px;
 }
 
 .prev-arrow {
-  left: 20px; /* Ajuste do espaçamento */
+  left: 15px;
 }
 
+/* Estilo dos Itens do Slider */
 .slider-item {
   position: relative;
 }
 
 .slider-image {
   width: 100%;
-  height: 90vh; /* Tamanho adaptável */
-  min-height: 300px; /* Garante que a altura mínima não seja muito pequena */
+  height: 90vh;
+  min-height: 300px;
   object-position: center top;
   object-fit: cover;
 }
 
+/* Sobreposição de Texto */
 .slider-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Preto com 50% de opacidade */
-  z-index: 1; /* Fica abaixo do texto */
-}
-
-.slider-text {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-  text-align: center; /* Centraliza o texto */
-  padding: 0 20px; /* Adiciona padding para melhor leitura */
-  z-index: 2; /* Fica acima da sobreposição */
+  text-align: center;
+  padding: 0 20px;
+  z-index: 2;
+  font-family: Arial, sans-serif;
 }
 
-.slider-text h2 {
-  font-size: 4rem; /* Tamanho ajustado para telas menores */
+.slider-overlay h2 {
+  font-size: 4rem;
   margin-bottom: 10px;
   font-weight: bold;
 }
 
-.slider-text p {
-  font-size: 1.5rem; /* Tamanho ajustado para telas menores */
+.slider-overlay p {
+  font-size: 1.5rem;
 }
 
 /* Responsividade */
 @media (max-width: 1024px) {
   .slider-image {
-    height: 60vh; /* Reduz a altura do slider para tablets */
+    height: 60vh;
   }
 
-  .slider-text h2 {
-    font-size: 3.5rem; /* Ajusta o título em telas médias */
+  .slider-overlay h2 {
+    font-size: 3.5rem;
   }
 
-  .slider-text p {
-    font-size: 1.3rem; /* Ajusta o subtítulo */
+  .slider-overlay p {
+    font-size: 1.3rem;
   }
 
   .custom-arrow {
-    font-size: 1.8rem; /* Ajusta o tamanho das setas para telas médias */
-  }
-
-  .next-arrow {
-    right: 15px; /* Ajuste do espaçamento */
-  }
-
-  .prev-arrow {
-    left: 15px; /* Ajuste do espaçamento */
+    font-size: 1.8rem;
   }
 }
 
 @media (max-width: 768px) {
   .slider-image {
-    height: 400px; /* Altura reduzida para telas menores */
+    height: 400px;
   }
 
-  .slider-text h2 {
-    font-size: 3rem; /* Reduz o tamanho do título */
+  .slider-overlay h2 {
+    font-size: 3rem;
   }
 
-  .slider-text p {
-    font-size: 1.2rem; /* Reduz o tamanho do subtítulo */
+  .slider-overlay p {
+    font-size: 1.2rem;
   }
 
   .custom-arrow {
-    font-size: 1.5rem; /* Ajusta o tamanho das setas */
-  }
-
-  .next-arrow {
-    right: 10px; /* Ajuste do espaçamento */
-  }
-
-  .prev-arrow {
-    left: 10px; /* Ajuste do espaçamento */
+    font-size: 1.5rem;
   }
 }
 
 @media (max-width: 480px) {
   .slider-image {
-    height: 300px; /* Altura ainda menor para dispositivos muito pequenos */
+    height: 300px; /* Ajusta a altura das imagens em telas pequenas */
   }
 
-  .slider-text h2 {
-    font-size: 2rem; /* Tamanho do título reduzido */
+  .slider-overlay h2 {
+    font-size: 2rem; /* Reduz o tamanho do título */
   }
 
-  .slider-text p {
-    font-size: 1rem; /* Tamanho do subtítulo reduzido */
-  }
-
-  .next-arrow {
-    right: 5px; /* Ajuste do espaçamento */
-  }
-
-  .prev-arrow {
-    left: 5px; /* Ajuste do espaçamento */
+  .slider-overlay p {
+    font-size: 1rem; /* Reduz o tamanho do texto */
   }
 }
 
-/* Estilos das miniaturas */
-.slick-thumb {
+/* Estilos das Miniaturas (Thumbnails) */
+.slick-thumb-container {
   position: absolute;
-  bottom: -100px; /* Ajusta a posição das miniaturas */
+  bottom: -120px;
   left: 50%;
   transform: translateX(-50%);
-  display: flex !important;
-  justify-content: center;
+  display: flex;
   width: 100%;
-  padding: 0;
-  gap: 90px; /* Reduz o espaço entre as miniaturas */
+  max-width: 80%;
+  overflow: hidden;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.slick-thumb {
+  display: flex;
+  gap: 10px; /* Espaçamento entre as miniaturas */
+  padding: 10px;
+  height: 100%;
+  overflow-x: hidden; /* Rolagem horizontal para as miniaturas */
+  overflow-y: hidden; /* Rolagem horizontal para as miniaturas */
 }
 
 .slick-thumb li {
-  width: 60px;
-  height: 60px;
-  margin: 0 5px;
+  flex: 0 0 auto; /* Impede que os itens encolham ou estiquem */
+  width: 80px;
+  height: 80px;
   list-style: none;
-}
-
-.slick-thumb li a {
-  display: block;
-  width: 100%;
-  height: 100%;
+  cursor: pointer;
+  transition: transform 0.3s ease; /* Transição suave para transformação */
 }
 
 .slick-thumb li img {
   width: 100%;
   height: 100%;
-  border: 2px solid transparent;
-  border-radius: 4px;
-  transition: border-color 0.3s ease;
-  object-fit: cover;
+  border-radius: 8px; /* Bordas arredondadas nas miniaturas */
+  border: 2px solid transparent; /* Borda invisível padrão */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Sombra suave nas miniaturas */
 }
 
 .slick-thumb li.slick-active img {
-  border-color: #007bff;
+  border-color: #007bff; /* Cor da borda quando a miniatura está ativa */
+  transform: scale(1.1); /* Aumenta a miniatura ativa para destacá-la */
 }
 
-.thumbnail-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.slick-thumb li:active {
+  transform: scale(1.1); /* Aumenta a miniatura clicada */
+}
+
+/* Botões para navegação horizontal nas Thumbnails */
+.thumbnail-nav-button {
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Fundo semi-transparente para botões */
+  color: white;
+  font-size: 1.5rem;
+  padding: 8px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%; /* Tornando os botões redondos */
+  cursor: pointer;
+  z-index: 10;
+}
+
+.thumbnail-nav-prev {
+  margin-right: 10px; /* Espaçamento à direita do botão anterior */
+}
+
+.thumbnail-nav-next {
+  margin-left: 10px; /* Espaçamento à esquerda do botão próximo */
+}
+
+.thumbnail-nav-button:hover {
+  background-color: rgba(0, 0, 0, 0.8); /* Efeito de hover para os botões */
 }

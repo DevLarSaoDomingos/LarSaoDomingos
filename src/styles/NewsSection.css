@@ -5,6 +5,7 @@
   margin: 0 auto;
   text-align: center;
   padding: 20px;
+  color: #FFFFFF;
 }
 
 /* Ajuste do image-slider para ser maior que os demais elementos */
@@ -85,6 +86,8 @@
 .news-item.large {
   height: 700px;
   grid-row: span 2;
+  color: #FFFFFF;
+
 }
 
 /* Sobreposição de cor escura no item de notícia */
@@ -106,17 +109,20 @@
 
 /* Títulos das notícias */
 .news-item-title {
-  color: white;
+  color: #FFFFFF;
   font-weight: bold;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .news-item.large .news-item-title {
   font-size: 1.5rem;
+  color:#FFFFFF;
 }
 
 .news-item:not(.large) .news-item-title {
   font-size: 1rem;
+  color:#FFFFFF;
+
 }
 
 /* Imagem do item de notícia */
@@ -141,6 +147,8 @@
   padding: 20px;
   text-align: left;
   position: relative;
+  color: #FFFFFF;
+
 }
 
 /* Botão "Ver mais" */

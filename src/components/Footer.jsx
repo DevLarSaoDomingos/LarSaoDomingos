@@ -30,19 +30,12 @@ const Footer = () => {
           </a>
         </div>
         <div className="footer-section">
-          <h3>Atividades</h3>
           <Link to="/atividades">Atividades</Link>
           <Link to="/auditorios">Auditórios</Link>
           <Link to="/doacoes">Doações</Link>
           <Link to="/institucional">Institucional</Link>
           <Link to="/noticias">Notícias</Link>
-        </div>
-        <div className="footer-section">
-          <h3>Abrace Este Lar</h3>
-          <Link to="/ginasio">Ginásio</Link>
-          <Link to="/livraria">Livraria</Link>
-          <Link to="/bazar">Bazar</Link>
-          <Link to="/voluntarie-se">Voluntarie-se</Link>
+          <Link to="/abrace-este-lar">Abrace este Lar</Link>
         </div>
         <div className="footer-section">
           <h3>Parceiros</h3>
