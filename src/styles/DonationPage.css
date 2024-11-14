@@ -117,6 +117,18 @@
   text-align: center;
 }
 
+.donation-section.instructions .listagem-tutorial{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+}
+
+.donation-section.instructions .listagem-tutorial ul{
+  list-style-type: numeric;
+  padding: 0;
+}
+
 /* Media Queries para dispositivos móveis */
 @media (max-width: 768px) {
   /* Alterando para layout mobile, mas sem afetar o desktop */

@@ -59,18 +59,20 @@ const DonationPage = () => {
             Você sabia que é possível ajudar o Lar São Domingos sem gastar nada?
           </p>
           <p>
-            Através do programa {" "}
-          <a
-            href="https://nfa.sefaz.al.gov.br/nfa/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Nota Fiscal Cidadã
-          </a>, você pode doar parte do
-            valor de suas compras para a instituição.
+            Através do programa{" "}
+            <a
+              href="https://nfa.sefaz.al.gov.br/nfa/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Nota Fiscal Cidadã
+            </a>
+            , você pode doar parte do valor de suas compras para a instituição.
           </p>
-          <p id="chamada-video">Assista o vídeo abaixo e descubra como pode nos apoiar!</p>
-          </div>
+          <p id="chamada-video">
+            Assista o vídeo abaixo e descubra como pode nos apoiar!
+          </p>
+        </div>
         <video id="nfcidada-tutorial" controls>
           <source
             src="/assets/videos/LarSaoDomingoNFCidada.mp4"
@@ -78,7 +80,19 @@ const DonationPage = () => {
           />
           Seu navegador não suporta a tag de vídeo.
         </video>
-        <p id="agradecimento"> O Lar São Domingos agradece toda forma de apoio!</p>
+        <div className="listagem-tutorial">
+        <ul>
+          <li>Acesse o site da Nota Fiscal Cidadã.</li>
+          <li>Faça login com seu CPF e senha.</li>
+          <li>Escolha a opção para vincular uma instituição.</li>
+          <li>Selecione nossa instituição de caridade LAR SÃO DOMINGOS na lista.</li>
+          <li>Cliquem em salvar e pronto! Sua doação será direcionada automaticamente.</li>
+        </ul>
+        </div>
+        <p id="agradecimento">
+          {" "}
+          O Lar São Domingos agradece toda forma de apoio!
+        </p>
       </div>
     </div>
   );
