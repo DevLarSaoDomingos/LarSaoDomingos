@@ -14,7 +14,7 @@ const InfoSection = ({
 }) => {
   return (
     <section className={container}>
-      <Link to="/doacao">
+      <Link to="/doacoes">
         <div className={`${item} + ${colorOne}`}>
           <FaDonate className="info-icon" />
           <h3>Faça uma Doação</h3>
