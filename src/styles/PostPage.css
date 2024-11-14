@@ -132,12 +132,12 @@
 }
 
 /* Links e botões */
-a {
+.post-page-container a {
   color: var(--highlight-color);
   text-decoration: none;
 }
 
-a:hover {
+.post-page-container a:hover {
   text-decoration: underline;
 }
 

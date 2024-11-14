@@ -2,102 +2,173 @@
 .donation-page {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  background-color: #ffffff;
+  gap: 1rem;
+  background-color: #f8f9fa;
   color: #333;
-  padding: 2rem;
+  padding: 3rem;
+  align-content: center;
+  justify-content: center;
+  align-items: stretch;
+  justify-items: center;
+  /* Nenhuma alteração no layout desktop */
 }
 
-.donation-section {
+.donation-section.donation-info {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.donation-section.donation-info .info-section-account {
+  display: flex;
+  flex-direction: column;
+  background-color: #f8f9fa;
+  border: #bbbbbb solid 0.5px;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Ajustes para garantir que o título fique bem posicionado em telas pequenas */
+.donation-section.donation-info h1 {
   text-align: center;
+  font-size: 1.5rem; /* Tamanho de fonte ajustado para telas menores */
+}
+
+/* Responsividade para o QR Code */
+.donation-section.donation-info #qr-code {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background-color: #fff;
+  border: none;
+  box-shadow: none;
+  flex-wrap: wrap; /* Garante que os itens se ajustem */
+}
+
+.donation-section.donation-info #qr-code img {
+  max-width: 100%;
+  width: 200px;
+  border-radius: 8px;
+}
+
+/* Link responsivo */
+.donation-section.donation-info a {
+  color: #000ba9;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem; /* Ajustar tamanho de fonte para telas menores */
+}
+
+.donation-section.donation-info a:hover {
+  font-size: 1.1rem;
+  transition: 0.3s;
+}
+
+/* Responsividade para a seção de instruções */
+.donation-section.instructions {
+  background-color: #008000;
+  border: 1px solid #ddd;
+  border-radius: 8px;
   padding: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  max-width: 100%;
+  color: white;
+  gap: 40px;
+  flex-wrap: nowrap;
+  align-content: center;
 }
 
-.instructions h1,
-.donation-info h1 {
-  font-size: 3rem;
-  color: #0099ff;
-  margin-bottom: 1rem;
+.donation-section.instructions video {
+  max-width: 100%;
+  border-radius: 8px;
 }
 
-.instructions p,
-.donation-info p {
+.donation-section.instructions a {
+  color: white;
+  text-decoration: none;
+}
+
+.donation-section.instructions a:hover {
+  font-size: 1.1rem;
+  transition: 0.3s;
+  font-weight: bold;
+}
+
+.donation-section.instructions #chamada-video {
   font-size: 1.2rem;
-  line-height: 1.6;
+  font-weight: bold;
+  text-align: center;
 }
 
-.qr-code img {
-  width: 300px;
-  height: 300px;
-  margin: 1rem 0;
-}
-
-.bank-details p {
+.donation-section.instructions #agradecimento {
   font-size: 1.2rem;
-  margin: 0.5rem 0;
+  text-align: center;
 }
 
-/* Responsividade para diferentes dispositivos */
-@media (max-width: 1200px) {
-  .donation-page {
-    grid-template-columns: 1fr;
-  }
-
-  .donation-info {
-    order: -1;
-  }
-
-  .instructions h1,
-  .donation-info h1 {
-    font-size: 2.5rem;
-  }
-
-  .qr-code img {
-    width: 250px;
-    height: 250px;
-  }
-}
-
+/* Media Queries para dispositivos móveis */
 @media (max-width: 768px) {
+  /* Alterando para layout mobile, mas sem afetar o desktop */
   .donation-page {
-    gap: 1rem;
-    padding: 1rem;
+    padding: 1.5rem; /* Menos padding em telas menores */
+    grid-template-columns: 1fr; /* Usando uma coluna em telas pequenas */
   }
 
-  .donation-section {
-    padding: 1rem;
+  .donation-section.donation-info h1 {
+    font-size: 1.2rem; /* Ajusta o título */
   }
 
-  .instructions h1,
-  .donation-info h1 {
-    font-size: 2rem;
+  .donation-section.donation-info a {
+    font-size: 0.9rem; /* Ajusta o tamanho do link */
   }
 
-  .instructions p,
-  .donation-info p,
-  .bank-details p {
-    font-size: 1rem;
+  .donation-section.instructions {
+    padding: 1.5rem; /* Menos padding */
+    gap: 30px; /* Menor espaçamento entre os elementos */
+  }
+
+  .donation-section.instructions video {
+    width: 100%; /* Garante que o vídeo não ultrapasse a largura */
+  }
+
+  /* Alterações específicas para o layout do QR code */
+  .donation-section.donation-info #qr-code {
+    flex-direction: column; /* Para que a imagem e o link fiquem em coluna */
+    gap: 5px;
   }
 }
 
-@media (max-width: 570px) {
-  .qr-code img {
-    width: 200px;
-    height: 200px;
-  }
-}
-
-@media (max-width: 320px) {
-  .instructions h1,
-  .donation-info h1 {
-    font-size: 1.5rem;
+@media (max-width: 480px) {
+  /* Ajuste para dispositivos móveis muito pequenos */
+  .donation-page {
+    padding: 1rem;
   }
 
-  .qr-code img {
-    width: 180px;
-    height: 180px;
+  .donation-section.donation-info h1 {
+    font-size: 1rem; /* Ajuste para títulos em dispositivos muito pequenos */
+  }
+
+  .donation-section.instructions {
+    padding: 1rem;
+    gap: 20px;
+  }
+
+  .donation-section.donation-info #qr-code img {
+    width: 150px; /* Ajuste a largura da imagem do QR code */
+  }
+
+  .donation-section.donation-info a {
+    font-size: 0.8rem; /* Ajuste para links menores em telas muito pequenas */
   }
 }
