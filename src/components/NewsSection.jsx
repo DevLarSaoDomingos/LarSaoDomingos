@@ -186,7 +186,10 @@ export default function NewsSection({ isNewsPage = false }) {
 
             return (
               <div
-                onClick={() => navigate(`/noticia/${post.slug}`)}
+                onClick={() => {
+                  navigate(`/noticia/${post.slug}`);
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
                 key={post.id}
                 className={`news-item ${index === 0 ? "large" : ""}`}
               >
