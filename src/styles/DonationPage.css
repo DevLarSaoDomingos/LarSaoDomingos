@@ -36,7 +36,7 @@
 }
 
 /* Ajustes para garantir que o título fique bem posicionado em telas pequenas */
-.donation-section.donation-info h1 {
+.donation-section h1 {
   text-align: center;
   font-size: 1.5rem; /* Tamanho de fonte ajustado para telas menores */
 }
