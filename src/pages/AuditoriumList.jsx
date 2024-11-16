@@ -11,7 +11,7 @@ const AuditoriumList = () => {
       projector: "1",
       airConditioning: "1",
       computer: "1",
-      imageUrl: "assets/img/auditorio01.jpg", // substitua pelo caminho da imagem
+      imageUrl: "assets/img/auditorio01.JPG", 
     },
     {
       name: "Auditório B",
@@ -21,7 +21,7 @@ const AuditoriumList = () => {
       projector: "1",
       airConditioning: "1",
       computer: "1",
-      imageUrl: "assets/img/auditorio02.jpg", // substitua pelo caminho da imagem
+      imageUrl: "assets/img/auditorio02.JPG", 
     },
   ];
 
