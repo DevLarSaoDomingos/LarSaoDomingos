@@ -77,6 +77,10 @@
     flex-direction: column; /* Empilhar atividades em dispositivos menores */
   }
 
+  .ActivitiesList {
+    margin: 20px ; /* Ajuste de margem */
+  }
+
   .activities {
     width: 90%; /* Reduzindo a largura das atividades */
     height: auto; /* Aumenta a flexibilidade das atividades */

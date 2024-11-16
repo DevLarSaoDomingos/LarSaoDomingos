@@ -6,6 +6,7 @@
   padding: 20px;
   background-color: #0099ff;
   color: #fff;
+  flex-wrap: wrap; /* Permite que os itens se ajustem em telas menores */
 }
 
 /* Seções do footer organizadas verticalmente com espaço entre itens */
@@ -56,6 +57,7 @@
   height: auto;
 }
 
+/* Copyright */
 .copyright {
   padding: 5px;
   text-align: center;
@@ -64,26 +66,72 @@
   color: #fff;
 }
 
+.footer-parceiros {
+  display: flex;
+  justify-content: flex-start; /* Garante alinhamento à esquerda */
+  align-items: flex-start; /* Garante alinhamento no topo */
+  gap: 20px;
+  flex-wrap: wrap; /* Permite quebra de linha em telas pequenas */
+  margin-top: 20px;
+  width: 100%; /* Garante que ocupe a largura total */
+}
+
 /* Ajustes para telas menores */
 @media (max-width: 1050px) {
   .footer-container {
-    flex-direction: column; /* Footer em coluna */
-    align-items: center;
-    text-align: center; /* Centralizar texto */
-    gap: 20px;
+    flex-direction: column;
+    align-items: flex-start; /* Não centraliza em telas menores */
+    gap: 40px;
+    padding: 20px 10px; /* Ajusta o padding */
   }
-
-  /* Centralizar cada seção do footer */
+  
   .footer-section {
-    align-items: center;
+    align-items: flex-start;
+    gap: 20px;
+    margin: 0;
+    width: 100%;
   }
 
-  /* Ajustar largura das imagens para caber melhor em telas pequenas */
+  .footer-section:nth-child(2), .footer-section:nth-child(3) {
+    width: 90%; /* Ajusta a largura das seções */
+  }
+
+  .footer-parceiros {
+    flex-direction: row; /* Mantém os parceiros em linha */
+    justify-content: space-between; /* Alinha os parceiros à esquerda */
+    gap: 20px; /* Ajusta o espaçamento */
+    width: 100%;
+  }
+
+  .footer-images {
+    gap: 15px; /* Ajusta o gap */
+  }
+
   .footer-images img {
-    width: 150px; /* Reduzir para melhor adaptação em telas menores */
+    width: 140px;
   }
 
   #brasao-lsd {
-    width: 150px; /* Reduzir o tamanho do brasão para manter o design responsivo */
+    width: 140px;
+    max-width: 100%; /* Evita que a imagem ultrapasse o limite */
+  }
+}
+
+/* Ajustes para telas muito pequenas (mobile) */
+@media (max-width: 480px) {
+  .footer-section a {
+    font-size: 0.9rem; /* Diminui o tamanho da fonte para links em telas muito pequenas */
+  }
+
+  .footer-section img {
+    width: 18px; /* Ajusta o tamanho das imagens dos links */
+  }
+
+  .footer-images img {
+    width: 120px; /* Ajusta o tamanho das imagens dos parceiros */
+  }
+
+  #brasao-lsd {
+    width: 120px;
   }
 }

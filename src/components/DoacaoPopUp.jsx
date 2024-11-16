@@ -34,8 +34,13 @@ const DoacaoPopUp = ({
     }
   }, []);
 
-  const closePopup = () => {
+  // const closePopup = () => {
+  //   setShowPopup(false);
+  // };
+
+  const redirectToDonationPage = () => {
     setShowPopup(false);
+    window.location.href = "/doacoes";
   };
 
   return (
@@ -68,7 +73,7 @@ const DoacaoPopUp = ({
                 src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://exemplo.com/doacao"
                 alt="QR Code para doação"
               />
-              <button onClick={closePopup} className={doeButton}>
+              <button onClick={redirectToDonationPage} className={doeButton}>
                 Doe Agora
               </button>
             </div>

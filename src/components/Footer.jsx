@@ -38,13 +38,19 @@ const Footer = () => {
           <Link to="/abrace-este-lar">Abrace este Lar</Link>
         </div>
         <div className="footer-section">
-          <h3>Parceiros</h3>
-          <div className="footer-images">
-            <img src="/assets/img/IFAL.png" alt="IFAL Logo" />
-            <img src="/assets/img/CINFO.png" alt="CINFO Logo" />
+          <div className="footer-parceiros">
+            <div className="footer-images">
+              <h3>Parceiros</h3>
+              <img src="/assets/img/IFAL.png" alt="IFAL Logo" />
+              <img src="/assets/img/CINFO.png" alt="CINFO Logo" />
+            </div>
+            <img
+              src="/assets/img/LSD_logo.png"
+              alt="LSD Logo"
+              id="brasao-lsd"
+            />
           </div>
         </div>
-        <img src="/assets/img/LSD_logo.png" alt="LSD Logo" id="brasao-lsd" />
       </div>
       <div className="copyright">
         Lar São Domingos 2024 © Todos os Direitos Reservados
