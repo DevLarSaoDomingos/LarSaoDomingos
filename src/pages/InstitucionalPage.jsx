@@ -1,3 +1,4 @@
+//InstitucionalPage.jsx
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import NavInstitucional from "../components/NavInstitucional";
@@ -6,6 +7,41 @@ import LocationSection from "../components/LocationSection";
 import "../styles/InstitucionalPage.css";
 
 // Mapeamento de conteúdo para cada rota
+/**
+ * Mapeamento de conteúdo para a página institucional.
+ * Cada chave representa uma seção específica da página, contendo informações como imagem, título e texto.
+ * 
+ * @constant {Object} contentMap
+ * @property {Object} historia - Seção sobre a história da instituição.
+ * @property {string} historia.imageSrc - Caminho da imagem para a seção de história.
+ * @property {string} historia.title - Título da seção de história.
+ * @property {string[]} historia.text - Texto descritivo da seção de história.
+ * 
+ * @property {Object} sobre - Seção sobre informações gerais da instituição.
+ * @property {string} sobre.imageSrc - Caminho da imagem para a seção sobre.
+ * @property {string} sobre.title - Título da seção sobre.
+ * @property {string[]} sobre.text - Texto descritivo da seção sobre.
+ * 
+ * @property {Object} estrutura - Seção sobre a estrutura da instituição.
+ * @property {string} estrutura.imageSrc - Caminho da imagem para a seção de estrutura.
+ * @property {string} estrutura.title - Título da seção de estrutura.
+ * @property {Array.<string|string[]>} estrutura.text - Texto descritivo da seção de estrutura, incluindo uma lista de instalações.
+ * 
+ * @property {Object} missao - Seção sobre a missão da instituição.
+ * @property {string} missao.imageSrc - Caminho da imagem para a seção de missão.
+ * @property {string} missao.title - Título da seção de missão.
+ * @property {string[]} missao.text - Texto descritivo da seção de missão.
+ * 
+ * @property {Object} equipe - Seção sobre a equipe da instituição.
+ * @property {string} equipe.imageSrc - Caminho da imagem para a seção de equipe.
+ * @property {string} equipe.title - Título da seção de equipe.
+ * @property {Array.<string|string[]>} equipe.text - Texto descritivo da seção de equipe, incluindo uma lista de membros da diretoria e conselho fiscal.
+ * 
+ * @property {Object} default - Seção padrão com informações institucionais gerais.
+ * @property {string} default.imageSrc - Caminho da imagem para a seção padrão.
+ * @property {string} default.title - Título da seção padrão.
+ * @property {string[]} default.text - Texto descritivo da seção padrão.
+ */
 const contentMap = {
     historia: {
         imageSrc: "/assets/img/historia.jpg",
@@ -91,27 +127,26 @@ const contentMap = {
     },
 };
 
-
 const InstitucionalPage = () => {
-    const location = useLocation();
-    const [content, setContent] = useState(contentMap.default);
+    const location = useLocation(); // Hook para obter a localização atual da rota
+    const [content, setContent] = useState(contentMap.default); // Estado para armazenar o conteúdo da página
 
     useEffect(() => {
-        const path = location.pathname.split("/").filter(Boolean).pop();
-        setContent(contentMap[path] || contentMap.default);
-    }, [location]);
+        const path = location.pathname.split("/").filter(Boolean).pop(); // Obtém a última parte do caminho da URL
+        setContent(contentMap[path] || contentMap.default); // Atualiza o conteúdo com base na rota atual
+    }, [location]); // Executa o efeito sempre que a localização mudar
 
     return (
         <div className="institucional">
-            <NavInstitucional />
+            <NavInstitucional /> {/* Componente de navegação institucional */}
             <AboutSection
-                imageSrc={content.imageSrc}
-                title={content.title}
+                imageSrc={content.imageSrc} // Fonte da imagem da seção
+                title={content.title} // Título da seção
                 text={content.text}  // Passando o conteúdo como array de parágrafos
-                backgroundColor="#F2994A"
-                fontColor="#000"
+                backgroundColor="#F2994A" // Cor de fundo da seção
+                fontColor="#000" // Cor da fonte da seção
             />
-            <LocationSection />
+            <LocationSection /> {/* Componente de seção de localização */}
         </div>
     );
 };

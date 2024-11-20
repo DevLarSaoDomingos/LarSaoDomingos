@@ -1,3 +1,65 @@
+/* 
+  Estilos para a seção de localização (.location)
+  - margin-top: Define a margem superior da seção.
+  - display: Define o layout flexível.
+  - flex-direction: Define a direção dos itens como coluna.
+  - justify-content: Centraliza os itens verticalmente.
+  - align-items: Alinha os itens ao início horizontalmente.
+  - background-color: Define a cor de fundo.
+  - max-width: Define a largura máxima da seção.
+  - gap: Define o espaçamento entre os itens.
+  - padding: Adiciona espaçamento interno.
+
+  Estilos para o contêiner de localização (.location-container)
+  - display: Define o layout flexível.
+  - flex-direction: Define a direção dos itens como linha.
+  - justify-content: Centraliza os itens horizontalmente.
+  - align-items: Centraliza os itens verticalmente.
+  - gap: Define o espaçamento entre os itens.
+  - width: Define a largura total do contêiner.
+  - flex-wrap: Permite que os itens quebrem para a linha seguinte.
+
+  Estilos para a informação de visita (.visit-info)
+  - display: Define o layout flexível.
+  - flex-direction: Define a direção dos itens como coluna.
+  - justify-content: Centraliza os itens verticalmente.
+  - align-items: Alinha os itens ao início horizontalmente.
+  - gap: Define o espaçamento entre os itens.
+  - width: Define a largura total.
+  - max-width: Define a largura máxima da caixa.
+
+  Estilos para informações relevantes (.relevant-infos)
+  - display: Define o layout flexível.
+  - flex-direction: Define a direção dos itens como coluna.
+  - justify-content: Centraliza os itens verticalmente.
+  - align-items: Alinha os itens ao início horizontalmente.
+  - gap: Define o espaçamento entre os itens.
+  - width: Define a largura total.
+  - max-width: Define a largura máxima da caixa.
+
+  Responsividade para telas menores que 768px
+  - .location: Ajusta o padding.
+  - .location-container: Altera a direção dos itens para coluna e ajusta o espaçamento.
+  - .visit-info, .relevant-infos: Ajusta a largura máxima e o espaçamento interno.
+
+  Responsividade para telas entre 768px e 1024px
+  - .location-container: Ajusta o espaçamento entre as caixas.
+  - .visit-info, .relevant-infos: Ajusta a largura máxima.
+
+  Estilos para o contêiner do mapa (.map-container)
+  - position: Define a posição relativa.
+  - width: Define a largura total.
+  - padding-bottom: Define a proporção de 16:9.
+  - height: Define a altura como zero.
+  - overflow: Esconde o conteúdo que ultrapassa.
+
+  Estilos para o iframe do mapa (.map-container iframe)
+  - position: Define a posição absoluta.
+  - top, left: Posiciona o iframe no topo e à esquerda.
+  - width: Define a largura total do iframe.
+  - height: Define a altura total do iframe.
+  - border: Remove a borda do iframe.
+*/
 /* .location section */
 .location {
     margin-top: 40px;

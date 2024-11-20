@@ -1,3 +1,73 @@
+/* 
+  Estilos para a seção de notícias do site Lar São Domingos
+
+  .news-section:
+    - Define a largura, alinhamento e espaçamento da seção de notícias.
+    - Aplica cor de texto branca.
+
+  .image-slider:
+    - Define a largura e altura do slider de imagens.
+    - Aplica espaçamento inferior.
+
+  @media (max-width: 768px):
+    - Ajusta a altura do slider de imagens em telas menores.
+
+  .separator-container:
+    - Define a largura, exibição e alinhamento do separador.
+    - Aplica margem e estilo aos elementos internos.
+
+  .news-grid:
+    - Define o layout de grid para as notícias.
+    - Aplica espaçamento e largura.
+
+  @media (max-width: 768px):
+    - Ajusta o layout da grid para uma coluna em telas menores.
+    - Reduz o espaçamento entre os itens.
+
+  .news-item:
+    - Define estilo, alinhamento e comportamento dos itens de notícia.
+    - Aplica efeito de zoom ao passar o mouse.
+
+  .news-item.large:
+    - Ajusta o tamanho e estilo dos itens grandes de notícia.
+
+  .news-item::before:
+    - Aplica uma sobreposição de cor escura nos itens de notícia.
+
+  .news-item-title:
+    - Define o estilo dos títulos das notícias.
+    - Aplica sombra ao texto.
+
+  .news-item.large .news-item-title:
+    - Ajusta o tamanho da fonte dos títulos dos itens grandes.
+
+  .news-item:not(.large) .news-item-title:
+    - Ajusta o tamanho da fonte dos títulos dos itens não grandes.
+
+  .news-image:
+    - Define o estilo das imagens dos itens de notícia.
+    - Aplica borda arredondada e margem inferior.
+
+  @media (max-width: 768px):
+    - Ajusta a altura máxima das imagens em telas menores.
+
+  .post-content:
+    - Define o estilo do conteúdo do post.
+    - Aplica padding e cor do texto.
+
+  .see-more-button:
+    - Define o estilo do botão "Ver mais".
+    - Aplica transição e efeito de hover.
+
+  @media (max-width: 768px):
+    - Ajusta o tamanho e padding do botão em telas menores.
+
+  @media (max-width: 480px):
+    - Ajusta o tamanho da fonte do título do separador em telas muito pequenas.
+    - Ajusta o tamanho e fonte do botão em telas muito pequenas.
+    - Remove a altura fixa dos itens de notícia.
+    - Ajusta ainda mais a altura das imagens em dispositivos pequenos.
+*/
 /* Estilo da seção de notícias */
 .news-section {
   width: 100%;

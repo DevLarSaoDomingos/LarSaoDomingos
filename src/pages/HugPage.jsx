@@ -1,14 +1,32 @@
+//HugPage.jsx
 import React from "react";
 import AboutSection from "../components/AboutSection";
 import ActivitiesList from "../components/ActivitiesList";
 
+/**
+ * Componente HugPage.
+ *
+ * Este componente representa a página "Ajude o Nosso Lar" do Lar São Domingos.
+ * Ele exibe uma seção sobre a instituição e uma lista de atividades disponíveis para apoio.
+ *
+ * @component
+ *
+ * @example
+ * return (
+ *   <HugPage />
+ * )
+ *
+ * @returns {JSX.Element} A página HugPage.
+ */
 const HugPage = () => {
+  // Conteúdo da seção "Sobre"
   const activitiesContent = {
     title: "Ajude o Nosso Lar",
     text: "O Lar São Domingos é uma instituição que se mantém graças ao apoio de pessoas como você, que acreditam no poder da solidariedade. Existem várias maneiras de ajudar a transformar a vida de crianças e adolescentes acolhidos por nós. Junte-se a essa causa e faça parte dessa história!",
     imageSrc: "assets/img/abrace-lar.jpg",
   };
 
+  // Lista de atividades disponíveis para apoio
   const activities = [
     {
       title: "Ginásio poliesportivo",
@@ -38,12 +56,14 @@ const HugPage = () => {
 
   return (
     <div>
+      {/* Seção "Sobre" */}
       <AboutSection
         title={activitiesContent.title}
         text={activitiesContent.text}
         imageSrc={activitiesContent.imageSrc}
         backgroundColor="#E95757" // Cor personalizada para a ActivitiesPage
       />
+      {/* Lista de atividades */}
       <ActivitiesList activities={activities} />
     </div>
   );

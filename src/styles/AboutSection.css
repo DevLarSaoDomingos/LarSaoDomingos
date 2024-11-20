@@ -1,3 +1,50 @@
+/* 
+  Estilos para a seção "About" do site.
+
+  .about-section:
+    - Define um contêiner flexível para centralizar e alinhar os itens.
+    - Cor do texto branca, padding de 20px e largura de 100%.
+    - Flex-wrap para permitir ajuste dos itens em telas menores.
+
+  .about-text:
+    - Contêiner flexível em coluna para centralizar e alinhar o texto à esquerda.
+    - Largura de 60% e padding de 20px.
+
+  .about-text h2:
+    - Tamanho da fonte de 2.5rem, peso da fonte 700 e padding de 20px.
+
+  .about-text p:
+    - Tamanho da fonte de 1.2rem, peso da fonte 400, alinhamento justificado e padding de 10px 20px.
+
+  .about-text ul:
+    - Lista com estilo de disco, padding à esquerda de 40px, tamanho da fonte de 1.2rem e peso da fonte 400.
+
+  .about-text li:
+    - Margem inferior de 8px.
+
+  .about-image:
+    - Contêiner flexível para centralizar a imagem.
+    - Padding de 20px e largura de 40%.
+
+  .about-image img:
+    - Largura de 100%, altura automática, ajuste de objeto para cobrir e borda branca sólida de 10px.
+
+  @media (max-width: 1024px):
+    - Ajusta a largura das colunas de texto e imagem para 50%.
+
+  @media (max-width: 768px):
+    - Alinha os itens verticalmente e ajusta o texto para a esquerda.
+    - Largura das colunas de texto e imagem para 100% e padding de 15px.
+    - Reduz o tamanho da fonte do título, parágrafo e lista.
+    - Ajusta o padding da lista para 20px.
+
+  @media (max-width: 480px):
+    - Reduz ainda mais o tamanho da fonte do título, parágrafo e lista.
+    - Ajusta o padding da lista para 15px.
+    - Reduz a largura da borda da imagem para 5px.
+*/
+
+
 .about-section {
   display: flex;
   justify-content: center;

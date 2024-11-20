@@ -6,6 +6,20 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 // Componente principal do Slider
+/**
+ * Componente MainSlider
+ * 
+ * @param {Object} props - Propriedades do componente
+ * @param {string} props.container - Classe CSS para o contêiner principal do slider
+ * @param {string} props.sliderItem - Classe CSS para cada item do slider
+ * @param {string} props.sliderImage - Classe CSS para a imagem do slider
+ * @param {string} props.text - Classe CSS para o texto sobreposto na imagem
+ * @param {number} props.arrowSize - Tamanho das setas de navegação
+ * @param {boolean} props.imagesAbove - Define se as miniaturas das imagens serão exibidas acima do slider
+ * @param {Array} props.slidesData - Dados dos slides, contendo imagem, título e subtítulo
+ * 
+ * @returns {JSX.Element} Componente de slider principal
+ */
 const MainSlider = ({
   container,
   sliderItem,
@@ -15,8 +29,8 @@ const MainSlider = ({
   imagesAbove,
   slidesData,
 }) => {
-  const thumbnailContainerRef = useRef(null);
-  const sliderRef = useRef(null);
+  const thumbnailContainerRef = useRef(null); // Referência para o contêiner das miniaturas
+  const sliderRef = useRef(null); // Referência para o slider principal
 
   // Configurações do Slick Slider
   const settings = {
@@ -37,8 +51,8 @@ const MainSlider = ({
   const scrollThumbnails = (direction) => {
     const container = thumbnailContainerRef.current;
     if (container) {
-      const scrollAmount = direction === "left" ? -150 : 150;
-      container.scrollBy({ left: scrollAmount, behavior: "smooth" });
+      const scrollAmount = direction === "left" ? -150 : 150; // Define a quantidade de rolagem
+      container.scrollBy({ left: scrollAmount, behavior: "smooth" }); // Rola o contêiner suavemente
     }
   };
 
@@ -68,20 +82,20 @@ const MainSlider = ({
           <div className="slick-thumb-container">
             <button
               className="thumbnail-nav-button thumbnail-nav-prev"
-              onClick={() => scrollThumbnails("left")}
+              onClick={() => scrollThumbnails("left")} // Rola as miniaturas para a esquerda
             >
               <FaChevronLeft />
             </button>
             <ul className="slick-thumb" ref={thumbnailContainerRef}>
               {slidesData.map((slide, i) => (
-                <li key={i} onClick={() => sliderRef.current.slickGoTo(i)}>
+                <li key={i} onClick={() => sliderRef.current.slickGoTo(i)}> {/* Vai para o slide correspondente ao clicar na miniatura */}
                   <img src={slide.img} alt={`Thumbnail ${i + 1}`} />
                 </li>
               ))}
             </ul>
             <button
               className="thumbnail-nav-button thumbnail-nav-next"
-              onClick={() => scrollThumbnails("right")}
+              onClick={() => scrollThumbnails("right")} // Rola as miniaturas para a direita
             >
               <FaChevronRight />
             </button>

@@ -1,6 +1,22 @@
 import React, { useState, useEffect } from "react";
 import "../styles/DoacaoPopUp.css";
 
+/**
+ * Componente DoacaoPopUp
+ *
+ * Este componente exibe um popup de doação após um determinado tempo, 
+ * caso o popup não tenha sido exibido nas últimas 3 horas.
+ *
+ * @param {Object} props - Propriedades do componente.
+ * @param {string} props.overlay - Classe CSS para o overlay do popup.
+ * @param {string} props.gridPosition - Classe CSS para a posição do grid do popup.
+ * @param {string} props.imageProps - Classe CSS para a imagem do popup.
+ * @param {string} props.image - URL da imagem de fundo do popup.
+ * @param {string} props.text - Classe CSS para o texto do popup.
+ * @param {string} props.doeButton - Classe CSS para o botão de doação.
+ *
+ * @returns {JSX.Element} O componente DoacaoPopUp.
+ */
 const DoacaoPopUp = ({
   overlay,
   gridPosition,
@@ -9,17 +25,19 @@ const DoacaoPopUp = ({
   text,
   doeButton,
 }) => {
-  const [showPopup, setShowPopup] = useState(false);
+  const [showPopup, setShowPopup] = useState(false); // Estado para controlar a exibição do popup
 
   useEffect(() => {
     // Tempo de expiração do popup em milissegundos (3 horas)
     const popupExpiryTime = 3 * 60 * 60 * 1000;
 
+    // Recupera a data e hora do último popup exibido do localStorage
     const popupData = localStorage.getItem("popupShown");
     const now = new Date().getTime();
 
     // Se o popup nunca foi mostrado ou se o tempo de expiração foi atingido
     if (!popupData || now - JSON.parse(popupData).timestamp > popupExpiryTime) {
+      // Define um timer para exibir o popup após 5 segundos
       const timer = setTimeout(() => {
         setShowPopup(true);
 
@@ -30,14 +48,12 @@ const DoacaoPopUp = ({
         );
       }, 5000);
 
+      // Limpa o timer quando o componente é desmontado
       return () => clearTimeout(timer);
     }
   }, []);
 
-  // const closePopup = () => {
-  //   setShowPopup(false);
-  // };
-
+  // Função para redirecionar para a página de doações
   const redirectToDonationPage = () => {
     setShowPopup(false);
     window.location.href = "/doacoes";
@@ -57,7 +73,7 @@ const DoacaoPopUp = ({
                 fontSize: "1.5rem",
                 cursor: "pointer",
               }}
-              onClick={(e) => setShowPopup(false)}
+              onClick={(e) => setShowPopup(false)} // Fecha o popup ao clicar no "X"
             >
               X
             </div>

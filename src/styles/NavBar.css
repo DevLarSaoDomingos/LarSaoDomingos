@@ -1,3 +1,27 @@
+/* 
+
+  Este arquivo CSS estiliza a barra de navegação (navbar) do site. 
+  Ele define a aparência e o comportamento dos elementos da navbar, incluindo o logo, o menu de navegação e o botão de menu tipo "burger" para dispositivos móveis.
+
+  Classes principais:
+  - .navbar: Define a estrutura principal da barra de navegação, incluindo layout flexível, espaçamento e cores.
+  - .navbar-logo img: Estiliza a imagem do logo na navbar.
+  - .navbar-menu: Define o estilo do menu de navegação, incluindo layout flexível e remoção de estilos padrão de lista.
+  - .navbar-menu li: Estiliza os itens da lista do menu de navegação.
+  - .navbar-menu a: Estiliza os links do menu de navegação, incluindo cores, tamanhos de fonte e transições de cor.
+  - .burger: Estiliza o botão de menu tipo "burger" para dispositivos móveis.
+
+  Classes de estado:
+  - .nav-inicio:hover, .nav-inicio.active: Define o estilo de hover e estado ativo para o item "Início".
+  - .nav-institucional:hover, .nav-institucional.active: Define o estilo de hover e estado ativo para o item "Institucional".
+  - .nav-atividades:hover, .nav-atividades.active: Define o estilo de hover e estado ativo para o item "Atividades".
+  - .nav-abrace:hover, .nav-abrace.active: Define o estilo de hover e estado ativo para o item "Abrace".
+  - .nav-doacoes:hover, .nav-doacoes.active: Define o estilo de hover e estado ativo para o item "Doações".
+  - .nav-auditorios:hover, .nav-auditorios.active: Define o estilo de hover e estado ativo para o item "Auditórios".
+
+  Media Queries:
+  - @media (max-width: 1050px): Ajusta o layout da navbar para telas menores, incluindo a exibição do botão de menu tipo "burger" e a transformação do menu de navegação em um menu vertical que aparece abaixo da navbar.
+*/
 /* Navbar.css */
 .navbar {
   display: flex;

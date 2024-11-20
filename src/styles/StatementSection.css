@@ -1,3 +1,45 @@
+/* 
+  Estilos para a seção de declaração:
+  
+  .statement-container:
+    - padding: 3rem (espaçamento interno)
+    - width: 100% (largura total)
+    - background-color: #0099ff (cor de fundo azul)
+    - display: flex (layout flexível)
+    - flex-direction: column (itens em coluna)
+    - justify-content: center (centraliza verticalmente)
+    - align-items: center (centraliza horizontalmente)
+    - gap: 1.5rem (espaçamento entre itens)
+    - color: white (cor do texto branca)
+    - text-align: center (alinhamento centralizado do texto)
+
+  .statement-text:
+    - font-size: 2rem (tamanho do texto)
+    - font-weight: bold (negrito)
+    - max-width: 60rem (largura máxima)
+    - margin: 0 1.5rem (margem lateral)
+
+  .statement-sub-text:
+    - font-size: 1.3rem (tamanho do texto)
+    - max-width: 50rem (largura máxima)
+    - margin: 0 1.5rem (margem lateral)
+
+  @media (max-width: 768px):
+    .statement-container:
+      - padding: 2rem (ajuste para telas menores)
+    .statement-text:
+      - font-size: 1.8rem (ajuste para telas menores)
+    .statement-sub-text:
+      - font-size: 1.1rem (ajuste para telas menores)
+
+  @media (max-width: 480px):
+    .statement-container:
+      - padding: 1.5rem (ajuste para telas muito pequenas)
+    .statement-text:
+      - font-size: 1.5rem (ajuste para dispositivos móveis)
+    .statement-sub-text:
+      - font-size: 1rem (ajuste para dispositivos móveis)
+*/
 /* Estilo do container principal da seção */
 .statement-container {
   padding: 3rem; /* Padding para espaçamento adequado */

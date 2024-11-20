@@ -1,3 +1,32 @@
+/* 
+
+  Estilos Gerais da Página de Notícias:
+  - .news-page: Define a largura máxima, centraliza o conteúdo e adiciona padding.
+  - .news-page h1: Estiliza o título principal com tamanho de fonte, cor, alinhamento e margem inferior.
+  - .news-list: Define um layout de grade responsivo para a lista de notícias.
+  - .post-item: Estiliza cada item de post com fundo branco, bordas arredondadas, sombra, transição e cursor de ponteiro.
+  - .post-item:hover: Adiciona efeito de hover nos itens de post.
+  - .post-image: Define a largura e altura da imagem do post.
+  - .post-image img: Ajusta a imagem dentro do contêiner.
+  - .post-item h2: Estiliza o título do post.
+  - .post-item p: Estiliza o parágrafo do post.
+
+  Paginação:
+  - .pagination: Define o layout de flexbox para os botões de paginação.
+  - .pagination button: Estiliza os botões de paginação com cor de fundo, cor do texto, padding, tamanho da fonte, bordas arredondadas e transição.
+  - .pagination button:hover: Adiciona efeito de hover nos botões de paginação.
+  - .pagination button:disabled: Estiliza os botões desabilitados.
+
+  Container de Busca:
+  - .search-container: Define o layout de flexbox para o container de busca.
+  - .search-container input: Estiliza o campo de entrada de busca.
+  - .search-container button: Estiliza o botão de busca.
+
+  Responsividade:
+  - @media (max-width: 1024px): Ajusta o layout e estilos para telas menores que 1024px.
+  - @media (max-width: 768px): Ajusta o layout e estilos para telas menores que 768px.
+  - @media (max-width: 480px): Ajusta o layout e estilos para telas menores que 480px.
+*/
 /* Estilos Gerais da Página de Notícias */
 .news-page {
   max-width: 1200px;

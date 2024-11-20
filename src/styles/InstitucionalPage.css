@@ -1,3 +1,14 @@
+/* 
+Arquivo: /c:/Users/Emy/Documents/Desenvolvimento/larsaodomingos/frontend/LarSaoDomingos/src/styles/InstitucionalPage.css
+
+Classe .institucional:
+- display: flex; -> Define um container flexível.
+- width: 100%; -> Define a largura do elemento como 100% do seu container pai.
+- flex-direction: column; -> Define a direção dos itens flexíveis como coluna (vertical).
+- align-items: center; -> Alinha os itens flexíveis no centro do container ao longo do eixo transversal.
+- justify-content: center; -> Centraliza os itens flexíveis ao longo do eixo principal.
+- margin-bottom: 40px; -> Adiciona uma margem inferior de 40 pixels.
+*/
 .institucional{
     display: flex;
     width: 100%;

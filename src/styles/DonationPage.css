@@ -1,3 +1,27 @@
+/* 
+
+  Estilos básicos para a página de doações:
+  - .donation-page: Define o layout da página de doações usando grid, com espaçamento e cores de fundo e texto.
+  - .donation-section.donation-info: Estiliza a seção de informações de doação com fundo branco, bordas, sombras e espaçamento.
+  - .donation-section.donation-info .info-section-account: Estiliza a seção de conta com fundo claro, bordas e sombras.
+  - .donation-section h1: Centraliza e ajusta o tamanho do título para telas menores.
+  - .donation-section.donation-info #qr-code: Estiliza a seção do QR Code para centralização e responsividade.
+  - .donation-section.donation-info #qr-code img: Ajusta a largura máxima e bordas da imagem do QR Code.
+  - .donation-section.donation-info a: Estiliza links com cor, peso da fonte e transições.
+  - .donation-section.instructions: Estiliza a seção de instruções com fundo verde, bordas, sombras e espaçamento.
+  - .donation-section.instructions video: Ajusta a largura máxima e bordas dos vídeos.
+  - .donation-section.instructions a: Estiliza links na seção de instruções com cor e transições.
+  - .donation-section.instructions #chamada-video: Estiliza o texto de chamada do vídeo.
+  - .donation-section.instructions #agradecimento: Estiliza o texto de agradecimento.
+  - .donation-section.instructions .listagem-tutorial: Define o layout da listagem de tutoriais.
+  - .donation-section.instructions .listagem-tutorial ul: Remove o padding e define o estilo da lista.
+  - .donation-section.instructions .cta-button: Estiliza o botão de chamada para ação com cores, bordas e transições.
+
+  Media Queries para dispositivos móveis:
+  - @media (max-width: 768px): Ajustes para telas menores que 768px, incluindo padding, layout de grid, tamanhos de fonte e espaçamento.
+  - @media (max-width: 480px): Ajustes adicionais para telas menores que 480px, incluindo padding, tamanhos de fonte e largura de imagens.
+*/
+
 /* Estilos básicos para a página de doações */
 .donation-page {
   display: grid;

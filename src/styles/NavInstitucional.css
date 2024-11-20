@@ -1,3 +1,17 @@
+/* 
+  Estilos para a Navbar Institucional:
+  - .navbar-institucional: Define a barra de navegação com display flex, alinhamento centralizado, espaçamento entre itens, cor de fundo, padding e rolagem otimizada para dispositivos touch.
+  - .navbar-institucional ul: Define a lista de navegação com display flex, sem estilo de lista, padding e margin zerados, rolagem horizontal otimizada e largura máxima de 100%.
+  - .navbar-institucional::-webkit-scrollbar: Esconde a barra de rolagem.
+  - .navbar-institucional li: Define o tamanho e peso da fonte dos itens da lista.
+  - .navbar-institucional a: Remove a decoração do texto dos links, define a cor e adiciona transição suave para mudança de cor.
+  - .navbar-institucional a:hover: Define a cor dos links quando em hover.
+  - .navbar-institucional a:active: Define a cor dos links quando clicados.
+  - .navbar-institucional li.active a: Define a cor e adiciona uma linha embaixo do link ativo.
+  - @media (max-width: 1024px): Ajusta o padding da navbar, espaçamento entre itens e tamanho da fonte em telas menores.
+  - @media (max-width: 768px): Ajusta o padding, direção da lista, espaçamento entre itens, rolagem horizontal e tamanho da fonte em telas pequenas.
+  - @media (max-width: 480px): Ajusta a rolagem horizontal, tamanho da fonte e espaçamento entre itens em dispositivos pequenos.
+*/
 /* Navbar Institucional */
 .navbar-institucional {
     display: flex;

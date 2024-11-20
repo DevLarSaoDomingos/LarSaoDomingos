@@ -1,3 +1,37 @@
+/* 
+
+  .auditorium-list:
+    - Define a largura como 100% e a cor de fundo como branco.
+
+  .auditorium-section:
+    - Define o layout como flexível, com direção de coluna.
+    - Define a largura como 100% e a margem inferior como 2rem.
+
+  .auditorium-image:
+    - Define a largura como 100% e a altura como 400px.
+    - Define o tamanho do fundo como cover e a posição do fundo como center.
+
+  .auditorium-info:
+    - Define o padding como 1.5rem e o alinhamento do texto como center.
+    - Define a cor do texto como #333.
+
+  .auditorium-info h2:
+    - Define o tamanho da fonte como 2rem e a cor como #0099ff.
+    - Define a margem inferior como 0.5rem.
+
+  .auditorium-info p:
+    - Define o tamanho da fonte como 1.1rem e a cor como #555.
+    - Define a margem como 0.3rem 0.
+
+  .enter-button:
+    - Define a margem superior como 1rem e o padding como 0.8rem 1.5rem.
+    - Define a cor de fundo como #0099ff, a cor do texto como branco, e remove a borda.
+    - Define o border-radius como 4px e o cursor como pointer.
+    - Define o tamanho da fonte como 1rem e a transição da cor de fundo como 0.3s.
+
+  .enter-button:hover:
+    - Define a cor de fundo como #007acc ao passar o mouse.
+*/
 .auditorium-list {
   width: 100%;
   background-color: white;

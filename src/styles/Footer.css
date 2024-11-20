@@ -1,3 +1,43 @@
+/* 
+
+  Este arquivo CSS estiliza o rodapé do site, incluindo a disposição dos elementos, cores, espaçamentos e ajustes responsivos para diferentes tamanhos de tela.
+
+  .footer-container:
+    - Container principal do rodapé com layout flexível, espaçamento e cores.
+
+  .footer-section:
+    - Seções do rodapé organizadas verticalmente com espaçamento entre itens.
+
+  .footer-section a:
+    - Estilização dos links dentro das seções do rodapé, incluindo efeito hover.
+
+  .footer-section a img:
+    - Estilização das imagens dentro dos links das seções do rodapé.
+
+  .footer-images:
+    - Container para imagens no rodapé, organizadas verticalmente com espaçamento.
+
+  .footer-images img:
+    - Tamanho padrão das imagens no rodapé.
+
+  .footer-images img:nth-child(2):
+    - Tamanho específico para a segunda imagem no rodapé.
+
+  #brasao-lsd:
+    - Estilização específica para a imagem do brasão.
+
+  .copyright:
+    - Estilização da seção de copyright no rodapé.
+
+  .footer-parceiros:
+    - Container para parceiros no rodapé, com layout flexível e espaçamento.
+
+  @media (max-width: 1050px):
+    - Ajustes de layout e espaçamento para telas menores (até 1050px).
+
+  @media (max-width: 480px):
+    - Ajustes de layout, espaçamento e tamanho de fonte para telas muito pequenas (até 480px).
+*/
 /* Footer.css */
 .footer-container {
   display: flex;

@@ -1,3 +1,18 @@
+/* 
+  Reset de estilos padrão para todos os elementos:
+  - Remove margens e preenchimentos.
+  - Define o box-sizing como border-box para incluir bordas e preenchimentos no tamanho total dos elementos.
+*/
+
+/* 
+  Estilos para o corpo da página:
+  - Define a fonte padrão como 'Poppins', com fallback para sans-serif.
+  - Limita a largura máxima do corpo a 100%.
+  - Oculta a barra de rolagem horizontal.
+  - Define uma altura de linha de 1.6 para melhor legibilidade.
+  - Utiliza flexbox para organizar o layout em uma coluna.
+  - Define a largura do corpo como 100%.
+*/
 /* App.css */
 
 * {

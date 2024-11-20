@@ -1,3 +1,60 @@
+/* 
+
+  .ActivitiesList:
+    - Define um contêiner flexível em coluna para a lista de atividades.
+    - Centraliza o conteúdo e aplica uma margem vertical de 40px.
+
+  .list-activities:
+    - Define um contêiner flexível em linha para as atividades.
+    - Centraliza o conteúdo, alinha os itens ao centro e aplica um espaçamento de 20px entre eles.
+
+  .activities:
+    - Define um contêiner flexível em coluna para cada atividade.
+    - Alinha o conteúdo ao topo e ao centro, com um espaçamento de 10px entre os elementos.
+    - Define largura de 350px, altura de 600px, padding inferior de 20px e bordas arredondadas.
+    - Aplica cor de texto branca.
+
+  .activities h3:
+    - Define o tamanho da fonte como 1.2rem e peso da fonte como 700.
+
+  .activities p:
+    - Define o tamanho da fonte como 0.9rem, peso da fonte como 400 e alinhamento justificado.
+    - Aplica padding de 20px.
+
+  .activities img:
+    - Define largura de 100%, altura de 300px e ajuste de objeto para cobrir.
+    - Aplica bordas arredondadas na parte superior.
+
+  .activities:first-child:
+    - Aplica cor de fundo #f2994a.
+
+  .activities:nth-child(2):
+    - Aplica cor de fundo #e8403c.
+
+  .activities:nth-child(3):
+    - Aplica cor de fundo #4ba64f.
+
+  .activities:nth-child(4):
+    - Aplica cor de fundo #ffa625.
+
+  @media (max-width: 1024px):
+    - Ajusta a largura das atividades para 350px.
+
+  @media (max-width: 768px):
+    - Altera a direção do contêiner de atividades para coluna e justifica o conteúdo com espaço ao redor.
+    - Ajusta a margem da lista de atividades para 20px.
+    - Reduz a largura das atividades para 90% e ajusta a altura para auto.
+    - Reduz a altura das imagens para 250px.
+    - Ajusta o tamanho da fonte dos títulos para 1rem.
+    - Ajusta o tamanho da fonte dos parágrafos para 0.8rem.
+
+  @media (max-width: 480px):
+    - Altera a direção do contêiner de atividades para coluna e centraliza o conteúdo.
+    - Ajusta a largura das atividades para 100% e a altura para auto.
+    - Reduz a altura das imagens para 200px.
+    - Ajusta o tamanho da fonte dos títulos para 0.9rem.
+    - Ajusta o tamanho da fonte dos parágrafos para 0.75rem.
+*/
 .ActivitiesList {
   display: flex;
   flex-direction: column;

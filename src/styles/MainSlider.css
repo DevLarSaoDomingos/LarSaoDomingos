@@ -1,3 +1,41 @@
+/* 
+
+  Responsividade e Estilos Gerais:
+  - .slider-container: Define a largura e a posição relativa do contêiner do slider.
+
+  Estilos das Setas:
+  - .custom-arrow: Estiliza as setas de navegação do slider, incluindo posição, cor, tamanho e cursor.
+  - .next-arrow: Posiciona a seta de próxima à direita.
+  - .prev-arrow: Posiciona a seta de anterior à esquerda.
+
+  Estilo dos Itens do Slider:
+  - .slider-item: Define a posição relativa dos itens do slider.
+  - .slider-image: Define a largura, altura e ajuste das imagens do slider.
+
+  Sobreposição de Texto:
+  - .slider-overlay: Estiliza a sobreposição de texto no slider, incluindo posição, cor, sombra e alinhamento.
+  - .slider-overlay h2: Estiliza o título na sobreposição de texto.
+  - .slider-overlay p: Estiliza o parágrafo na sobreposição de texto.
+
+  Responsividade:
+  - @media (max-width: 1024px): Ajusta a altura da imagem, tamanho do título, parágrafo e setas para telas menores.
+  - @media (max-width: 768px): Ajusta a altura da imagem, tamanho do título, parágrafo e setas para telas ainda menores.
+  - @media (max-width: 480px): Ajusta a altura da imagem, tamanho do título e parágrafo para telas pequenas.
+
+  Estilos das Miniaturas (Thumbnails):
+  - .slick-thumb-container: Define a posição, largura e alinhamento do contêiner de miniaturas.
+  - .slick-thumb: Define o espaçamento, padding e overflow das miniaturas.
+  - .slick-thumb li: Define o tamanho, estilo e transição das miniaturas.
+  - .slick-thumb li img: Define o tamanho, borda e sombra das imagens das miniaturas.
+  - .slick-thumb li.slick-active img: Estiliza a miniatura ativa com borda e transformação.
+  - .slick-thumb li:active: Estiliza a miniatura clicada com transformação.
+
+  Botões para navegação horizontal nas Thumbnails:
+  - .thumbnail-nav-button: Estiliza os botões de navegação das miniaturas, incluindo fundo, cor, tamanho, borda e cursor.
+  - .thumbnail-nav-prev: Define o espaçamento à direita do botão anterior.
+  - .thumbnail-nav-next: Define o espaçamento à esquerda do botão próximo.
+  - .thumbnail-nav-button:hover: Estiliza o efeito de hover para os botões.
+*/
 /* Responsividade e Estilos Gerais */
 .slider-container {
   width: 100%;

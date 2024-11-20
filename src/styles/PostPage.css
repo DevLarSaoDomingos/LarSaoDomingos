@@ -1,3 +1,38 @@
+/* 
+
+  Este arquivo CSS define os estilos para a página de post do site Lar São Domingos.
+
+  Variáveis:
+  - Cores, fontes e tamanhos são definidos usando variáveis CSS no :root.
+
+  Containers:
+  - .post-page-container: Container geral da página.
+  - .post-content-container: Container do conteúdo do post.
+  - .featured-image-container: Container da imagem de destaque.
+  - .slider: Estilos para o slider (MainSlider).
+  - .post: Container do post.
+  - .post-title-container: Container do título do post.
+  - .post-date-container: Container da data de publicação.
+  - .post-body-container: Container do corpo do post.
+  - .wp-video: Estilos para vídeos do post.
+  - .post-video: Estilos para conteúdo de mídia.
+
+  Elementos:
+  - .featured-image-img: Estilos para a imagem de destaque.
+  - .post-title: Estilos para o título do post.
+  - .post-date: Estilos para a data de publicação.
+  - .post-content: Estilos para o conteúdo do post.
+  - .wp-video .wp-video-shortcode: Estilos para vídeos incorporados.
+  - .post-page-container a: Estilos para links e botões.
+
+  Responsividade:
+  - Estilos responsivos para diferentes larguras de tela (1024px, 768px, 480px).
+
+  Notas:
+  - Utiliza flexbox para alinhamento e layout.
+  - Inclui sombras e bordas arredondadas para elementos visuais.
+  - Ajustes de padding e margens para melhorar o layout em diferentes tamanhos de tela.
+*/
 /* Definindo variáveis para cores, fontes e tamanhos */
 :root {
   --primary-color: #232323;

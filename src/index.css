@@ -1,3 +1,23 @@
+/*
+
+  Este arquivo CSS importa a fonte 'Poppins' do Google Fonts e define estilos básicos para o corpo da página e elementos <code>.
+
+  @import:
+    - Importa a fonte 'Poppins' com diferentes pesos de 300 a 700.
+
+  body:
+    - margin: 0; (Remove a margem padrão do corpo)
+    - font-family: 'Poppins', sans-serif; (Define a fonte 'Poppins' como a fonte principal)
+    - -webkit-font-smoothing: antialiased; (Suaviza a renderização da fonte no WebKit)
+    - -moz-osx-font-smoothing: grayscale; (Suaviza a renderização da fonte no Firefox)
+    - background-color: #f8f8f8; (Define uma cor de fundo suave)
+
+  code:
+    - font-family: 'Courier New', Courier, monospace; (Define a fonte para elementos <code>)
+    - background-color: #f4f4f4; (Define a cor de fundo para elementos <code>)
+    - padding: 2px 4px; (Adiciona espaçamento interno aos elementos <code>)
+    - border-radius: 4px; (Adiciona bordas arredondadas aos elementos <code>)
+*/
 /* index.css */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 

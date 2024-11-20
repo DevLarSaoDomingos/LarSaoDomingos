@@ -1,3 +1,4 @@
+//PostPage.jsx
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useQuery, gql } from "@apollo/client";
@@ -24,13 +25,27 @@ const GET_POST_BY_SLUG = gql`
   }
 `;
 
+/**
+ * Componente de página de post que exibe o conteúdo de um post específico.
+ * Obtém o slug dos parâmetros da URL e executa uma consulta GraphQL para buscar o post correspondente.
+ * Exibe um esqueleto de carregamento enquanto os dados estão sendo carregados e uma mensagem de erro se a consulta falhar.
+ * Extrai imagens e vídeos do conteúdo HTML do post e os remove do corpo do conteúdo.
+ * Normaliza URLs de imagens para remover parâmetros de query.
+ * Combina a imagem destacada com as imagens extraídas do conteúdo e as exibe em um slider.
+ * Exibe o título, data de publicação e conteúdo do post, além dos vídeos extraídos.
+ *
+ * @returns {JSX.Element} O componente da página de post.
+ */
 function PostPage() {
+  // Obtém o slug dos parâmetros da URL
   const { slug } = useParams();
 
+  // Executa a consulta GraphQL para obter o post pelo slug
   const { loading, error, data } = useQuery(GET_POST_BY_SLUG, {
     variables: { slug },
   });
 
+  // Exibe um esqueleto de carregamento enquanto os dados estão sendo carregados
   if (loading)
     return (
       <div
@@ -49,8 +64,11 @@ function PostPage() {
         </div>
       </div>
     );
+
+  // Exibe uma mensagem de erro se a consulta falhar
   if (error) return <p>Erro: {error.message}</p>;
 
+  // Obtém o post dos dados retornados pela consulta
   const post = data?.postBy;
 
   // Função para extrair todas as imagens e vídeos do conteúdo HTML
@@ -64,6 +82,7 @@ function PostPage() {
     const imageUrls = [];
     const videoUrls = [];
 
+    // Extrai URLs das imagens e remove as imagens do conteúdo
     images.forEach((img) => {
       if (img.src) {
         // Substituir imagens pequenas por maiores
@@ -73,6 +92,7 @@ function PostPage() {
       }
     });
 
+    // Extrai URLs dos vídeos e remove os vídeos do conteúdo
     videos.forEach((video) => {
       if (video.src) {
         videoUrls.push(video.src); // Armazenar os URLs dos vídeos
@@ -145,21 +165,21 @@ function PostPage() {
           </div>
           <div className="post">
             {/* Container do Post */}
+            <div className="post-body-container">
+              <div className="post-content-container">
+                {/* Título do Post */}
+                <div className="post-title-container">
+                  <h1 className="post-title">{post.title}</h1>
+                </div>
 
-              {/* Conteúdo do Post */}
-              <div className="post-body-container">
-            <div className="post-content-container">
-              {/* Título do Post */}
-              <div className="post-title-container">
-                <h1 className="post-title">{post.title}</h1>
-              </div>
+                {/* Data de publicação */}
+                <div className="post-date-container">
+                  <p className="post-date">
+                    Postado em: {new Date(post.date).toLocaleDateString()}
+                  </p>
+                </div>
 
-              {/* Data de publicação */}
-              <div className="post-date-container">
-                <p className="post-date">
-                  Postado em: {new Date(post.date).toLocaleDateString()}
-                </p>
-              </div>
+                {/* Conteúdo do Post */}
                 <div
                   className="post-content"
                   dangerouslySetInnerHTML={{ __html: contentWithoutMedia }}

@@ -1,11 +1,31 @@
+//DonationPage.jsx
 import React from "react";
 import "../styles/DonationPage.css";
 
+/**
+ * Componente DonationPage
+ *
+ * Este componente renderiza a página de doações para a instituição Lar São Domingos.
+ * Ele fornece várias opções de doação, incluindo PIX, transferência bancária, telemarketing
+ * e doações internacionais. Além disso, informa sobre o programa Nota Fiscal Cidadã e
+ * como os usuários podem contribuir sem gastar nada.
+ *
+ * @component
+ * @example
+ * return (
+ *   <DonationPage />
+ * )
+ *
+ * @returns {JSX.Element} A página de doações com várias opções de contribuição.
+ */
 const DonationPage = () => {
   return (
     <div className="donation-page">
+      {/* Seção de informações de doação */}
       <div className="donation-section donation-info">
         <h1>Faça sua Doação</h1>
+        
+        {/* Doação via PIX */}
         <div id="qr-code" className="info-section-account">
           <h3>Doe via PIX</h3>
           <img
@@ -13,6 +33,8 @@ const DonationPage = () => {
             alt="QR Code para Doação"
           />
         </div>
+        
+        {/* Doação via Transferência Bancária */}
         <div id="bank-details" className="info-section-account">
           <h3>Doe via Transferência Bancária</h3>
           <p>
@@ -29,12 +51,16 @@ const DonationPage = () => {
             <strong>Conta:</strong> 126000-6
           </p>
         </div>
+        
+        {/* Doação via Telemarketing */}
         <div id="telemarketing" className="info-section-account">
           <h3>Doe via Telemarketing</h3>
           <p>
             Ligue para: <a href="tel:+558298221211300">(82) 2121-1300</a>
           </p>
         </div>
+        
+        {/* Doações internacionais */}
         <div id="doacao-internacional" className="info-section-account">
           <h3>Para doações internacionais:</h3>
           <p>
@@ -52,6 +78,8 @@ const DonationPage = () => {
           </p>
         </div>
       </div>
+      
+      {/* Seção de instruções sobre Nota Fiscal Cidadã */}
       <div className="donation-section instructions">
         <h1>Lar São Domingos no Nota Fiscal Cidadã</h1>
         <div className="instruction-description">
@@ -73,6 +101,8 @@ const DonationPage = () => {
             Assista o vídeo abaixo e descubra como pode nos apoiar!
           </p>
         </div>
+        
+        {/* Vídeo tutorial sobre Nota Fiscal Cidadã */}
         <video id="nfcidada-tutorial" controls>
           <source
             src="/assets/videos/LarSaoDomingoNFCidada.mp4"
@@ -80,6 +110,8 @@ const DonationPage = () => {
           />
           Seu navegador não suporta a tag de vídeo.
         </video>
+        
+        {/* Lista de instruções para cadastrar Nota Fiscal Cidadã */}
         <div className="listagem-tutorial">
           <ul>
             <li>Acesse o site da Nota Fiscal Cidadã.</li>
@@ -93,19 +125,21 @@ const DonationPage = () => {
               automaticamente.
             </li>
           </ul>
-        <a
-          href="https://nfa.sefaz.al.gov.br/nfa/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="cta-button"
-        >
-          Cadastrar Nota Fiscal Cidadã
-        </a>
-      </div>
+          <a
+            href="https://nfa.sefaz.al.gov.br/nfa/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="cta-button"
+          >
+            Cadastrar Nota Fiscal Cidadã
+          </a>
+        </div>
+        
+        {/* Mensagem de agradecimento */}
         <p id="agradecimento">
           O Lar São Domingos agradece toda forma de apoio!
         </p>
-        </div>
+      </div>
     </div>
   );
 };

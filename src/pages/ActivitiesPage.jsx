@@ -4,13 +4,30 @@ import "../styles/ActivitiesPage.css";
 import AboutSection from "../components/AboutSection";
 import ActivitiesList from "../components/ActivitiesList";
 
+/**
+ * Componente ActivitiesPage
+ *
+ * Este componente representa a página de atividades do Lar São Domingos.
+ * Ele exibe uma seção de introdução sobre as atividades oferecidas e uma lista detalhada de cada atividade.
+ *
+ * @component
+ *
+ * @example
+ * return (
+ *   <ActivitiesPage />
+ * )
+ *
+ * @returns {JSX.Element} A página de atividades com uma seção de introdução e uma lista de atividades.
+ */
 const ActivitiesPage = () => {
+  // Conteúdo da seção de introdução sobre as atividades
   const activitiesContent = {
     title: "Nossas Atividades",
     text: "No Lar São Domingos, oferecemos uma variedade de atividades educativas, culturais, esportivas e de inclusão digital, todas voltadas ao desenvolvimento integral de crianças e adolescentes de 6 a 17 anos. Nosso objetivo é proporcionar um ambiente estimulante e acolhedor, onde os jovens possam aprender, crescer e se preparar para um futuro melhor.",
     imageSrc: "assets/img/atividades-esportivas.jpg",
   };
 
+  // Lista detalhada das atividades oferecidas
   const activities = [
     {
       title: "Atividades Esportivas",
@@ -40,14 +57,15 @@ const ActivitiesPage = () => {
 
   return (
     <div>
+      {/* Seção de introdução sobre as atividades */}
       <AboutSection
         title={activitiesContent.title}
         text={activitiesContent.text}
         imageSrc={activitiesContent.imageSrc}
         backgroundColor="#007CEE"  // Cor personalizada para a ActivitiesPage
       />
+      {/* Lista de atividades detalhadas */}
       <ActivitiesList activities={activities} />
-
     </div>
   );
 };

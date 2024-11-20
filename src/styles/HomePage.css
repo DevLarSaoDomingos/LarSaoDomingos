@@ -1,3 +1,14 @@
+/* 
+
+    .HomePage:
+    - display: flex; -> Define um container flexível.
+    - flex-direction: column; -> Define a direção dos itens flexíveis como coluna.
+    - align-items: center; -> Alinha os itens flexíveis no centro do eixo transversal.
+    - justify-content: center; -> Centraliza os itens flexíveis no eixo principal.
+    - gap: 20px; -> Define um espaçamento de 20px entre os itens flexíveis.
+    - height: 100%; -> Define a altura do elemento como 100% do seu elemento pai.
+    - width: 100%; -> Define a largura do elemento como 100% do seu elemento pai.
+*/
 .HomePage{
     display: flex;
     flex-direction: column;

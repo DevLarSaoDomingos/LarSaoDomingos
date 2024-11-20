@@ -1,3 +1,4 @@
+//NewsSection.jsx
 import React, { useState, useEffect } from "react";
 import { useQuery, gql } from "@apollo/client";
 import { useNavigate } from "react-router-dom";
@@ -29,6 +30,7 @@ const GET_POSTS = gql`
   }
 `;
 
+// Consulta GraphQL para obter o total de posts
 const GET_TOTAL_POST_COUNT = gql`
   query GetTotalPostCount {
     posts {
@@ -40,14 +42,27 @@ const GET_TOTAL_POST_COUNT = gql`
   }
 `;
 
+/**
+ * Componente que exibe uma seção de notícias.
+ *
+ * @param {Object} props - As propriedades do componente.
+ * @param {boolean} [props.isNewsPage=false] - Indica se a seção está sendo exibida na página de notícias.
+ *
+ * @returns {JSX.Element} O componente da seção de notícias.
+ *
+ * @example
+ * <NewsSection isNewsPage={true} />
+ *
+ * @component
+ */
 export default function NewsSection({ isNewsPage = false }) {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [currentPage, setCurrentPage] = useState(1);
-  const [allPosts, setAllPosts] = useState([]);
-  const [displayedPosts, setDisplayedPosts] = useState([]);
-  const [hasMore, setHasMore] = useState(true);
-  const postsPerPage = 3;
-  const navigate = useNavigate();
+  const [searchTerm, setSearchTerm] = useState(""); // Estado para armazenar o termo de busca
+  const [currentPage, setCurrentPage] = useState(1); // Estado para armazenar a página atual
+  const [allPosts, setAllPosts] = useState([]); // Estado para armazenar todos os posts
+  const [displayedPosts, setDisplayedPosts] = useState([]); // Estado para armazenar os posts exibidos
+  const [hasMore, setHasMore] = useState(true); // Estado para indicar se há mais posts para carregar
+  const postsPerPage = 3; // Número de posts por página
+  const navigate = useNavigate(); // Hook para navegação
 
   // Query para buscar posts
   const { loading, error, data, fetchMore } = useQuery(GET_POSTS, {
@@ -93,7 +108,7 @@ export default function NewsSection({ isNewsPage = false }) {
     }
   };
 
-  // Funções auxiliares para manipulação de conteúdo de posts
+  // Função para extrair a primeira imagem do conteúdo do post
   const extractFirstImageFromContent = (content) => {
     const tempDiv = document.createElement("div");
     tempDiv.innerHTML = content;
@@ -101,6 +116,7 @@ export default function NewsSection({ isNewsPage = false }) {
     return images.length > 0 ? images[0].src : null;
   };
 
+  // Função para remover imagens do conteúdo do post
   const removeImagesFromContent = (content) => {
     const tempDiv = document.createElement("div");
     tempDiv.innerHTML = content;
@@ -111,10 +127,12 @@ export default function NewsSection({ isNewsPage = false }) {
     return tempDiv.innerHTML;
   };
 
+  // Função para truncar o conteúdo do post
   const truncateContent = (content) => {
     return content.length > 180 ? content.slice(0, 180) + "..." : content;
   };
 
+  // Renderizar esqueleto de carregamento enquanto os dados estão sendo carregados
   if (loading && !data)
     return (
       <section className="news-section">
@@ -147,10 +165,13 @@ export default function NewsSection({ isNewsPage = false }) {
         </div>
       </section>
     );
+
+  // Renderizar mensagem de erro se houver um erro na consulta
   if (error) return <p>Error: {error.message}</p>;
 
   return (
     <section className="news-section">
+      {/* Renderizar título da seção se não estiver na página de notícias */}
       {!isNewsPage && (
         <div className="separator-container">
           <div />
@@ -159,6 +180,7 @@ export default function NewsSection({ isNewsPage = false }) {
         </div>
       )}
 
+      {/* Renderizar campo de busca se estiver na página de notícias */}
       {isNewsPage && (
         <div className="search-container">
           <input
@@ -170,6 +192,7 @@ export default function NewsSection({ isNewsPage = false }) {
         </div>
       )}
 
+      {/* Renderizar grid de notícias */}
       <div className="news-grid">
         {displayedPosts.length > 0 ? (
           displayedPosts.map((post, index) => {
@@ -178,7 +201,7 @@ export default function NewsSection({ isNewsPage = false }) {
               imageUrl || extractFirstImageFromContent(post.content);
             const absoluteUrl =
               imageToDisplay && !imageToDisplay.startsWith("http")
-                ? `http://157.173.205.94:8081/${imageToDisplay}`
+                ? `http://157.173.205.94:8081/${imageToDisplay}` // Alterar para URL da API caso necessário
                 : imageToDisplay;
 
             const updatedContent = removeImagesFromContent(post.content);
@@ -218,6 +241,7 @@ export default function NewsSection({ isNewsPage = false }) {
         )}
       </div>
 
+      {/* Renderizar paginação se estiver na página de notícias e houver mais de uma página */}
       {isNewsPage && totalPages > 1 && (
         <div className="pagination">
           <button
@@ -241,6 +265,7 @@ export default function NewsSection({ isNewsPage = false }) {
         </div>
       )}
 
+      {/* Renderizar botão "Veja Mais" se não estiver na página de notícias e houver mais posts */}
       {!isNewsPage && hasMore && (
         <div className="separator-container">
           <div />

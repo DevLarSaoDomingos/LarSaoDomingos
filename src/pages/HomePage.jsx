@@ -25,9 +25,22 @@ const slidesData = [
   },
 ];
 
+/**
+ * Componente funcional HomePage.
+ * 
+ * Este componente representa a página inicial e inclui vários componentes filhos:
+ * - DoacaoPopUp: Um pop-up para doações.
+ * - MainSlider: Um slider principal com imagens e textos.
+ * - InfoSection: Uma seção de informações com várias cores.
+ * - StatementSection: Uma seção de declarações com texto principal e secundário.
+ * - NewsSection: Uma seção de notícias.
+ * 
+ * @returns {JSX.Element} O componente HomePage.
+ */
 const HomePage = () => {
   return (
     <div className="HomePage">
+      {/* Componente de pop-up para doações */}
       <DoacaoPopUp
         overlay={"popup-overlay"}
         gridPosition={"popup-grid-position"}
@@ -36,6 +49,7 @@ const HomePage = () => {
         text={"popup-text"}
         doeButton={"doe-button"}
       />
+      {/* Componente de slider principal */}
       <MainSlider
         container={"slider-container"}
         sliderItem={"slider-item"}
@@ -45,6 +59,7 @@ const HomePage = () => {
         imagesAbove={false}
         slidesData={slidesData}
       />
+      {/* Componente de seção de informações */}
       <InfoSection
         container={"info-section"}
         item={"info-box"}
@@ -53,11 +68,13 @@ const HomePage = () => {
         colorThree={"orange"}
         colorFour={"green"}
       />
+      {/* Componente de seção de declarações */}
       <StatementSection
         container={"statement-container"}
         mainText={"statement-text"}
         subText={"statement-sub-text"}
       />
+      {/* Componente de seção de notícias */}
       <NewsSection />
     </div>
   );

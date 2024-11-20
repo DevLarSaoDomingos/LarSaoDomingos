@@ -1,3 +1,45 @@
+/* 
+  InfoSection.css
+
+  Este arquivo de estilos define a aparência e o comportamento da seção de informações e suas caixas de informações.
+
+  .info-section:
+    - Define um contêiner flexível para centralizar e alinhar itens com espaçamento e padding.
+    - Permite que os itens se movam para a linha seguinte em telas menores com flex-wrap.
+
+  .info-box:
+    - Define o estilo das caixas de informações com padding, bordas arredondadas, alinhamento de texto centralizado, largura e altura fixas.
+    - Adiciona sombra e transição suave ao passar o mouse.
+    - Define a cor do texto como branca e o cursor como ponteiro.
+
+  .info-box:hover:
+    - Adiciona um efeito de elevação ao passar o mouse.
+
+  .info-icon:
+    - Define o tamanho e o espaçamento dos ícones dentro das caixas de informações.
+
+  .info-box.red, .info-box.blue, .info-box.orange, .info-box.green:
+    - Define cores de fundo específicas para diferentes caixas de informações.
+
+  .info-box h3:
+    - Define o estilo dos títulos dentro das caixas de informações.
+
+  .info-box p:
+    - Define o estilo dos parágrafos dentro das caixas de informações, removendo espaçamento extra.
+
+  .info-section a:
+    - Define o estilo dos links dentro da seção de informações.
+
+  .info-section a:hover:
+    - Define o estilo dos links ao passar o mouse.
+
+  @media (max-width: 1024px):
+    - Ajusta o padding, o espaçamento entre as caixas, a largura das caixas, o tamanho dos ícones, dos títulos e dos subtítulos para telas menores.
+
+  @media (max-width: 768px):
+    - Ajusta ainda mais o padding, o espaçamento entre as caixas, a largura das caixas, o tamanho dos ícones, dos títulos e dos subtítulos para telas menores.
+    - Adiciona espaçamento entre as caixas em dispositivos móveis.
+*/
 /* InfoSection.css */
 .info-section {
   display: flex;

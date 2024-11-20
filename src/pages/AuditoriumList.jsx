@@ -1,7 +1,20 @@
+//AuditoriumList.jsx
 import React from "react";
 import "../styles/AuditoriumList.css";
 
+/**
+ * Componente que renderiza uma lista de auditórios com suas respectivas informações.
+ *
+ * @component
+ * @example
+ * return (
+ *   <AuditoriumList />
+ * )
+ *
+ * @returns {JSX.Element} Retorna um elemento JSX que contém a lista de auditórios.
+ */
 const AuditoriumList = () => {
+  // Lista de auditórios com suas informações
   const auditoriums = [
     {
       name: "Auditório A",
@@ -28,6 +41,7 @@ const AuditoriumList = () => {
   return (
     <div className="auditorium-list">
       {auditoriums.map((auditorium, index) => (
+        // Renderiza cada auditório
         <div className="auditorium-section" key={index}>
           <div
             className="auditorium-image"
