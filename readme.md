@@ -20,40 +20,8 @@ A estrutura de arquivos do projeto é organizada da seguinte maneira:
 📦public
 ┣ 📂assets
 ┃ ┣ 📂icons
-┃ ┃ ┣ 📜facebook.png
-┃ ┃ ┣ 📜gps.png
-┃ ┃ ┣ 📜instagram.png
-┃ ┃ ┣ 📜mail.png
-┃ ┃ ┗ 📜phone.png
 ┃ ┣ 📂img
-┃ ┃ ┣ 📜abrace-lar.jpg
-┃ ┃ ┣ 📜atividades-artisticas.jpg
-┃ ┃ ┣ 📜atividades-esportivas.jpg
-┃ ┃ ┣ 📜auditorio01.JPG
-┃ ┃ ┣ 📜auditorio02.JPG
-┃ ┃ ┣ 📜bazar.jpg
-┃ ┃ ┣ 📜biblioteca.jpg
-┃ ┃ ┣ 📜cabodeguerra.jpg
-┃ ┃ ┣ 📜CINFO.png
-┃ ┃ ┣ 📜crianca-sorrindo.png
-┃ ┃ ┣ 📜criancas-abracando.png
-┃ ┃ ┣ 📜equipe.jpg
-┃ ┃ ┣ 📜estrutura.jpg
-┃ ┃ ┣ 📜futebol.jpg
-┃ ┃ ┣ 📜ginasio.jpg
-┃ ┃ ┣ 📜grupo-convivencia.jpg
-┃ ┃ ┣ 📜historia.jpg
-┃ ┃ ┣ 📜IFAL.png
-┃ ┃ ┣ 📜inclusao-digital.jpg
-┃ ┃ ┣ 📜institucional.jpg
-┃ ┃ ┣ 📜LarSaoDomingos.png
-┃ ┃ ┣ 📜LSD_logo.png
-┃ ┃ ┣ 📜missao.jpg
-┃ ┃ ┣ 📜NotaFiscal.png
-┃ ┃ ┣ 📜sobre.jpg
-┃ ┃ ┗ 📜voluntariase.jpg
 ┃ ┣ 📂videos
-┃ ┃ ┗ 📜LarSaoDomingoNFCidada.mp4
 ┣ 📜favicon.ico
 ┣ 📜index.html
 ┣ 📜manifest.json
