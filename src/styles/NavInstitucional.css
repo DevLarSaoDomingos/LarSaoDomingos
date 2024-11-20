@@ -112,7 +112,7 @@
   
     /* Aumenta ainda mais o espaçamento entre os itens */
     .navbar-institucional ul {
-      gap: 35px;
+      gap: 10px;
     }
   
     .navbar-institucional::-webkit-scrollbar {

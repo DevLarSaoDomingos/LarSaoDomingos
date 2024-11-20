@@ -5,6 +5,8 @@ import ReactDOM from 'react-dom/client';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
+import "aos/dist/aos.css";
+
 
 const client = new ApolloClient({
   uri: 'http://157.173.205.94:8081/graphql',

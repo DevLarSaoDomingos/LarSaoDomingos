@@ -11,6 +11,7 @@ import HugPage from "./pages/HugPage";
 import InstitucionalPage from "./pages/InstitucionalPage";
 import DonationPage from "./pages/DonationPage";
 import AuditoriumList from "./pages/AuditoriumList";
+
 // import { ApolloProvider } from "@apollo/client"; // Ensure this wrapper handles routing
 
 function App() {

@@ -1,13 +1,14 @@
+//NewsPage.jsx
 import React, { useState } from "react";
 import { useQuery, gql } from "@apollo/client";
 import { useNavigate } from "react-router-dom";
 import "../styles/NewsPage.css";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-// Consulta GraphQL para pegar posts com paginação
+
 const GET_POSTS = gql`
-  query GetPosts($first: Int!, $after: String) {
-    posts(first: $first, after: $after) {
+  query GetPosts($first: Int!, $after: String, $search: String) {
+    posts(first: $first, after: $after, where: { search: $search }) {
       nodes {
         title
         slug
@@ -31,13 +32,11 @@ const GET_POSTS = gql`
 `;
 
 const NewsPage = () => {
-  // Correção do uso de useState para o cursor
-  const [currentCursor, setCurrentCursor] = useState(null); // Para armazenar o cursor atual
-  const [nextCursor, setNextCursor] = useState(null); // Para armazenar o cursor da próxima página
-  const [previousCursor, setPreviousCursor] = useState(null); // Para armazenar o cursor da página anterior
+  const [currentCursor, setCurrentCursor] = useState(null);
+  const [searchTerm, setSearchTerm] = useState(""); // Termo de busca
+  const [submittedSearch, setSubmittedSearch] = useState(""); // Termo confirmado
   const navigate = useNavigate();
 
-  // Função para limpar HTML indesejado
   const cleanHTMLContent = (content) => {
     const doc = new DOMParser().parseFromString(content, "text/html");
     let text = doc.body.textContent || "";
@@ -45,78 +44,53 @@ const NewsPage = () => {
     return text;
   };
 
-  // Usando a consulta GraphQL para pegar os posts
-  const { loading, error, data } = useQuery(GET_POSTS, {
-    variables: { first: 9, after: currentCursor }, // Passa o cursor atual como variável
+  const { loading, error, data, fetchMore } = useQuery(GET_POSTS, {
+    variables: { first: 9, after: currentCursor, search: submittedSearch },
   });
 
-  // Função para navegar para a página de detalhes da notícia
+  if (error) return <p>Error: {error.message}</p>;
+
+  const posts = data?.posts?.nodes || [];
+  const pageInfo = data?.posts?.pageInfo || {};
+
   const handlePostClick = (slug) => {
     navigate(`/noticia/${slug}`);
   };
 
-  // Adicione esta função para renderizar o skeleton loader
-  const renderSkeletonLoader = () => {
-    return (
-      <div className="news-page">
-        <h1>Portal de Notícias</h1>
-
-        <div className="news-list">
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((item) => (
-            <div key={item} className="post-item">
-              <Skeleton
-                className="post-image"
-                variant="rectangular"
-                width="100%"
-                height={400}
-              />
-              <h2>
-                <Skeleton variant="text" width="80%" />
-              </h2>
-              <p>
-                <Skeleton variant="text" width="100%" count={3} />
-                <Skeleton variant="text" width="100%" count={3} />
-                <Skeleton variant="text" width="100%" count={3} />
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
-    );
-  };
-
-  // Modifique a condição de loading
-  if (loading) return renderSkeletonLoader();
-
-  if (error) return <p>Error: {error.message}</p>;
-
-  const posts = data.posts.nodes;
-  const pageInfo = data.posts.pageInfo;
-
-  // Função para obter a imagem correta para o post
   const getPostImage = (post) => {
     if (post.featuredImage && post.featuredImage.node.sourceUrl) {
       return post.featuredImage.node.sourceUrl;
     }
 
     const content = post.content;
-    const firstImageMatch = content.match(/<img [^>]*src="([^"]*)"/); // Regex para buscar o src da primeira imagem no conteúdo
+    const firstImageMatch = content.match(/<img [^>]*src="([^"]*)"/);
     if (firstImageMatch) {
-      return firstImageMatch[1]; // Retorna o primeiro src de imagem encontrado
+      return firstImageMatch[1];
     }
 
-    return "/assets/img/missao.jpg"; // Imagem padrão caso não tenha nenhuma imagem
+    return "/assets/img/missao.jpg";
   };
 
-  // Atualiza os cursores de navegação
-  const handlePageChange = (direction) => {
+  // Função de pesquisa do código 2 integrada
+  const handleSearchSubmit = () => {
+    setSubmittedSearch(searchTerm); // Define o termo confirmado
+    setCurrentCursor(null); // Reseta para a primeira página
+  };
+
+  const handlePagination = (direction) => {
     if (direction === "next" && pageInfo.hasNextPage) {
-      setCurrentCursor(pageInfo.endCursor); // Atualiza o cursor para a próxima página
-      setPreviousCursor(pageInfo.startCursor); // Atualiza o cursor anterior para voltar
+      fetchMore({ variables: { after: pageInfo.endCursor } });
+      setCurrentCursor(pageInfo.endCursor);
     }
     if (direction === "previous" && pageInfo.hasPreviousPage) {
-      setCurrentCursor(pageInfo.startCursor); // Atualiza o cursor para a página anterior
-      setNextCursor(pageInfo.endCursor); // Atualiza o cursor da próxima página
+      fetchMore({ variables: { after: pageInfo.startCursor } });
+      setCurrentCursor(pageInfo.startCursor);
+    }
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      handleSearchSubmit();
     }
   };
 
@@ -124,49 +98,64 @@ const NewsPage = () => {
     <div className="news-page">
       <h1>Portal de Notícias</h1>
 
+      {/* Barra de Pesquisa */}
+      <div className="search-container">
+        <input
+          type="text"
+          placeholder="Buscar notícia..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)} // Atualiza o estado local
+          onKeyDown={handleKeyDown} // Adiciona o manipulador de eventos onKeyDown
+          className="search-input"
+        />
+        <button onClick={handleSearchSubmit} className="search-button">
+          Buscar
+        </button>
+      </div>
+
       {/* Lista de Posts */}
       <div className="news-list">
-        {posts.map((post) => (
-          <div
-            key={post.slug}
-            className="post-item"
-            onClick={() => handlePostClick(post.slug)}
-          >
-            {/* Exibe a imagem do post */}
-            <img
-              src={getPostImage(post)}
-              alt={post.title}
-              className="post-image"
-            />
-            <h2>{post.title}</h2>
-            {/* Limpa e exibe o excerpt sem tags indesejadas */}
-            <p>{cleanHTMLContent(post.excerpt)}</p>
-          </div>
-        ))}
+        {loading ? (
+          Array.from({ length: 9 }).map((_, index) => (
+            <div key={index} className="post-item">
+              <Skeleton height={200} />
+              <h2><Skeleton /></h2>
+              <p><Skeleton count={3} /></p>
+            </div>
+          ))
+        ) : (
+          posts.map((post) => (
+            <div
+              key={post.slug}
+              className="post-item"
+              onClick={() => handlePostClick(post.slug)}
+            >
+              <img
+                src={getPostImage(post)}
+                alt={post.title}
+                className="post-image"
+              />
+              <h2>{post.title}</h2>
+              <p>{cleanHTMLContent(post.excerpt)}</p>
+            </div>
+          ))
+        )}
       </div>
 
       {/* Paginação */}
       <div className="pagination">
-        {pageInfo.hasPreviousPage && (
-          <button
-            onClick={() => {
-              handlePageChange("previous");
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            }}
-          >
-            Anterior
-          </button>
-        )}
-        {pageInfo.hasNextPage && (
-          <button
-            onClick={() => {
-              handlePageChange("next");
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            }}
-          >
-            Próxima
-          </button>
-        )}
+        <button
+          onClick={() => handlePagination("previous")}
+          disabled={!pageInfo.hasPreviousPage}
+        >
+          Anterior
+        </button>
+        <button
+          onClick={() => handlePagination("next")}
+          disabled={!pageInfo.hasNextPage}
+        >
+          Próximo
+        </button>
       </div>
     </div>
   );
