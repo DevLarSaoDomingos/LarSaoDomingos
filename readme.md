@@ -18,63 +18,95 @@ A estrutura de arquivos do projeto é organizada da seguinte maneira:
 
 
 📦public
- ┣ 📂assets
- ┃ ┣ 📂icons
- ┃ ┣ 📂img
- ┃ ┣ 📂videos
- ┣ 📜favicon.ico
- ┣ 📜index.html
- ┣ 📜manifest.json
- ┗ 📜robots.txt
+┣ 📂assets
+┃ ┣ 📂icons
+┃ ┃ ┣ 📜facebook.png
+┃ ┃ ┣ 📜gps.png
+┃ ┃ ┣ 📜instagram.png
+┃ ┃ ┣ 📜mail.png
+┃ ┃ ┗ 📜phone.png
+┃ ┣ 📂img
+┃ ┃ ┣ 📜abrace-lar.jpg
+┃ ┃ ┣ 📜atividades-artisticas.jpg
+┃ ┃ ┣ 📜atividades-esportivas.jpg
+┃ ┃ ┣ 📜auditorio01.JPG
+┃ ┃ ┣ 📜auditorio02.JPG
+┃ ┃ ┣ 📜bazar.jpg
+┃ ┃ ┣ 📜biblioteca.jpg
+┃ ┃ ┣ 📜cabodeguerra.jpg
+┃ ┃ ┣ 📜CINFO.png
+┃ ┃ ┣ 📜crianca-sorrindo.png
+┃ ┃ ┣ 📜criancas-abracando.png
+┃ ┃ ┣ 📜equipe.jpg
+┃ ┃ ┣ 📜estrutura.jpg
+┃ ┃ ┣ 📜futebol.jpg
+┃ ┃ ┣ 📜ginasio.jpg
+┃ ┃ ┣ 📜grupo-convivencia.jpg
+┃ ┃ ┣ 📜historia.jpg
+┃ ┃ ┣ 📜IFAL.png
+┃ ┃ ┣ 📜inclusao-digital.jpg
+┃ ┃ ┣ 📜institucional.jpg
+┃ ┃ ┣ 📜LarSaoDomingos.png
+┃ ┃ ┣ 📜LSD_logo.png
+┃ ┃ ┣ 📜missao.jpg
+┃ ┃ ┣ 📜NotaFiscal.png
+┃ ┃ ┣ 📜sobre.jpg
+┃ ┃ ┗ 📜voluntariase.jpg
+┃ ┣ 📂videos
+┃ ┃ ┗ 📜LarSaoDomingoNFCidada.mp4
+┣ 📜favicon.ico
+┣ 📜index.html
+┣ 📜manifest.json
+┗ 📜robots.txt
 
 📦src
- ┣ 📂components
- ┃ ┣ 📜AboutSection.jsx
- ┃ ┣ 📜ActivitiesList.jsx
- ┃ ┣ 📜DoacaoPopUp.jsx
- ┃ ┣ 📜Footer.jsx
- ┃ ┣ 📜InfoSection.jsx
- ┃ ┣ 📜LocationSection.jsx
- ┃ ┣ 📜MainSlider.jsx
- ┃ ┣ 📜NavBar.jsx
- ┃ ┣ 📜NavInstitucional.jsx
- ┃ ┣ 📜NewsSection.jsx
- ┃ ┗ 📜StatementSection.jsx
- ┣ 📂pages
- ┃ ┣ 📜ActivitiesPage.jsx
- ┃ ┣ 📜AuditoriumList.jsx
- ┃ ┣ 📜DonationPage.jsx
- ┃ ┣ 📜HomePage.jsx
- ┃ ┣ 📜HugPage.jsx
- ┃ ┣ 📜InstitucionalPage.jsx
- ┃ ┣ 📜NewsPage.jsx
- ┃ ┗ 📜PostPage.jsx
- ┣ 📂styles
- ┃ ┣ 📜AboutSection.css
- ┃ ┣ 📜ActivitiesList.css
- ┃ ┣ 📜ActivitiesPage.css
- ┃ ┣ 📜AuditoriumList.css
- ┃ ┣ 📜DoacaoPopUp.css
- ┃ ┣ 📜DonationPage.css
- ┃ ┣ 📜Footer.css
- ┃ ┣ 📜HomePage.css
- ┃ ┣ 📜InfoSection.css
- ┃ ┣ 📜InstitucionalPage.css
- ┃ ┣ 📜LocationSection.css
- ┃ ┣ 📜MainSlider.css
- ┃ ┣ 📜NavBar.css
- ┃ ┣ 📜NavInstitucional.css
- ┃ ┣ 📜NewsPage.css
- ┃ ┣ 📜NewsSection.css
- ┃ ┣ 📜PostPage.css
- ┃ ┗ 📜StatementSection.css
- ┣ 📜App.css
- ┣ 📜App.js
- ┣ 📜App.test.js
- ┣ 📜index.css
- ┣ 📜index.js
- ┣ 📜reportWebVitals.js
- ┗ 📜setupTests.js
+┣ 📂components
+┃ ┣ 📜AboutSection.jsx
+┃ ┣ 📜ActivitiesList.jsx
+┃ ┣ 📜DoacaoPopUp.jsx
+┃ ┣ 📜Footer.jsx
+┃ ┣ 📜InfoSection.jsx
+┃ ┣ 📜LocationSection.jsx
+┃ ┣ 📜MainSlider.jsx
+┃ ┣ 📜NavBar.jsx
+┃ ┣ 📜NavInstitucional.jsx
+┃ ┣ 📜NewsSection.jsx
+┃ ┗ 📜StatementSection.jsx
+┣ 📂pages
+┃ ┣ 📜ActivitiesPage.jsx
+┃ ┣ 📜AuditoriumList.jsx
+┃ ┣ 📜DonationPage.jsx
+┃ ┣ 📜HomePage.jsx
+┃ ┣ 📜HugPage.jsx
+┃ ┣ 📜InstitucionalPage.jsx
+┃ ┣ 📜NewsPage.jsx
+┃ ┗ 📜PostPage.jsx
+┣ 📂styles
+┃ ┣ 📜AboutSection.css
+┃ ┣ 📜ActivitiesList.css
+┃ ┣ 📜ActivitiesPage.css
+┃ ┣ 📜AuditoriumList.css
+┃ ┣ 📜DoacaoPopUp.css
+┃ ┣ 📜DonationPage.css
+┃ ┣ 📜Footer.css
+┃ ┣ 📜HomePage.css
+┃ ┣ 📜InfoSection.css
+┃ ┣ 📜InstitucionalPage.css
+┃ ┣ 📜LocationSection.css
+┃ ┣ 📜MainSlider.css
+┃ ┣ 📜NavBar.css
+┃ ┣ 📜NavInstitucional.css
+┃ ┣ 📜NewsPage.css
+┃ ┣ 📜NewsSection.css
+┃ ┣ 📜PostPage.css
+┃ ┗ 📜StatementSection.css
+┣ 📜App.css
+┣ 📜App.js
+┣ 📜App.test.js
+┣ 📜index.css
+┣ 📜index.js
+┣ 📜reportWebVitals.js
+┗ 📜setupTests.js
 
 
 ### Explicação das Pastas e Arquivos
