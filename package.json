@@ -6,6 +6,7 @@
     "@apollo/client": "^3.11.8",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
+    "font-awesome": "^4.7.0",
     "graphql": "^15.9.0",
     "larsaodomingos": "file:",
     "react": "^18.3.1",

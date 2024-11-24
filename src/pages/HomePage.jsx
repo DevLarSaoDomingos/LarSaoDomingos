@@ -5,6 +5,7 @@ import InfoSection from "../components/InfoSection";
 import StatementSection from "../components/StatementSection";
 import DoacaoPopUp from "../components/DoacaoPopUp";
 import NewsSection from "../components/NewsSection";
+import ContactSection from "../components/ContactSection";
 
 const slidesData = [
   {
@@ -76,6 +77,7 @@ const HomePage = () => {
       />
       {/* Componente de seção de notícias */}
       <NewsSection />
+      <ContactSection />
     </div>
   );
 };
