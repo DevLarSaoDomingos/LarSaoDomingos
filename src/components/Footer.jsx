@@ -52,7 +52,7 @@ const Footer = () => {
           >
             {" "}
             <img src="/assets/icons/instagram.png" alt="Instagram" />
-            Instagram
+            Instagram | @larsaodomingos
           </a>
           {/* Link para Facebook */}
           <a
@@ -62,7 +62,7 @@ const Footer = () => {
           >
             {" "}
             <img src="/assets/icons/facebook.png" alt="Facebook" />
-            Facebook
+            Facebook | @larsaodomingosmaceio
           </a>
         </div>
         <div className="footer-section">
