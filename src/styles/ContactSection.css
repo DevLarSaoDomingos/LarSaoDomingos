@@ -1,43 +1,3 @@
-/* 
-Arquivo: /c:/Users/Emy/Documents/Desenvolvimento/larsaodomingos/frontend/LarSaoDomingos/src/styles/ContactSection.css
-
-.contact-section:
-    - Define a seção de contato com layout flexível, centralizando o conteúdo e aplicando espaçamento e cores.
-
-.contact-buttons:
-    - Define o layout dos botões de contato em uma coluna com espaçamento entre eles.
-
-.contact-section h2:
-    - Estiliza o título da seção de contato com tamanho e peso da fonte.
-
-.contact-section p:
-    - Estiliza o parágrafo da seção de contato com tamanho da fonte e largura.
-
-.contact-buttons button:
-    - Estiliza os botões de contato com padding, borda, cor, tamanho da fonte, cursor, layout flexível e sombra.
-
-.contact-buttons button img:
-    - Define o tamanho das imagens dentro dos botões de contato.
-
-.contact-buttons #email-button:
-    - Estiliza o botão de email com cor de fundo específica.
-
-.contact-buttons #whatsapp-button:
-    - Estiliza o botão de WhatsApp com cor de fundo específica.
-
-.contact-buttons #email-button:hover:
-    - Estiliza o botão de email ao passar o mouse com cor de fundo diferente.
-
-.contact-buttons #whatsapp-button:hover:
-    - Estiliza o botão de WhatsApp ao passar o mouse com cor de fundo diferente.
-
-@media (max-width: 768px):
-    - Ajusta o layout da seção de contato e dos botões para telas menores, alterando direção, padding, espaçamento e tamanhos.
-
-@media (max-width: 480px):
-    - Ajusta ainda mais o tamanho dos botões e imagens para telas muito pequenas.
-*/
-
 .contact-section {
     display: flex;
     flex-direction: row;
@@ -50,14 +10,13 @@ Arquivo: /c:/Users/Emy/Documents/Desenvolvimento/larsaodomingos/frontend/LarSaoD
     width: 100%;
 }
 
-.contact-content{
+.contact-content {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 20px;
     max-width: 1240px;
-
 }
 
 .contact-buttons {
@@ -65,7 +24,6 @@ Arquivo: /c:/Users/Emy/Documents/Desenvolvimento/larsaodomingos/frontend/LarSaoD
     flex-direction: column;
     gap: 20px;
     width: 40%;
-
 }
 
 .contact-section h2 {
@@ -116,7 +74,7 @@ Arquivo: /c:/Users/Emy/Documents/Desenvolvimento/larsaodomingos/frontend/LarSaoD
 }
 
 /* Media Queries for Responsiveness */
-@media (max-width: 768px) {
+@media (max-width: 1080px) {
     .contact-section {
         flex-direction: column;
         padding: 20px;
@@ -124,12 +82,27 @@ Arquivo: /c:/Users/Emy/Documents/Desenvolvimento/larsaodomingos/frontend/LarSaoD
         width: 100%;
     }
 
-    .contact-text p {
+    .contact-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .contact-section h2 {
+        font-size: 1.5rem; /* Tamanho de título ajustado */
+        text-align: center; /* Centralizar título */
+    }
+
+    .contact-section p {
+        font-size: 1rem; /* Reduzir o tamanho da descrição */
         width: 100%;
+        text-align: center; /* Centralizar o texto */
     }
 
     .contact-buttons {
         width: 100%;
+        align-items: center; /* Alinha os botões ao centro */
+        flex-direction: column; /* Coloca os botões abaixo do texto */
+        gap: 10px; /* Menor espaçamento entre os botões */
     }
 
     .contact-buttons button {
@@ -143,12 +116,27 @@ Arquivo: /c:/Users/Emy/Documents/Desenvolvimento/larsaodomingos/frontend/LarSaoD
 }
 
 @media (max-width: 480px) {
+    .contact-section {
+        padding: 10px;
+        gap: 15px; /* Menor espaçamento entre os elementos */
+    }
+
+    .contact-section h2 {
+        font-size: 1.2rem; /* Título ainda menor em telas muito pequenas */
+        text-align: center; /* Centralizar título */
+    }
+
+    .contact-section p {
+        font-size: 0.9rem; /* Reduzir o texto para telas pequenas */
+        text-align: center; /* Centralizar o texto */
+    }
+
     .contact-buttons button {
         font-size: 0.9rem;
-        height: 35px;
+        height: 35px; /* Botões mais compactos */
     }
 
     .contact-buttons button img {
-        width: 20px;
+        width: 20px; /* Ícones menores em telas pequenas */
     }
 }

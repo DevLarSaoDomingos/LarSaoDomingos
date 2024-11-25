@@ -46,7 +46,7 @@ const DoacaoPopUp = ({
     <>
       {showPopup && (
         <div onClick={(e) => setShowPopup(false)} className={overlay}>
-          <div className={gridPosition}></div>
+          {/* <div className={gridPosition}></div> */}
             <div
               style={{
                 position: "absolute",
