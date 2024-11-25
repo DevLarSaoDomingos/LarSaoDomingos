@@ -29,7 +29,7 @@ const DonationPage = () => {
         <div id="qr-code" className="info-section-account">
           <h3>Doe via PIX</h3>
           <img
-            src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://exemplo.com/doacao"
+            src="assets/img/qrcodepix.jpg"
             alt="QR Code para Doação"
           />
         </div>

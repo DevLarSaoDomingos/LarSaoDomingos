@@ -180,3 +180,24 @@
     font-size: 0.75rem; /* Ajuste da fonte do parágrafo */
   }
 }
+
+/* Media Query para telas muito grandes (1920px ou mais) */
+@media (min-width: 1940px) {
+  .activities {
+    width: 500px; /* Aumenta a largura das atividades */
+    height: 800px; /* Aumenta a altura das atividades */
+  }
+
+  .activities img {
+    height: 450px; /* Aumenta a altura das imagens */
+  }
+
+  .activities h3 {
+    font-size: 1.8rem; /* Aumenta o tamanho da fonte dos títulos */
+  }
+
+  .activities p {
+    font-size: 1.2rem; /* Aumenta o tamanho da fonte dos parágrafos */
+  }
+}
+

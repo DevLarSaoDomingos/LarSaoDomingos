@@ -12,7 +12,7 @@ import HugPage from "./pages/HugPage";
 import InstitucionalPage from "./pages/InstitucionalPage";
 import DonationPage from "./pages/DonationPage";
 import AuditoriumList from "./pages/AuditoriumList";
-import WhatsAppFloatButton from "./components/WhatsAppFloatButton.jsx";
+// import WhatsAppFloatButton from "./components/WhatsAppFloatButton.jsx";
 
 // import { ApolloProvider } from "@apollo/client"; // Ensure this wrapper handles routing
 
@@ -58,7 +58,7 @@ function App() {
         </Routes>
       </header>
       {/* Componente do rodapé */}
-      <WhatsAppFloatButton phoneNumber="5511998765432" />
+      {/* <WhatsAppFloatButton phoneNumber="5511998765432" /> */}
       <Footer />
     </div>
   );

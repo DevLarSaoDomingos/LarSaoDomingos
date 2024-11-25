@@ -1,86 +1,124 @@
-/* 
-
-  .auditorium-list:
-    - Define a largura como 100% e a cor de fundo como branco.
-
-  .auditorium-section:
-    - Define o layout como flexível, com direção de coluna.
-    - Define a largura como 100% e a margem inferior como 2rem.
-
-  .auditorium-image:
-    - Define a largura como 100% e a altura como 400px.
-    - Define o tamanho do fundo como cover e a posição do fundo como center.
-
-  .auditorium-info:
-    - Define o padding como 1.5rem e o alinhamento do texto como center.
-    - Define a cor do texto como #333.
-
-  .auditorium-info h2:
-    - Define o tamanho da fonte como 2rem e a cor como #0099ff.
-    - Define a margem inferior como 0.5rem.
-
-  .auditorium-info p:
-    - Define o tamanho da fonte como 1.1rem e a cor como #555.
-    - Define a margem como 0.3rem 0.
-
-  .enter-button:
-    - Define a margem superior como 1rem e o padding como 0.8rem 1.5rem.
-    - Define a cor de fundo como #0099ff, a cor do texto como branco, e remove a borda.
-    - Define o border-radius como 4px e o cursor como pointer.
-    - Define o tamanho da fonte como 1rem e a transição da cor de fundo como 0.3s.
-
-  .enter-button:hover:
-    - Define a cor de fundo como #007acc ao passar o mouse.
-*/
 .auditorium-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
   width: 100%;
-  background-color: white;
+}
+
+.presentation-video {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 900px;
+  margin-bottom: 40px; /* Espaço maior abaixo do vídeo */
+}
+
+.presentation-video video {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombras para dar profundidade */
+}
+
+.auditorium-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0 20px;
 }
 
 .auditorium-section {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  margin-bottom: 2rem;
+  align-items: center;
+  width: 500px; /* Card com largura menor para melhorar o layout */
+  padding: 20px;
+  background-color: #fff; /* Branco para maior clareza */
+  border-radius: 12px; /* Bordas mais arredondadas */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1); /* Sombras mais intensas */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efeito de transformação suave */
+}
+
+.auditorium-section:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Sombra mais forte ao passar o mouse */
 }
 
 .auditorium-image {
+  height: 250px;
   width: 100%;
-  height: 400px;
   background-size: cover;
   background-position: center;
-}
-
-.auditorium-info {
-  padding: 1.5rem;
-  text-align: center;
-  color: #333;
+  border-radius: 8px;
+  margin-bottom: 15px; /* Espaço abaixo da imagem */
 }
 
 .auditorium-info h2 {
-  font-size: 2rem;
-  color: #0099ff;
-  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+  margin: 10px 0;
+  text-align: center;
+  color: #333; /* Cor mais escura para o título */
 }
 
 .auditorium-info p {
-  font-size: 1.1rem;
-  color: #555;
-  margin: 0.3rem 0;
-}
-
-.enter-button {
-  margin-top: 1rem;
-  padding: 0.8rem 1.5rem;
-  background-color: #0099ff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
   font-size: 1rem;
-  transition: background-color 0.3s;
+  margin: 5px 0;
+  text-align: left;
+  color: #555; /* Cor mais suave para o texto */
 }
 
-.enter-button:hover {
-  background-color: #007acc;
+.auditorium-info ul {
+  list-style-type:circle;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+.auditorium-info ul li {
+  font-size: 1rem;
+  color: #333;
+  text-align: left;
+  margin: 5px 0;
+}
+
+@media (max-width: 768px) {
+  .auditorium-cards {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .auditorium-section {
+    width: 90%; /* Aumenta o tamanho dos cards em telas menores */
+    max-width: 400px; /* Limita a largura para não ficar exagerado */
+  }
+
+  .presentation-video {
+    width: 90%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .auditorium-cards {
+    gap: 60px;
+    justify-content: flex-start;
+  }
+
+  .auditorium-section {
+    width: 500px; /* Card com largura maior para desktop */
+  }
+
+  .presentation-video {
+    width: 70%;
+  }
+}
+
+@media (min-width: 1600px) {
+  .auditorium-cards {
+    gap: 80px;
+  }
+
+  .presentation-video {
+    width: 60%;
+  }
 }

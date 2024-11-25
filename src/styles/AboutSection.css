@@ -53,6 +53,7 @@
   padding: 20px;
   width: 100%;
   flex-wrap: wrap; /* Para permitir que os itens se ajustem em telas menores */
+  
 }
 
 .about-text {
@@ -62,6 +63,7 @@
   align-items: flex-start;
   width: 60%;
   padding: 20px;
+  max-width: 1200px;
 }
 
 .about-text h2 {
@@ -94,6 +96,7 @@
   align-items: center;
   padding: 20px;
   width: 40%;
+  max-width: 600px;
 }
 
 .about-image img {
@@ -161,3 +164,34 @@
     border-width: 5px; /* Menor borda para a imagem */
   }
 }
+
+/* Media Query para dispositivos muito grandes */
+@media (min-width: 1920px) {
+  .about-text {
+    width: 50%; /* Ajuste a largura da coluna de texto */
+    padding: 30px; /* Aumentar o padding */
+  }
+
+  .about-image {
+    width: 50%; /* Ajuste a largura da coluna de imagem */
+    padding: 30px; /* Aumentar o padding */
+  }
+
+  .about-text h2 {
+    font-size: 3rem; /* Aumentar o tamanho do título */
+  }
+
+  .about-text p,
+  .about-text ul {
+    font-size: 1.5rem; /* Aumentar o tamanho da fonte do parágrafo e lista */
+  }
+
+  .about-text ul {
+    padding-left: 50px; /* Aumentar o padding da lista */
+  }
+
+  .about-image img {
+    border-width: 15px; /* Aumentar a largura da borda da imagem */
+  }
+}
+

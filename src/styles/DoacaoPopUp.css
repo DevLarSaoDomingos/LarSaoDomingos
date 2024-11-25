@@ -77,6 +77,8 @@
   padding: 20px;
   text-align: left;
   gap: 20px;
+  background-color: #fff;
+  border-radius: 20px;
 }
 
 .popup-text h1 {

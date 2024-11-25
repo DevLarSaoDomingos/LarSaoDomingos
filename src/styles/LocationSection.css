@@ -161,5 +161,19 @@
   
   }
 
+  /* Responsividade para telas acima de 1940px */
+  @media (min-width: 1940px) {
+    .location {
+      max-width: 1600px; /* Aumenta a largura máxima da seção */
+      padding: 40px; /* Aumenta o padding para dar mais espaço interno */
+    }
 
+    .location-container {
+      gap: 60px; /* Aumenta o espaçamento entre os itens */
+    }
+
+    .visit-info, .relevant-infos {
+      max-width: 700px; /* Aumenta a largura máxima das caixas */
+    }
+  }
   
