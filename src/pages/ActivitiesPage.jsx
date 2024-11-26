@@ -33,7 +33,7 @@ const ActivitiesPage = () => {
       title: "Atividades Esportivas",
       description:
         "As atividades esportivas desempenham um papel fundamental no desenvolvimento físico e social dos jovens atendidos. Oferecemos práticas regulares de esportes como futebol, vôlei, basquete e ginástica, que promovem a saúde, a disciplina e o trabalho em equipe. Além disso, o ginásio poliesportivo do Lar proporciona um ambiente adequado para que as crianças e adolescentes possam se exercitar e aprender os valores do esporte, como respeito e cooperação.",
-      imageSrc: "assets/img/atividades-esportivas.jpg",
+      imageSrc: "assets/img/atividadesesportivas.jpg",
     },
     {
       title: "Inclusão Digital",
@@ -45,13 +45,13 @@ const ActivitiesPage = () => {
       title: "Atividades Artísticas",
       description:
         "A arte é uma poderosa ferramenta de expressão e criatividade, e no Lar São Domingos os jovens participam de diversas oficinas artísticas. Oferecemos atividades de teatro, música, dança e artes visuais, que permitem às crianças e adolescentes desenvolverem suas habilidades criativas, autoconfiança e senso estético. Essas atividades também contribuem para o fortalecimento da identidade cultural e o enriquecimento do convívio social.",
-      imageSrc: "assets/img/atividades-artisticas.jpg",
+      imageSrc: "assets/img/atividadesartisticas.jpg",
     },
     {
       title: "Grupos de Convivência",
       description:
         "Promovemos espaços de convivência onde os jovens podem compartilhar experiências e aprender em grupo. Os grupos de convivência são fundamentais para fortalecer os laços sociais, criar empatia e desenvolver habilidades de comunicação. Durante esses encontros, trabalhamos temas como cidadania, ética, valores e respeito ao próximo, ajudando a formar cidadãos conscientes e participativos.",
-      imageSrc: "assets/img/grupo-convivencia.jpg",
+      imageSrc: "assets/img/gruposdeconvivencia.jpg",
     },
   ];
 

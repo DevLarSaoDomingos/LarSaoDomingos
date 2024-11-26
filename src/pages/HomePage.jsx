@@ -9,18 +9,18 @@ import ContactSection from "../components/ContactSection";
 
 const slidesData = [
   {
-    img: "/assets/img/cabodeguerra.jpg",
+    img: "/assets/img/banner1.jpg",
     title: "Lar são Domingos",
     subtitle:
       "Uma sociedade sem fins lucrativos que trabalha a mais de 100 anos em prol das crianças e adolescentes",
   },
   {
-    img: "/assets/img/futebol.jpg",
+    img: "/assets/img/banner2.jpg",
     title: "Crianças Felizes",
     subtitle: "Criando um futuro melhor por meio de amor, educação e diversão",
   },
   {
-    img: "/assets/img/crianca-sorrindo.png",
+    img: "/assets/img/banner3.jpg",
     title: "Momentos Inesquecíveis",
     subtitle: "Assegurando sorrisos e momentos marcantes para todos",
   },

@@ -23,7 +23,7 @@ const HugPage = () => {
   const activitiesContent = {
     title: "Ajude o Nosso Lar",
     text: "O Lar São Domingos é uma instituição que se mantém graças ao apoio de pessoas como você, que acreditam no poder da solidariedade. Existem várias maneiras de ajudar a transformar a vida de crianças e adolescentes acolhidos por nós. Junte-se a essa causa e faça parte dessa história!",
-    imageSrc: "assets/img/abrace-lar.jpg",
+    imageSrc: "assets/img/ajudenossolar.jpg",
   };
 
   // Lista de atividades disponíveis para apoio
@@ -38,7 +38,7 @@ const HugPage = () => {
       title: "Livraria",
       description:
         "A livraria do Lar São Domingos oferece uma seleção de livros e materiais educativos, acessível para toda a comunidade. Além de compras, o espaço pode ser visitado para consultas e leituras no local, contribuindo para a educação e cultura dos jovens atendidos.",
-      imageSrc: "assets/img/biblioteca.jpg",
+      imageSrc: "assets/img/livraria.jpg",
     },
     {
       title: "Bazar Lar Fraterno",
@@ -50,7 +50,7 @@ const HugPage = () => {
       title: "Voluntarie-se",
       description:
         "Estamos de portas abertas para visitas e novos voluntários! Se você deseja fazer a diferença na vida de crianças e adolescentes, entre em contato conosco pelo telefone (82) 2121-1300 e agende uma entrevista com nossa equipe. Junte-se a nós e faça parte dessa transformação!",
-      imageSrc: "assets/img/voluntariase.jpg",
+      imageSrc: "assets/img/voluntaria-se.jpg",
     },
   ];
 

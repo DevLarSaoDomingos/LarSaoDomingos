@@ -45,7 +45,7 @@ const AuditoriumList = () => {
     <div className="auditorium-list">
       <div className="presentation-video">
         <video width="60%" controls>
-          <source src="assets/videos/presentation.mp4" type="video/mp4" />
+          <source src="assets/videos/auditorios.mp4" type="video/mp4" />
           Seu navegador não suporta o elemento de vídeo.
         </video>
       </div>

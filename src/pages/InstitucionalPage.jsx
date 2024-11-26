@@ -52,7 +52,7 @@ const contentMap = {
         ],
     },
     sobre: {
-        imageSrc: "/assets/img/sobre.jpg",
+        imageSrc: "/assets/img/sobre1.jpg",
         title: "Sobre",
         text: [
             "Atualmente, cerca de 500 crianças e adolescentes com idade entre 6 e 17 anos, além de 250 famílias cadastradas, são assistidas por nós, de segunda a sexta-feira, das 7h às 17h. Aqui, esses jovens recebem reforço escolar no contra turno da escola formal e duas refeições básicas. Com a ajuda de uma equipe multidisciplinar de educadores sociais e diversas parcerias estabelecidas com instituições de ensino superior e a SEMAS, eles são amplamente estimulados com atividades culturais, artísticas, esportivas e inclusão digital."
@@ -118,7 +118,7 @@ const contentMap = {
         ]
     },
     default: {
-        imageSrc: "/assets/img/institucional.jpg",
+        imageSrc: "/assets/img/institucional1.jpg",
         title: "Institucional",
         text: [
             "A instituição atende atualmente cerca de 250 famílias e 500 jovens, com idade de 6 a 17 anos, que recebem reforço escolar – no contra turno da escola formal – e duas refeições básicas.",

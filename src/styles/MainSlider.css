@@ -75,8 +75,9 @@
   width: 100%;
   height: 90vh;
   min-height: 300px;
-  object-position: center top;
+  object-position: center center;
   object-fit: cover;
+  position: relative; /* Adiciona posição relativa para o overlay */
 }
 
 /* Sobreposição de Texto */
