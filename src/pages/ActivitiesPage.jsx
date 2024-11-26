@@ -32,7 +32,7 @@ const ActivitiesPage = () => {
     {
       title: "Atividades Esportivas",
       description:
-        "As atividades esportivas desempenham um papel fundamental no desenvolvimento físico e social dos jovens atendidos. Oferecemos práticas regulares de esportes como futebol, vôlei, basquete e ginástica, que promovem a saúde, a disciplina e o trabalho em equipe. Além disso, o ginásio poliesportivo do Lar proporciona um ambiente adequado para que as crianças e adolescentes possam se exercitar e aprender os valores do esporte, como respeito e cooperação.",
+        "As atividades esportivas desempenham um papel fundamental no desenvolvimento físico e social dos jovens atendidos. Oferecemos práticas regulares de esportes como futebol, vôlei, capoeira, kung fu e queimado, que promovem a saúde, a disciplina e o trabalho em equipe. Além disso, o ginásio poliesportivo do Lar proporciona um ambiente adequado para que as crianças e adolescentes possam se exercitar e aprender os valores do esporte, como respeito e cooperação.",
       imageSrc: "assets/img/atividadesesportivas.jpg",
     },
     {
@@ -62,7 +62,7 @@ const ActivitiesPage = () => {
         title={activitiesContent.title}
         text={activitiesContent.text}
         imageSrc={activitiesContent.imageSrc}
-        backgroundColor="#007CEE"  // Cor personalizada para a ActivitiesPage
+        backgroundColor="#007CEE" // Cor personalizada para a ActivitiesPage
       />
       {/* Lista de atividades detalhadas */}
       <ActivitiesList activities={activities} />
