@@ -31,6 +31,7 @@ A estrutura de arquivos do projeto é organizada da seguinte maneira:
 ┣ 📂components
 ┃ ┣ 📜AboutSection.jsx
 ┃ ┣ 📜ActivitiesList.jsx
+┃ ┣ 📜ContactSection.jsx
 ┃ ┣ 📜DoacaoPopUp.jsx
 ┃ ┣ 📜Footer.jsx
 ┃ ┣ 📜InfoSection.jsx
@@ -40,6 +41,7 @@ A estrutura de arquivos do projeto é organizada da seguinte maneira:
 ┃ ┣ 📜NavInstitucional.jsx
 ┃ ┣ 📜NewsSection.jsx
 ┃ ┗ 📜StatementSection.jsx
+┃ ┗ 📜WhatsAppFloatButton.jsx
 ┣ 📂pages
 ┃ ┣ 📜ActivitiesPage.jsx
 ┃ ┣ 📜AuditoriumList.jsx
@@ -148,18 +150,6 @@ A aplicação foi desenvolvida para ser totalmente responsiva, ou seja, ela se a
 - **React Slick** (v0.30.2)
 - **CSS** (modular, por componente)
 - **JavaScript** (ES6+)
-
-## **Contribuindo**
-Se você deseja contribuir para este projeto, por favor, siga os passos abaixo:
-
-1. Faça um fork deste repositório.
-2. Crie uma nova branch para suas alterações (`git checkout -b feature/novos-recurso`).
-3. Faça commit das suas alterações (`git commit -am 'Adicionando novo recurso'`).
-4. Envie sua branch para o repositório remoto (`git push origin feature/novos-recurso`).
-5. Abra um Pull Request.
-
-## **Licença**
-Este projeto é licenciado sob a [MIT License](LICENSE).
 
 ---
 
