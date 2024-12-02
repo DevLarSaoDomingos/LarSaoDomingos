@@ -15,7 +15,7 @@ import App from './App';
  * @property {InMemoryCache} cache - O cache utilizado pelo ApolloClient.
  */
 const client = new ApolloClient({
-  uri: 'http://157.173.205.94:8081/graphql', // URI do servidor GraphQL
+  uri: 'https://noticias.larsaodomingos.com.br/graphql', // URI do servidor GraphQL
   cache: new InMemoryCache(), // Configuração do cache
 });
 
