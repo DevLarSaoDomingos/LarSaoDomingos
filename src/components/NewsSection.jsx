@@ -216,7 +216,7 @@ export default function NewsSection({ isNewsPage = false }) {
               imageUrl || extractFirstImageFromContent(post.content);
             const absoluteUrl =
               imageToDisplay && !imageToDisplay.startsWith("http")
-                ? `http://noticias.larsaodomingos.com.br/${imageToDisplay}` // Alterar para URL da API caso necessário
+                ? `https://noticias.larsaodomingos.com.br/${imageToDisplay}` // Alterar para URL da API caso necessário
                 : imageToDisplay;
 
             const updatedContent = removeImagesFromContent(post.content);
