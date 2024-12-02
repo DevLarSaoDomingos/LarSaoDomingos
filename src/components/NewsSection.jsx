@@ -133,9 +133,14 @@ export default function NewsSection({ isNewsPage = false }) {
   };
 
   // Renderizar esqueleto de carregamento enquanto os dados estão sendo carregados
-  if (loading && !data)
+  if ((loading || error) && !data)
     return (
       <section className="news-section">
+        <div className="separator-container">
+          <div />
+          <h2>Portal de Notícias</h2>
+          <div />
+        </div>
         <div className="news-grid">
           {[...Array(3)].map((_, index) => (
             <div
@@ -158,16 +163,26 @@ export default function NewsSection({ isNewsPage = false }) {
                 className="post-content news-item-title"
                 style={{ width: "100%" }}
               >
-                <Skeleton count={3} width="100%" />
+                <Skeleton count={8} width="100%" />
               </div>
             </div>
           ))}
         </div>
+        <div className="separator-container">
+          <div />
+          <button
+            className="see-more-button"
+            onClick={() => {
+              window.scrollTo({ top: 0, behavior: "smooth" });
+              navigate("/noticias");
+            }}
+          >
+            Veja Mais
+          </button>
+          <div />
+        </div>
       </section>
     );
-
-  // Renderizar mensagem de erro se houver um erro na consulta
-  if (error) return <p>Error: {error.message}</p>;
 
   return (
     <section className="news-section">
@@ -237,7 +252,74 @@ export default function NewsSection({ isNewsPage = false }) {
             );
           })
         ) : (
-          <p>Nenhum post encontrado</p>
+          <>
+            <div
+              className={`news-item large`}
+              style={{ width: "100%", height: "100%" }}
+            >
+              <Skeleton
+                height="100%"
+                width="100%"
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                }}
+              />
+              <div
+                className="post-content news-item-title"
+                style={{ width: "100%" }}
+              >
+                <Skeleton count={8} width="100%" />
+              </div>
+            </div>
+            <div
+              className={`news-item`}
+              style={{ width: "100%", height: "100%" }}
+            >
+              <Skeleton
+                height="100%"
+                width="100%"
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                }}
+              />
+              <div
+                className="post-content news-item-title"
+                style={{ width: "100%" }}
+              >
+                <Skeleton count={8} width="100%" />
+              </div>
+            </div>
+            <div
+              className={`news-item`}
+              style={{ width: "100%", height: "100%" }}
+            >
+              <Skeleton
+                height="100%"
+                width="100%"
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                }}
+              />
+              <div
+                className="post-content news-item-title"
+                style={{ width: "100%" }}
+              >
+                <Skeleton count={8} width="100%" />
+              </div>
+            </div>
+          </>
         )}
       </div>
 
