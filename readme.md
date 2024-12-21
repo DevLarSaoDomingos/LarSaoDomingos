@@ -16,7 +16,7 @@ Este site foi construído utilizando **React**, **Apollo Client** para integraç
 
 A estrutura de arquivos do projeto é organizada da seguinte maneira:
 
-
+```bash
 📦public
 ┣ 📂assets
 ┃ ┣ 📂icons
@@ -77,7 +77,7 @@ A estrutura de arquivos do projeto é organizada da seguinte maneira:
 ┣ 📜index.js
 ┣ 📜reportWebVitals.js
 ┗ 📜setupTests.js
-
+```
 
 ### Explicação das Pastas e Arquivos
 
